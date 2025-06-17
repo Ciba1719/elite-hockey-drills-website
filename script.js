@@ -214,9 +214,10 @@ window.addEventListener('scroll', () => {
 });
 
 // Add typing effect to hero title
-function typeWriter(element, text, speed = 100) {
+function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = '';
+    element.style.opacity = '1'; // Make element visible when typing starts
     
     function type() {
         if (i < text.length) {
@@ -233,10 +234,11 @@ function typeWriter(element, text, speed = 100) {
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        const originalText = heroTitle.textContent;
+        const originalText = heroTitle.innerHTML; // Get full HTML content including span
+        heroTitle.innerHTML = ''; // Clear content before typing
         setTimeout(() => {
             typeWriter(heroTitle, originalText, 50);
-        }, 1000);
+        }, 500); // Slight delay before typing starts
     }
 });
 
@@ -385,4 +387,3 @@ const notificationCSS = `
 const notificationStyle = document.createElement('style');
 notificationStyle.textContent = notificationCSS;
 document.head.appendChild(notificationStyle);
-
