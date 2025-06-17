@@ -47,13 +47,13 @@
                     <i class="fas fa-trophy"></i>
                     <span>10+ Years Experience</span>
                 </div>
-                <h1 class="hero-title">
+                <h1 class="hero-title" id="hero-title-element">
                     WHERE <span class="highlight">CHAMPIONS</span><br>
                     ARE MADE
                 </h1>
                 <p class="hero-subtitle">
                     Transform your game with elite-level training programs designed by professional coaches. 
-                    Join 1000+ players who've elevated their skills with our proven training system.
+                    Join 1000+ players who\\'ve elevated their skills with our proven training system.
                 </p>
                 <div class="hero-stats">
                     <div class="stat">
@@ -70,11 +70,11 @@
                     </div>
                 </div>
                 <div class="hero-cta">
-                    <button class="btn-primary" onclick="scrollToSection('training-plans' )">
+                    <button class="btn-primary" onclick="scrollToSection(\'training-plans\' )">
                         <span>Start Your Elite Journey</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
-                    <button class="btn-secondary" onclick="scrollToSection('about')">
+                    <button class="btn-secondary" onclick="scrollToSection(\'about\')">
                         <i class="fas fa-play"></i>
                         <span>Watch Story</span>
                     </button>
@@ -328,7 +328,7 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "The personalized coaching program is incredible. Coach David's expertise helped me improve 
+                        "The personalized coaching program is incredible. Coach David\\'s expertise helped me improve 
                         my shot accuracy by 60% and land a college scholarship!"
                     </p>
                     <div class="testimonial-author">
@@ -346,8 +346,8 @@
                             <span class="stat-label">Shot Accuracy</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Scholarship</span>
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Months</span>
                         </div>
                     </div>
                 </div>
@@ -361,26 +361,26 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "As a parent, I was amazed by my son's progress. His confidence on ice doubled, 
-                        and he's now captain of his team. Worth every penny!"
+                        "As a parent, I\\'m amazed by the progress my son has made. His confidence on the ice has soared, 
+                        and he\\'s now a leader on his team. Highly recommend!"
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Mike R.">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Parent of Player">
                         </div>
                         <div class="author-info">
-                            <div class="author-name">Mike R.</div>
+                            <div class="author-name">Emily R.</div>
                             <div class="author-title">Hockey Parent</div>
                         </div>
                     </div>
                     <div class="testimonial-stats">
                         <div class="stat-item">
-                            <span class="stat-number">2x</span>
+                            <span class="stat-number">+80%</span>
                             <span class="stat-label">Confidence</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">1</span>
-                            <span class="stat-label">Captain</span>
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Months</span>
                         </div>
                     </div>
                 </div>
@@ -393,42 +393,56 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Meet Coach David</h2>
-                <p class="section-subtitle">Our lead coach and founder, dedicated to your success</p>
+                <p class="section-subtitle">Your dedicated mentor for elite hockey performance</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <p class="about-description">
-                        Coach David has over 15 years of experience coaching hockey players of all levels, from youth leagues to aspiring professionals. His passion for the game and dedication to player development are unmatched. He believes in a holistic approach to training, focusing not just on physical skills but also on mental toughness, strategy, and nutrition.
-                    </p>
-                    <p class="about-description">
-                        Having played at a collegiate level and coached numerous successful teams, Coach David brings a wealth of knowledge and a proven track record to Elite Hockey Drills. He is committed to helping each player unlock their full potential and achieve their hockey dreams.
-                    </p>
-                    <div class="credentials">
-                        <div class="credential-item">
-                            <i class="fas fa-award"></i>
-                            <span>Certified Level 4 Hockey Coach</span>
-                        </div>
-                        <div class="credential-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Collegiate Hockey Player Alumni</span>
-                        </div>
-                        <div class="credential-item">
-                            <i class="fas fa-users"></i>
-                            <span>Mentored 500+ Athletes</span>
-                        </div>
-                    </div>
-                    <button class="btn-primary large" onclick="scrollToSection('contact' )">Get in Touch with Coach David</button>
-                </div>
                 <div class="about-image">
                     <div class="image-container">
-                        <img src="training-image.jpg" alt="Coach David Training" class="about-main-image">
-                        <img src="hero-image2.jpg" alt="Hockey Player Action" class="about-secondary-image">
+                        <img src="training-image.jpg" alt="Coach David">
                         <div class="image-overlay">
-                            <div class="play-button" onclick="playVideo()">
+                            <div class="play-button">
                                 <i class="fas fa-play"></i>
                             </div>
                         </div>
                     </div>
+                    <div class="image-container" style="margin-top: 20px;">
+                        <img src="hero-image2.jpg" alt="Hockey Player in Action">
+                        <div class="image-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p class="about-description">
+                        Coach David is a former professional hockey player with over 15 years of experience 
+                        coaching athletes at all levels, from youth leagues to aspiring professionals. 
+                        His passion lies in developing raw talent into elite performance through a 
+                        holistic approach that combines advanced on-ice drills, off-ice conditioning, 
+                        mental toughness training, and personalized mentorship.
+                    </p>
+                    <p class="about-description">
+                        He believes that true success on the ice comes from a deep understanding of the game, 
+                        unwavering discipline, and a relentless pursuit of improvement. Coach David\\'s 
+                        unique training methodologies are designed to unlock each player\\'s full potential, 
+                        fostering not just athletic prowess but also leadership skills and a champion\\'s mindset.
+                    </p>
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Certified Elite Hockey Coach (Level 5 )</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Sports Science Degree, University of Toronto</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-award"></i>
+                            <span>Former Professional Player (NHL Draft Pick)</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary large" onclick="scrollToSection(\'contact\')">Book a Free Consultation</button>
                 </div>
             </div>
         </div>
@@ -438,16 +452,14 @@
     <section class="cta-section">
         <div class="container">
             <h2 class="cta-title">Ready to Elevate Your Game?</h2>
-            <p class="cta-subtitle">
-                Join the ranks of elite hockey players who have transformed their skills with our expert coaching and innovative training programs.
-            </p>
+            <p class="cta-subtitle">Join the ranks of elite players who have transformed their skills with Elite Hockey Drills.</p>
             <div class="cta-buttons">
-                <button class="btn-primary large" onclick="scrollToSection('training-plans')">Explore Training Plans</button>
-                <button class="btn-secondary large" onclick="scrollToSection('coaching')">Book 1-on-1 Coaching</button>
+                <button class="btn-primary large" onclick="scrollToSection(\'training-plans\')">Explore Training Plans</button>
+                <button class="btn-secondary large" onclick="scrollToSection(\'coaching\')">Start 1-on-1 Coaching</button>
             </div>
             <div class="cta-guarantee">
                 <i class="fas fa-shield-alt"></i>
-                <span>30-Day Money Back Guarantee on All Plans</span>
+                <span>30-Day Money-Back Guarantee on All Programs</span>
             </div>
         </div>
     </section>
@@ -456,51 +468,57 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="section-subtitle">Have questions? We're here to help you achieve your hockey goals.</p>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have questions? We\\'re here to help you achieve your hockey goals.</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div>
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div class="contact-details">
                             <h3>Email Us</h3>
-                            <p>support@elitehockeydrills.com</p>
+                            <p>info@elitehockeydrills.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
                         <div class="contact-details">
                             <h3>Call Us</h3>
                             <p>+1 (555) 123-4567</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div class="contact-details">
                             <h3>Visit Us</h3>
-                            <p>123 Hockey Lane, Sportsville, USA</p>
+                            <p>123 Hockey Lane, Sports City, ST 12345</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <input type="text" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <input type="email" id="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <select id="interest" name="interest" required>
-                                <option value="">Select Your Interest</option>
-                                <option value="training-plans">Training Plans</option>
-                                <option value="1-on-1-coaching">1-on-1 Coaching</option>
-                                <option value="general-inquiry">General Inquiry</option>
+                            <select id="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="training-plans">Training Plans Inquiry</option>
+                                <option value="coaching">1-on-1 Coaching Inquiry</option>
+                                <option value="general">General Inquiry</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            <textarea id="message" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn-primary full-width">Send Message</button>
                     </form>
@@ -513,15 +531,15 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <div class="nav-logo footer-logo">
+                <div class="footer-col about-col">
+                    <div class="footer-logo">
                         <div class="logo-icon">
                             <i class="fas fa-hockey-puck"></i>
                         </div>
                         <span class="logo-text">ELITE HOCKEY DRILLS</span>
                     </div>
                     <p class="footer-description">
-                        Empowering hockey players to reach their peak performance through expert coaching and innovative training methodologies.
+                        Empowering hockey players to reach their full potential through elite training and personalized coaching.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -530,7 +548,7 @@
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="footer-links-group">
+                <div class="footer-col">
                     <h3 class="footer-title">Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
@@ -541,7 +559,7 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-links-group">
+                <div class="footer-col">
                     <h3 class="footer-title">Support</h3>
                     <ul class="footer-links">
                         <li><a href="#">FAQ</a></li>
@@ -550,21 +568,21 @@
                         <li><a href="#">Refund Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-links-group">
+                <div class="footer-col">
                     <h3 class="footer-title">Join Our Newsletter</h3>
-                    <p class="footer-cta-text">Get the latest drills and exclusive offers directly to your inbox.</p>
+                    <p class="footer-cta-text">Get the latest drills, tips, and exclusive offers directly to your inbox.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email" class="form-control">
-                        <button type="submit" class="btn-primary full-width">Subscribe</button>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn-primary">Subscribe</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p>&copy; 2025 Elite Hockey Drills. All rights reserved.</p>
+                    <p>&copy; 2023 Elite Hockey Drills. All rights reserved.</p>
                     <div class="footer-badges">
-                        <div class="badge"><i class="fas fa-shield-alt"></i> Secure Payments</div>
-                        <div class="badge"><i class="fas fa-truck"></i> Fast Delivery</div>
+                        <span class="badge"><i class="fas fa-shield-alt"></i> Secure</span>
+                        <span class="badge"><i class="fas fa-check-circle"></i> Certified</span>
                     </div>
                 </div>
             </div>
