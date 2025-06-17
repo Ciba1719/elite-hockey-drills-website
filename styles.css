@@ -297,6 +297,13 @@ body {
 }
 
 .scroll-arrow {
+    width: 2px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.scroll-arrow::after {
     content: '';
     position: absolute;
     bottom: 0;
