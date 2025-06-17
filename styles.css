@@ -178,14 +178,7 @@ body {
     line-height: 1.1;
     margin-bottom: 20px;
     text-shadow: 0 0 20px rgba(244, 196, 48, 0.7); /* More pronounced text shadow */
-    /* Initial state: visible and at original position */
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* New class for animation */
-.hero-title.animate-in {
-    animation: heroTitleReveal 1.2s ease-out forwards;
+    animation: heroTitleReveal 1.2s ease-out forwards; /* Apply animation directly */
 }
 
 @keyframes heroTitleReveal {
@@ -304,14 +297,7 @@ body {
 }
 
 .scroll-arrow {
-    width: 2px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.5);
-    position: relative;
-}
-
-.scroll-arrow::after {
-    content: ";
+    content: '';
     position: absolute;
     bottom: 0;
     left: -3px;
