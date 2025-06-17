@@ -124,6 +124,13 @@ body {
     justify-content: center;
     overflow: hidden;
 }
+.hero-title .standout {
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #f4c430;
+    text-shadow: 0 0 15px rgba(244, 196, 48, 0.8), 0 0 30px rgba(244, 196, 48, 0.6);
+    letter-spacing: 1.5px;
+}
 
 .hero-background {
     position: absolute;
