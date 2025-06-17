@@ -15,6 +15,10 @@ body {
     color: #333;
     overflow-x: hidden;
 }
+.hero-title {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
 
 .container {
     max-width: 1200px;
