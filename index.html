@@ -1,75 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elite Hockey Drills – Where Champions Are Made</title>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Hockey Coaching - Transform Your Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- ===== Navigation ===== -->
-    <nav class="navbar" id="navbar">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <div class="logo-icon"><i class="fas fa-hockey-puck"></i></div>
-                <span class="logo-text">ELITE HOCKEY DRILLS</span>
+                <h2>Elite Hockey</h2>
             </div>
-
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#training-plans" class="nav-link">Training Plans</a>
-                <a href="#coaching" class="nav-link">1-on-1 Coaching</a>
-                <a href="#success-stories" class="nav-link">Success Stories</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link cta-nav">Get Started</a>
-            </div>
-
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <!-- ===== Hero ===== -->
-    <section class="hero" id="home">
-        <div class="hero-background"><div class="hero-overlay"></div></div>
-
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge"><i class="fas fa-trophy"></i><span>10+ Years Experience</span></div>
-
-                <!-- ⬇️ dynamic headline created by JS -->
-                <h1 class="hero-title" id="hero-title-element"></h1>
-
-                <p class="hero-subtitle">
-                    Transform your game with elite-level training programs designed by professional coaches.
-                    Join 1000+ players who’ve elevated their skills with our proven training system.
-                </p>
-
-                <div class="hero-stats">
-                    <div class="stat"><span class="stat-number">1000+</span><span class="stat-label">Players Trained</span></div>
-                    <div class="stat"><span class="stat-number">10+</span><span class="stat-label">Years Experience</span></div>
-                    <div class="stat"><span class="stat-number">95%</span><span class="stat-label">Success Rate</span></div>
+                <h1 class="hero-title">
+                    <span class="title-line">TRAIN LIKE AN</span>
+                    <span class="title-line elite-text">ELITE</span>
+                    <span class="title-line">HOCKEY PLAYER</span>
+                </h1>
+                <p class="hero-subtitle">Transform your game with personalized 1-on-1 coaching and proven training programs. Join 500+ players who've achieved elite performance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">Start Your Journey</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('about')">Learn More</button>
                 </div>
-
-                <div class="hero-cta">
-                    <button class="btn-primary" onclick="scrollToSection('training-plans')"><span>Start Your Elite Journey</span><i class="fas fa-arrow-right"></i></button>
-                    <button class="btn-secondary" onclick="scrollToSection('about')"><i class="fas fa-play"></i><span>Watch Story</span></button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Players Coached</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Success Rate</span>
                 </div>
             </div>
         </div>
-
-        <div class="scroll-indicator"><div class="scroll-arrow"></div></div>
     </section>
 
-    <!-- ===== (Everything else below is unchanged) ===== -->
-    <!-- Trust, Training Plans, Success Stories, About, CTA, Contact, Footer … -->
-    <!-- … -->
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Meet Your Coach</h2>
+                    <h3 class="about-name">David - Elite Hockey Coach</h3>
+                    <p class="about-description">
+                        With over 10 years of experience both on and off the ice, I've dedicated my career to helping hockey players of all levels reach their full potential. As a coach and teacher, I've seen firsthand how the right training can make all the difference in a player's performance.
+                    </p>
+                    <p class="about-description">
+                        I've successfully coached over 500 players, from beginners taking their first steps on ice to advanced athletes aiming to dominate at competitive levels. My personalized approach combines proven techniques with modern training methods to deliver results that speak for themselves.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🏆</div>
+                            <div class="highlight-text">
+                                <h4>Proven Results</h4>
+                                <p>500+ players coached with measurable improvements</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">⭐</div>
+                            <div class="highlight-text">
+                                <h4>Expert Experience</h4>
+                                <p>10+ years of professional coaching experience</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎯</div>
+                            <div class="highlight-text">
+                                <h4>Personalized Training</h4>
+                                <p>Tailored programs for each player's unique needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/hockey_player_1.jpg" alt="Elite Hockey Coach" class="coach-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Training Programs</h2>
+            <p class="section-subtitle">Choose the perfect program to elevate your hockey skills</p>
+            <div class="services-grid">
+                <div class="service-card featured">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="service-icon">🥅</div>
+                    <h3 class="service-title">1-on-1 Online Coaching</h3>
+                    <p class="service-description">Personalized monthly coaching sessions tailored to your specific needs and goals. Get direct feedback and customized training plans.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Weekly video analysis</li>
+                            <li>Personalized training plans</li>
+                            <li>Direct coach communication</li>
+                            <li>Progress tracking</li>
+                            <li>Skill development roadmap</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">$209/month</div>
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">Get Started</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">Power & Speed Training</h3>
+                    <p class="service-description">Intensive off-ice training program designed to build explosive power, speed, and agility for dominant ice performance.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Strength building exercises</li>
+                            <li>Speed development drills</li>
+                            <li>Agility training</li>
+                            <li>Endurance conditioning</li>
+                            <li>Injury prevention</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">$29/program</div>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">Learn More</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3 class="service-title">Strength Training Plan</h3>
+                    <p class="service-description">Comprehensive strength training program focused on building the muscle power and endurance needed for elite hockey performance.</p>
+                    <div class="service-features">
+                        <ul>
+                            <li>Progressive strength building</li>
+                            <li>Core stability training</li>
+                            <li>Functional movements</li>
+                            <li>Recovery protocols</li>
+                            <li>Nutrition guidance</li>
+                        </ul>
+                    </div>
+                    <div class="service-price">$19/program</div>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">What Parents Say</h2>
+            <p class="section-subtitle">Real feedback from parents who've seen their children transform</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"David's coaching has been incredible for my son Jake. In just 3 months, his skating speed improved dramatically and his confidence on the ice is through the roof. The personalized attention really makes a difference!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <span>Mother of Jake (12 years old)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"My daughter Emma was struggling with her shooting technique. David's training program completely transformed her game. She's now one of the top scorers on her team. Highly recommend!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <span>Father of Emma (14 years old)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The 1-on-1 coaching sessions have been a game-changer for our son Alex. David's expertise and personalized approach helped Alex make the AAA team. Worth every penny!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Jennifer Davis</h4>
+                            <span>Mother of Alex (16 years old)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"David's training programs are exceptional. My twin boys have both improved significantly in their stick handling and game awareness. The progress tracking keeps us motivated!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Robert Thompson</h4>
+                            <span>Father of twins (13 years old)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"As a hockey mom, I've seen many coaches, but David stands out. His ability to connect with kids and improve their skills is remarkable. My daughter loves her training sessions!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Lisa Anderson</h4>
+                            <span>Mother of Sophie (11 years old)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The off-ice training program has made a huge difference in my son's strength and endurance. He's faster, stronger, and more confident than ever. David is truly an elite coach!"</p>
+                    <div class="review-author">
+                        <div class="author-info">
+                            <h4>Mark Wilson</h4>
+                            <span>Father of Tyler (15 years old)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results">
+        <div class="container">
+            <h2 class="section-title">Proven Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">500+</div>
+                    <div class="result-label">Players Coached</div>
+                    <div class="result-description">Successfully trained over 500 young hockey players</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">95%</div>
+                    <div class="result-label">Improvement Rate</div>
+                    <div class="result-description">95% of players show measurable skill improvement</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">10+</div>
+                    <div class="result-label">Years Experience</div>
+                    <div class="result-description">Over a decade of professional coaching experience</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-number">150+</div>
+                    <div class="result-label">Team Selections</div>
+                    <div class="result-description">Players coached made competitive team selections</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Game?</h2>
+            <p class="section-subtitle">Get in touch to start your journey to elite hockey performance</p>
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="playerName">Player Name</label>
+                            <input type="text" id="playerName" name="playerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Player Age</label>
+                            <input type="number" id="age" name="age" min="5" max="25" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Hockey Experience Level</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select Experience Level</option>
+                                <option value="beginner">Beginner (0-2 years)</option>
+                                <option value="intermediate">Intermediate (3-5 years)</option>
+                                <option value="advanced">Advanced (6+ years)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interested Service</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a Service</option>
+                                <option value="1on1-coaching">1-on-1 Online Coaching</option>
+                                <option value="power-speed">Power & Speed Training</option>
+                                <option value="strength">Strength Training Plan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goals">Training Goals</label>
+                            <textarea id="goals" name="goals" rows="4" placeholder="Tell us about your hockey goals and what you'd like to improve..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Get In Touch</h3>
+                        <p>Ready to start your hockey transformation? Fill out the form and I'll get back to you within 24 hours.</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">📧</span>
+                                <span>Email Response within 24 hours</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">📱</span>
+                                <span>WhatsApp for quick questions</span>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">🎯</span>
+                                <span>Free consultation call</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-whatsapp" id="whatsappBtn">
+                            <span>💬</span>
+                            Quick WhatsApp Message
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elite Hockey Coaching</h3>
+                    <p>Transform your game with personalized training and proven results.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>1-on-1 Online Coaching</li>
+                        <li>Power & Speed Training</li>
+                        <li>Strength Training Plans</li>
+                        <li>Skill Development</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Ready to start your journey?</p>
+                    <button class="btn btn-small" onclick="scrollToSection('contact')">Get Started</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elite Hockey Coaching. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
+
