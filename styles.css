@@ -177,8 +177,9 @@ body {
     color: #fff;
     line-height: 1.1;
     margin-bottom: 20px;
-    opacity: 0; /* Initially hidden for typing effect */
-    text-shadow: 0 0 15px rgba(244, 196, 48, 0.5); /* Added text shadow */
+    text-shadow: 0 0 20px rgba(244, 196, 48, 0.7); /* More pronounced text shadow */
+    animation: heroTitleReveal 1.2s ease-out forwards; /* New animation */
+    animation-delay: 0.5s; /* Delay for effect */
 }
 
 .highlight {
@@ -997,6 +998,17 @@ body {
     }
     60% {
         transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes heroTitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
