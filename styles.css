@@ -1162,3 +1162,23 @@ body {
         padding: 30px 20px;
     }
 }
+
+
+/* === Updated Hero Title Animation (2025‑06‑17) === */
+.hero-title {
+    animation: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-title.pulse-glow {
+    animation: glowPulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 10px rgba(244, 196, 48, 0.8), 0 0 20px rgba(244, 196, 48, 0.6);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(244, 196, 48, 1), 0 0 40px rgba(244, 196, 48, 0.9);
+    }
+}
