@@ -1,17 +1,28 @@
 // Mobile Navigation Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
 });
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
 }));
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
@@ -23,262 +34,49 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Smooth scrolling function
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        const offsetTop = element.offsetTop - 70; // Account for fixed navbar
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-    }
-}
-
 // Countdown Timer
-function updateCountdown() {
-    const now = new Date().getTime();
-    const endTime = now + (2 * 24 * 60 * 60 * 1000); // 2 days from now
-    
-    const distance = endTime - now;
-    
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-}
+const countdownElement = document.getElementById('countdown');
 
-// Update countdown every second
-setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call
+if (countdownElement) {
+    const updateCountdown = () => {
+        const now = new Date().getTime();
+        // Set end time to 48 hours from now for demonstration
+        // In a real scenario, this would be a fixed date/time
+        const endTime = now + (48 * 60 * 60 * 1000); 
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+        const distance = endTime - now;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.innerHTML = "EXPIRED";
         }
-    });
-}, observerOptions);
+    };
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.plan-card, .testimonial-card, .trust-item');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
-
-// Contact Form Handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const interest = formData.get('interest');
-    const message = formData.get('message');
-    
-    // Simple form validation
-    if (!name || !email || !interest || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    // Simulate form submission
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalText = submitButton.innerHTML;
-    
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
-    
-    setTimeout(() => {
-        alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-        this.reset();
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-    }, 2000);
-});
-
-// Play video function (placeholder)
-function playVideo() {
-    alert('Video player would open here. This is a demo version.');
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
 }
 
-// Add click handlers for plan buttons
-document.querySelectorAll('.plan-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        const planTitle = this.closest('.plan-card').querySelector('.plan-title').textContent;
-        alert(`You selected: ${planTitle}\n\nThis would redirect to the checkout page in a real implementation.`);
-    });
-});
-
-// Scroll to top functionality
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+// Form submission handling
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // In a real application, you would send this data to a server
+        console.log('Form submitted!');
+        showNotification('Message sent successfully!', 'success');
+        contactForm.reset();
     });
 }
 
-// Add scroll to top button
-const scrollTopButton = document.createElement('button');
-scrollTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-scrollTopButton.className = 'scroll-top-btn';
-scrollTopButton.onclick = scrollToTop;
-document.body.appendChild(scrollTopButton);
-
-// Add CSS for scroll to top button
-const scrollTopCSS = `
-.scroll-top-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #f4c430, #e6b800);
-    color: #1a2332;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 5px 15px rgba(244, 196, 48, 0.3);
-}
-
-.scroll-top-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(244, 196, 48, 0.4);
-}
-
-.scroll-top-btn.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-@media (max-width: 768px) {
-    .scroll-top-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-}
-`;
-
-const style = document.createElement('style');
-style.textContent = scrollTopCSS;
-document.head.appendChild(style);
-
-// Show/hide scroll to top button
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopButton.classList.add('visible');
-    } else {
-        scrollTopButton.classList.remove('visible');
-    }
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-});
-
-// Initial page load animation
-document.body.style.opacity = '0';
-document.body.style.transition = 'opacity 0.5s ease';
-
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroBackground = document.querySelector('.hero-background');
-    if (heroBackground) {
-        heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Add dynamic stats counter
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    function updateCounter() {
-        start += increment;
-        if (start < target) {
-            element.textContent = Math.floor(start);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target;
-        }
-    }
-    
-    updateCounter();
-}
-
-// Initialize counters when they come into view
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statNumber = entry.target.querySelector('.stat-number');
-            const target = parseInt(statNumber.textContent.replace(/\D/g, ''));
-            animateCounter(statNumber, target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-});
-
-document.querySelectorAll('.stat').forEach(stat => {
-    counterObserver.observe(stat);
-});
-
-// Add dynamic testimonial rotation
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial-card');
-
-function rotateTestimonials() {
-    if (testimonials.length > 0) {
-        testimonials.forEach((testimonial, index) => {
-            testimonial.style.opacity = index === currentTestimonial ? '1' : '0.7';
-            testimonial.style.transform = index === currentTestimonial ? 'scale(1.05)' : 'scale(1)';
-        });
-        
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    }
-}
-
-// Start testimonial rotation
-setInterval(rotateTestimonials, 5000);
-
-// Add form field animations
-document.querySelectorAll('input, select, textarea').forEach(field => {
-    field.addEventListener('focus', function() {
-        this.style.transform = 'scale(1.02)';
-        this.style.boxShadow = '0 5px 15px rgba(244, 196, 48, 0.2)';
-    });
-    
-    field.addEventListener('blur', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = 'none';
-    });
-});
-
-// Add success notification system
+// Notification system
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
@@ -343,3 +141,40 @@ const notificationCSS = `
 const notificationStyle = document.createElement('style');
 notificationStyle.textContent = notificationCSS;
 document.head.appendChild(notificationStyle);
+
+// New Typewriter Effect for Hero Title
+const heroTitleElement = document.getElementById('hero-title-element');
+const textToType = 'WHERE <span class="highlight">CHAMPIONS</span><br>ARE MADE';
+let charIndex = 0;
+
+function typeWriter() {
+    if (charIndex < textToType.length) {
+        const char = textToType.charAt(charIndex);
+        if (char === '<') {
+            // Find the end of the tag
+            const endIndex = textToType.indexOf('>', charIndex);
+            if (endIndex !== -1) {
+                const tag = textToType.substring(charIndex, endIndex + 1);
+                heroTitleElement.innerHTML += tag;
+                charIndex = endIndex + 1;
+            } else {
+                heroTitleElement.innerHTML += char;
+                charIndex++;
+            }
+        } else {
+            heroTitleElement.innerHTML += char;
+            charIndex++;
+        }
+        setTimeout(typeWriter, 50); // Adjust typing speed here (milliseconds)
+    } else {
+        // Once typing is complete, make sure opacity is 1
+        heroTitleElement.style.opacity = '1';
+    }
+}
+
+// Trigger typewriter effect on page load
+document.addEventListener('DOMContentLoaded', () => {
+    heroTitleElement.style.opacity = '0'; // Ensure it's hidden before typing
+    heroTitleElement.innerHTML = ''; // Clear any initial content
+    setTimeout(typeWriter, 500); // Small delay before starting typing
+});
