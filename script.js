@@ -145,6 +145,7 @@ document.head.appendChild(notificationStyle);
 // New Typewriter Effect for Hero Title
 const heroTitleElement = document.getElementById('hero-title-element');
 const textToType = 'WHERE <span class="highlight standout">CHAMPIONS</span><br>ARE MADE';
+
 let charIndex = 0;
 
 function typeWriter() {
@@ -172,6 +173,34 @@ function typeWriter() {
         heroTitleElement.classList.add('pulse-glow');
     }
 }
+const heroTitleElement = document.getElementById('hero-title-element');
+let charIndex = 0;
+
+function typeWriter() {
+    if (charIndex < textToType.length) {
+        const char = textToType.charAt(charIndex);
+        if (char === '<') {
+            const endIndex = textToType.indexOf('>', charIndex);
+            const tag = textToType.substring(charIndex, endIndex + 1);
+            heroTitleElement.innerHTML += tag;
+            charIndex = endIndex + 1;
+        } else {
+            heroTitleElement.innerHTML += char;
+            charIndex++;
+        }
+        setTimeout(typeWriter, 45); // Typing speed
+    } else {
+        heroTitleElement.style.opacity = '1';
+        heroTitleElement.classList.add('pulse-glow'); // Optional glow
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    heroTitleElement.style.opacity = '0';
+    heroTitleElement.innerHTML = '';
+    setTimeout(typeWriter, 400);
+});
+
 
 // Trigger typewriter effect on page load
 document.addEventListener('DOMContentLoaded', () => {
