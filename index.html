@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Hockey Drills - Where Champions Are Made</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hockey-puck"></i>
+                </div>
+                <span class="logo-text">ELITE HOCKEY DRILLS</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#training-plans" class="nav-link">Training Plans</a>
+                <a href="#coaching" class="nav-link">1-on-1 Coaching</a>
+                <a href="#success-stories" class="nav-link">Success Stories</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link cta-nav">Get Started</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-trophy"></i>
+                    <span>10+ Years Experience</span>
+                </div>
+                <h1 class="hero-title">
+                    WHERE <span class="highlight">CHAMPIONS</span><br>
+                    ARE MADE
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your game with elite-level training programs designed by professional coaches. 
+                    Join 1000+ players who've elevated their skills with our proven training system.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Players Trained</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="scrollToSection('training-plans')">
+                        <span>Start Your Elite Journey</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('about')">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Story</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>30-Day Money Back Guarantee</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Professional Certified Coach</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure Payment Processing</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-users"></i>
+                    <span>1000+ Satisfied Players</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Plans Section -->
+    <section class="training-plans" id="training-plans">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Training Plan</h2>
+                <p class="section-subtitle">Personalized programs designed to take your game to the next level</p>
+            </div>
+            
+            <div class="plans-grid">
+                <!-- Basic Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">Endurance Training</h3>
+                        <div class="plan-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">19</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <div class="original-price">Was $29</div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Comprehensive endurance drills</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Stamina building exercises</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Progress tracking tools</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Video demonstrations</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Email support</span>
+                        </div>
+                    </div>
+                    <button class="plan-btn">Get Started</button>
+                    <div class="plan-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>30-day money-back guarantee</span>
+                    </div>
+                </div>
+
+                <!-- Advanced Plan -->
+                <div class="plan-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3 class="plan-title">Power & Speed</h3>
+                        <div class="plan-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">49</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <div class="original-price">Was $69</div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Advanced speed & power drills</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Explosive movement training</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Personalized workout plans</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Weekly progress reviews</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Priority email support</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Nutrition guidelines</span>
+                        </div>
+                    </div>
+                    <button class="plan-btn">Get Started</button>
+                    <div class="plan-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>30-day money-back guarantee</span>
+                    </div>
+                </div>
+
+                <!-- Elite Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3 class="plan-title">1-on-1 Coaching</h3>
+                        <div class="plan-price">
+                            <span class="price-currency">$</span>
+                            <span class="price-amount">189</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <div class="original-price">Was $249</div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Personal coaching sessions</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom training programs</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Video analysis & feedback</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Weekly 1-on-1 calls</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>24/7 direct access to coach</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>Complete nutrition plan</span>
+                        </div>
+                    </div>
+                    <button class="plan-btn">Get Started</button>
+                    <div class="plan-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>30-day money-back guarantee</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="limited-time-offer">
+                <div class="offer-content">
+                    <div class="offer-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="offer-text">
+                        <h3>Limited Time Offer</h3>
+                        <p>Save 30% on all training plans - Only 48 hours left!</p>
+                    </div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">23</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">45</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">32</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories" id="success-stories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-subtitle">Real results from real players</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Elite Hockey Drills transformed my game completely. My speed increased by 40% in just 3 months, 
+                        and I made varsity team this season!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Jake M.">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Jake M.</div>
+                            <div class="author-title">High School Player</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+40%</span>
+                            <span class="stat-label">Speed Increase</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The personalized coaching program is incredible. Coach David's expertise helped me improve 
+                        my shot accuracy by 60% and land a college scholarship!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Sarah K.">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah K.</div>
+                            <div class="author-title">College Recruit</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+60%</span>
+                            <span class="stat-label">Shot Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Scholarship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "As a parent, I was amazed by my son's progress. His confidence on ice doubled, and he's now 
+                        captain of his team. Worth every penny!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Mike R.">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Mike R.</div>
+                            <div class="author-title">Hockey Parent</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2x</span>
+                            <span class="stat-label">Confidence</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span class="stat-label">Captain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2 class="section-title">Meet Coach David</h2>
+                        <p class="section-subtitle">10+ Years of Elite Hockey Training Experience</p>
+                    </div>
+                    <p class="about-description">
+                        Welcome to Elite Hockey Drills, where passion for hockey meets professional training. 
+                        My name is David, and I'm a dedicated hockey coach and athlete with over a decade of 
+                        experience both on and off the ice.
+                    </p>
+                    <p class="about-description">
+                        As a coach and a teacher, I've seen firsthand how the right training can make all the 
+                        difference in a player's performance. That's why I created Elite Hockey Drills—to help 
+                        hockey players of all levels reach their full potential.
+                    </p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certified Professional Hockey Coach</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>10+ Years Coaching Experience</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-users"></i>
+                            <span>1000+ Players Trained</span>
+                        </div>
+                        <div class="credential-item">
+                            <i class="fas fa-medal"></i>
+                            <span>95% Player Improvement Rate</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="scrollToSection('training-plans')">
+                        <span>Start Training Today</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=500&h=600&fit=crop" alt="Coach David">
+                        <div class="image-overlay">
+                            <div class="play-button" onclick="playVideo()">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Dominate the Ice?</h2>
+                <p class="cta-subtitle">
+                    Join thousands of players who have transformed their game with Elite Hockey Drills. 
+                    Start your journey to becoming an elite player today.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn-primary large" onclick="scrollToSection('training-plans')">
+                        <span>Choose Your Plan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-secondary large" onclick="scrollToSection('contact')">
+                        <i class="fas fa-phone"></i>
+                        <span>Talk to Coach</span>
+                    </button>
+                </div>
+                <div class="cta-guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>30-Day Money-Back Guarantee • No Risk, All Reward</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get Started Today</h2>
+                <p class="section-subtitle">Ready to take your game to the next level? Let's talk!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>coach@elitehockeydrills.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Response Time</h3>
+                            <p>Within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="interest" name="interest" required>
+                                <option value="">Select Your Interest</option>
+                                <option value="endurance">Endurance Training</option>
+                                <option value="power-speed">Power & Speed Training</option>
+                                <option value="coaching">1-on-1 Coaching</option>
+                                <option value="youth">Youth Programs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tell us about your goals..." rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary full-width">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-hockey-puck"></i>
+                        </div>
+                        <span class="logo-text">ELITE HOCKEY DRILLS</span>
+                    </div>
+                    <p class="footer-description">
+                        Where Champions Are Made. Transform your hockey skills with professional training programs 
+                        designed by elite coaches.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Training Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#training-plans">Endurance Training</a></li>
+                        <li><a href="#training-plans">Power & Speed</a></li>
+                        <li><a href="#coaching">1-on-1 Coaching</a></li>
+                        <li><a href="#training-plans">Youth Programs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Coach David</a></li>
+                        <li><a href="#success-stories">Success Stories</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Get Started</h3>
+                    <p class="footer-cta-text">Ready to transform your game?</p>
+                    <button class="btn-primary" onclick="scrollToSection('training-plans')">
+                        <span>Choose Your Plan</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Elite Hockey Drills. All rights reserved.</p>
+                    <div class="footer-badges">
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            Secure Payment
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-certificate"></i>
+                            Professional Certified
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-undo"></i>
+                            30-Day Guarantee
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
+
