@@ -169,6 +169,7 @@ function typeWriter() {
     } else {
         // Once typing is complete, make sure opacity is 1
         heroTitleElement.style.opacity = '1';
+        heroTitleElement.classList.add('pulse-glow');
     }
 }
 
