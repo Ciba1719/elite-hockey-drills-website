@@ -178,7 +178,10 @@ body {
     line-height: 1.1;
     margin-bottom: 20px;
     text-shadow: 0 0 20px rgba(244, 196, 48, 0.7); /* More pronounced text shadow */
-    animation: heroTitleReveal 1.2s ease-out forwards; /* Apply animation directly */
+    /* Ensure text is visible by default and then animates */
+    opacity: 1; /* Start visible */
+    transform: translateY(0); /* Start at original position */
+    animation: heroTitleReveal 1.2s ease-out forwards; /* Apply animation */
 }
 
 @keyframes heroTitleReveal {
@@ -1170,3 +1173,5 @@ body {
         padding: 30px 20px;
     }
 }
+
+
