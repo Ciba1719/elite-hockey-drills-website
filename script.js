@@ -144,7 +144,7 @@ document.head.appendChild(notificationStyle);
 
 // New Typewriter Effect for Hero Title
 const heroTitleElement = document.getElementById('hero-title-element');
-const textToType = 'WHERE <span class="highlight">CHAMPIONS</span><br>ARE MADE';
+const textToType = 'WHERE<span class="highlight standout">CHAMPIONS</span><br>ARE MADE';
 let charIndex = 0;
 
 function typeWriter() {
