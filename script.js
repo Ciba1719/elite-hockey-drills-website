@@ -190,5 +190,3 @@ if ("IntersectionObserver" in window) {
         });
     });
 }
-
-
