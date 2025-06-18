@@ -30,12 +30,6 @@ function openWhatsApp() {
 }
 
 // Form submission handler
-function handleFormSubmission(event) {
-    event.preventDefault();
-    
-    const form = event.target;
-    const formData = new FormData(form);
-    const submitButton = form.querySelector(".form-submit");
     
     // Show loading state
     const originalText = submitButton.innerHTML;
@@ -105,10 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     
     // Form submission
-    const contactForm = document.getElementById("contact");
-    if (contactForm) {
-        contactForm.addEventListener("submit", handleFormSubmission);
-    }
+
     
     // Add fade-in class to elements for animation
     const animatedElements = document.querySelectorAll(".section-header, .about-content, .program-card, .testimonial-card, .result-item, .contact-form, .contact-info");
