@@ -115,10 +115,9 @@ body {
     height: 100vh;
     position: relative;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-bottom: 10vh;
 }
 
 .hero-background {
