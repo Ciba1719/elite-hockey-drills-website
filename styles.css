@@ -1106,12 +1106,16 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* Shrink hero stat cards on small screens */
+    .hero-content {
+        padding-top: 180px; /* pushed title lower */
+        padding-bottom: 40px;
+    }
+
     .hero-stats {
         gap: 0.75rem;
         padding: 0 0.5rem;
         margin-top: 2rem;
-        grid-template-columns: 1fr 1fr; /* 2 per row on tiny screens */
+        grid-template-columns: 1fr 1fr;
     }
 
     .stat-card {
@@ -1128,7 +1132,6 @@ body {
         font-size: 0.7rem;
     }
 
-    /* Other responsive fixes */
     .results-grid {
         grid-template-columns: 1fr;
     }
