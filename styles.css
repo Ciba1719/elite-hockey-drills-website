@@ -154,7 +154,13 @@ body {
     max-width: 1200px;
     padding: 0 24px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* ADDED */
+    height: 100%;            /* ADDED to center everything vertically */
 }
+
 
 .hero-text {
     margin-bottom: 4rem;
