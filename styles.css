@@ -112,7 +112,7 @@ body {
 }
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh; /* changed from height to min-height */
     position: relative;
     display: flex;
     align-items: center;
@@ -147,16 +147,17 @@ body {
 }
 
 .hero-content {
-    position: absolute; /* Changed from relative */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -30%); /* Shift it a bit higher than center */
+    position: relative; /* changed from absolute */
     z-index: 3;
     text-align: center;
     color: white;
     max-width: 1200px;
-    padding: 0 24px;
+    padding: 120px 24px 60px; /* adjusted spacing */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
 }
 
