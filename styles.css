@@ -112,14 +112,15 @@ body {
 }
 /* Hero Section */
 .hero {
-    min-height: 100vh; /* changed from height to min-height */
+    min-height: 100vh;
     position: relative;
     display: flex;
+    flex-direction: column; /* <-- ensures hero-stats stack correctly */
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible; /* ✅ allow numbers and animations to be visible */
+    padding-bottom: 4rem; /* ✅ adds space so bottom stats aren’t cut off */
 }
-
 .hero-background {
     position: absolute;
     top: 0;
