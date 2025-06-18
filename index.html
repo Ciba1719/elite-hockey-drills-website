@@ -320,36 +320,40 @@
             </div>
             <div class="contact-content">
                 <div class="contact-form">
-                   <form name="contact" method="POST" data-netlify="true">
+                  <form name="contact" method="POST" data-netlify="true">
   <input type="hidden" name="form-name" value="contact">
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Your Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="program">Interested Program</label>
-                            <select id="program" name="program">
-                                <option value="1-on-1">1-on-1 Elite Coaching</option>
-                                <option value="power-speed">Power & Speed Training</option>
-                                <option value="strength">Strength Training Plan</option>
-                                <option value="general">General Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary form-submit">
-                            Send Message <i class="fas fa-paper-plane btn-icon"></i>
-                        </button>
-                    </form>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="program">Interested Program</label>
+    <select id="program" name="program">
+      <option value="1-on-1">1-on-1 Elite Coaching</option>
+      <option value="power-speed">Power & Speed Training</option>
+      <option value="strength">Strength Training Plan</option>
+      <option value="general">General Inquiry</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary form-submit">
+    Send Message <i class="fas fa-paper-plane btn-icon"></i>
+  </button>
+</form>
+
                 </div>
                 <div class="contact-info">
                     <div class="contact-card">
