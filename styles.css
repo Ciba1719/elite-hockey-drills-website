@@ -1105,30 +1105,50 @@ body {
 }
 
 @media (max-width: 480px) {
+    /* Shrink hero stat cards on small screens */
+    .hero-stats {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+        margin-top: 2rem;
+        grid-template-columns: 1fr 1fr; /* 2 per row on tiny screens */
+    }
+
+    .stat-card {
+        padding: 0.5rem;
+        border-radius: 10px;
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    /* Other responsive fixes */
     .results-grid {
         grid-template-columns: 1fr;
     }
-    
-    .stat-card {
-        padding: 1rem;
-    }
-    
+
     .achievement-item {
         padding: 1rem;
     }
-    
+
     .program-card {
         padding: 2rem;
     }
-    
+
     .testimonial-card {
         padding: 1.5rem;
     }
-    
+
     .contact-card {
         padding: 2rem;
     }
 }
+
 
 /* Scroll animations */
 .fade-in {
