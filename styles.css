@@ -239,13 +239,13 @@ body {
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 3rem auto 4rem; /* ADDED bottom margin for spacing */
+    padding: 0 1rem; /* ADDED padding to prevent cutting on mobile */
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 1s;
 }
-
 .stat-card {
     text-align: center;
     padding: 1.5rem;
