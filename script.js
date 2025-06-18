@@ -190,37 +190,41 @@ if ("IntersectionObserver" in window) {
         });
     });
     // COUNT-UP ANIMATION FOR STATS
-const counters = document.querySelectorAll('.count');
-const speed = 100; // lower = faster
+document.addEventListener("DOMContentLoaded", function () {
+  const counters = document.querySelectorAll(".count");
 
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
+  const speed = 200; // smaller = faster
 
-    const increment = target / speed;
+  const animate = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
 
-    if (count < target) {
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(updateCount, 20);
-    } else {
-      counter.innerText = target;
-    }
+    const update = () => {
+      const increment = Math.ceil(target / speed);
+      count += increment;
+
+      if (count < target) {
+        counter.innerText = count;
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    update();
   };
 
-  // Trigger when it appears on screen
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  // Trigger when visible
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        updateCount();
-        observer.unobserve(counter);
+        animate(entry.target);
+        obs.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 1.0
-  });
+  }, { threshold: 1.0 });
 
-  observer.observe(counter);
+  counters.forEach((counter) => observer.observe(counter));
 });
 
 }
