@@ -228,3 +228,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 }
+// COUNT-UP ANIMATION FOR STATS
+document.addEventListener("DOMContentLoaded", function () {
+  const counters = document.querySelectorAll('.count');
+  const speed = 50;
+
+  const animateCount = (counter) => {
+    const update = () => {
+      const target = +counter.getAttribute('data-target');
+      const current = +counter.innerText;
+      const increment = Math.ceil(target / speed);
+
+      if (current < target) {
+        counter.innerText = current + increment;
+        setTimeout(update, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  };
+
+  const options = { threshold: 0.5 };
+  const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+});
