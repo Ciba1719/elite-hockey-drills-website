@@ -189,4 +189,37 @@ if ("IntersectionObserver" in window) {
             observer.observe(element);
         });
     });
+    const counters = document.querySelectorAll('.count');
+const speed = 200; // Lower is faster
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+    updateCount();
+  });
+};
+
+window.addEventListener('scroll', function onScroll() {
+  const statsSection = document.querySelector('.hero-stats');
+  const statsPosition = statsSection.getBoundingClientRect().top;
+  const screenPosition = window.innerHeight;
+
+  if (statsPosition < screenPosition) {
+    animateCounters();
+    window.removeEventListener('scroll', onScroll); // Only run once
+  }
+});
+
 }
