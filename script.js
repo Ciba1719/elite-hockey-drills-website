@@ -102,21 +102,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const countSpeed = 50;
 
     // ========= CHANGED FUNCTION ONLY BELOW =========
-    const animateCount = (counter) => {
-        const target = +counter.getAttribute("data-target");
-        const update = () => {
-            const current = +counter.innerText;
-            const increment = Math.ceil(target / countSpeed);
-            if (current < target) {
-                counter.innerText = current + increment;
-                setTimeout(update, 30);
-            } else {
-                // Add “+” only for the 700 target
-                counter.innerText = (target === 700) ? `${target}+` : `${target}`;
-            }
-        };
-        update();
+  const animateCount = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const update = () => {
+        const current = +counter.innerText;
+        const increment = Math.ceil(target / countSpeed);
+        if (current < target) {
+            counter.innerText = current + increment;
+            setTimeout(update, 30);
+        } else {
+            // Add "+" for specific targets
+            const targetsWithPlus = [700, 10, 95];
+            counter.innerText = targetsWithPlus.includes(target) ? `${target}+` : `${target}`;
+        }
     };
+    update();
+};
     // ========= END OF CHANGED FUNCTION =============
 
     if ("IntersectionObserver" in window) {
