@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".count");
     const countSpeed = 50;
 
+    // ========= CHANGED FUNCTION ONLY BELOW =========
     const animateCount = (counter) => {
         const target = +counter.getAttribute("data-target");
         const update = () => {
@@ -110,11 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 counter.innerText = current + increment;
                 setTimeout(update, 30);
             } else {
-                counter.innerText = target;
+                // Add “+” only for the 700 target
+                counter.innerText = (target === 700) ? `${target}+` : `${target}`;
             }
         };
         update();
     };
+    // ========= END OF CHANGED FUNCTION =============
 
     if ("IntersectionObserver" in window) {
         const counterObserver = new IntersectionObserver((entries, observer) => {
