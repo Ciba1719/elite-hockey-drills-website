@@ -101,24 +101,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".count");
     const countSpeed = 50;
 
-    // ========= CHANGED FUNCTION ONLY BELOW =========
-  const animateCount = (counter) => {
-    const target = +counter.getAttribute("data-target");
-    const update = () => {
-        const current = +counter.innerText;
-        const increment = Math.ceil(target / countSpeed);
-        if (current < target) {
-            counter.innerText = current + increment;
-            setTimeout(update, 30);
-        } else {
-            // Add "+" for specific targets
-            const targetsWithPlus = [1000, 10, 100];
-            counter.innerText = targetsWithPlus.includes(target) ? `${target}+` : `${target}`;
-        }
+    // ========= UPDATED FUNCTION ONLY BELOW =========
+    const animateCount = (counter) => {
+        const target = +counter.getAttribute("data-target");
+        const update = () => {
+            const current = +counter.innerText;
+            const increment = Math.ceil(target / countSpeed);
+            if (current < target) {
+                counter.innerText = current + increment;
+                setTimeout(update, 30);
+            } else {
+                // Decide which symbol to append
+                let display = `${target}`;
+                if (target === 1000 || target === 10) {
+                    display = `${target}+`;
+                } else if (target === 100) {
+                    display = `${target}%`;
+                }
+                counter.innerText = display;
+            }
+        };
+        update();
     };
-    update();
-};
-    // ========= END OF CHANGED FUNCTION =============
+    // ========= END OF UPDATED FUNCTION =============
 
     if ("IntersectionObserver" in window) {
         const counterObserver = new IntersectionObserver((entries, observer) => {
