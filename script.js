@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(update, 30);
         } else {
             // Add "+" for specific targets
-            const targetsWithPlus = [700, 10, 95];
+            const targetsWithPlus = [1000, 10, 100];
             counter.innerText = targetsWithPlus.includes(target) ? `${target}+` : `${target}`;
         }
     };
