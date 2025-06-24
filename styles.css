@@ -17,7 +17,11 @@ body {
     line-height: 1.6;
     color: #1a202c;
     overflow-x: hidden;
-     background: linear-gradient(to right, #1e293b, #0f172a);
+    background-image: url('background-ice.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -388,7 +392,7 @@ body {
 /* About Section */
 .about {
     padding: 120px 0;
-      background: #f3f4f6;
+     background: transparent;
 }
 
 .about-content {
