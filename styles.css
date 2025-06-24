@@ -388,7 +388,7 @@ body {
 /* About Section */
 .about {
     padding: 120px 0;
-    background: #f8fafc;
+    background: linear-gradient(to right, #1e293b, #0f172a);
 }
 
 .about-content {
