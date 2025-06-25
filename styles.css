@@ -1252,6 +1252,8 @@ body {
 }
 
 .faq-question.active i {
+    background-color: #fff3c4;
+    font-weight: 700;
     transform: rotate(180deg);
 }
 
