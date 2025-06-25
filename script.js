@@ -165,13 +165,24 @@ document.addEventListener("click", function (e) {
     }
 });
 
+// Smooth scrolling function
 
 
 // FAQ Accordion
-document.querySelectorAll(".faq-question").forEach(item => {
+document.querySelectorAll(".faq-question").forEach((item) => {
     item.addEventListener("click", () => {
-        const parent = item.closest(".faq-item");
-        parent.classList.toggle("active");
+        const faqItem = item.closest(".faq-item");
+        const faqAnswer = faqItem.querySelector(".faq-answer");
+        const icon = item.querySelector("i");
+
+        faqAnswer.classList.toggle("active");
+        icon.classList.toggle("active");
+
+        if (faqAnswer.classList.contains("active")) {
+            faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+        } else {
+            faqAnswer.style.maxHeight = "0";
+        }
     });
 });
 
