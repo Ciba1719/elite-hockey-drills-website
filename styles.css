@@ -1195,7 +1195,7 @@ body {
 /* FAQ Section */
 .faq-section {
     padding: 80px 0;
-    background-color: #f9f9f9;
+     background: linear-gradient(145deg, #d1d5db 0%, #e5e7eb 50%, #f3f4f6 100%);
     text-align: center;
 }
 
