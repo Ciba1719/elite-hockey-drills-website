@@ -1225,16 +1225,17 @@ body {
     align-items: center;
     padding: 20px 30px;
     cursor: pointer;
-    background-color: #fefce8; /* light soft yellow */
-    border-left: 4px solid #fbbf24; /* yellow highlight */
+    background-color: #fffef5; /* subtle off-white base */
+    border-left: 4px solid #fbbf24; /* matching accent */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     font-weight: 600;
     font-size: 1.1rem;
     color: #1e293b; /* dark navy text */
+    border-radius: 0 0.5rem 0.5rem 0;
 }
 .faq-question:hover {
-    background-color: #fff9db; /* slightly brighter hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    background-color: #fff9e5; /* gentle highlight */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .faq-question h3 {
@@ -1246,7 +1247,7 @@ body {
 
 .faq-question i {
     font-size: 20px;
-    color: #fbbf24;
+    color: #fbbf24; /* icon in brand yellow */
     transition: transform 0.3s ease;
 }
 
