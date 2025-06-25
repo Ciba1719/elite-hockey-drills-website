@@ -1189,75 +1189,85 @@ body {
 
 
 
+/* Modern CSS Reset */
 
 /* FAQ Section */
-.faq {
-    padding: 120px 0;
-    background: #f8fafc;
+.faq-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.faq-section .section-header {
+    margin-bottom: 50px;
 }
 
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
 .faq-item {
-    background: #ffffff;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
 }
 
 .faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 20px 30px;
     cursor: pointer;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
+    background-color: #fff;
     transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-    background-color: #f0f4f8;
+    background-color: #f5f5f5;
 }
 
 .faq-question h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1a202c;
+    font-size: 20px;
+    color: #333;
     margin: 0;
+    font-weight: 600;
 }
 
 .faq-question i {
-    font-size: 1.2rem;
-    color: #64748b;
+    font-size: 20px;
+    color: #0056b3;
     transition: transform 0.3s ease;
 }
 
-.faq-item.active .faq-question i {
+.faq-question.active i {
     transform: rotate(180deg);
 }
 
 .faq-answer {
-    padding: 0 2rem;
+    padding: 0 30px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 200px; /* Adjust as needed */
-    padding: 1rem 2rem 1.5rem;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 
 .faq-answer p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #475569;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.faq-answer.active {
+    max-height: 200px; /* Adjust as needed */
+    padding-top: 10px;
 }
 
 
