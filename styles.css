@@ -17,11 +17,7 @@ body {
     line-height: 1.6;
     color: #1a202c;
     overflow-x: hidden;
-    background-image: url('background-ice.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color: #ffffff;
 }
 
 .container {
@@ -392,7 +388,7 @@ body {
 /* About Section */
 .about {
     padding: 120px 0;
-     background: transparent;
+    background: #f8fafc;
 }
 
 .about-content {
@@ -1190,51 +1186,78 @@ body {
     }
 }
 
-.about {
-    position: relative;
-    background: transparent;
-    overflow: hidden;
+
+
+
+
+/* FAQ Section */
+.faq {
     padding: 120px 0;
-    z-index: 0;
+    background: #f8fafc;
 }
 
-.about-video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    pointer-events: none;
 }
 
-.about-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.3s ease;
 }
 
-/* Optional overlay for text readability */
-.about-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.4); /* Adjust opacity here */
-    z-index: 1;
+.faq-question:hover {
+    background-color: #f0f4f8;
 }
 
-/* Keep content above the video and overlay */
-.about .container {
-    position: relative;
-    z-index: 2;
+.faq-question h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0;
 }
 
+.faq-question i {
+    font-size: 1.2rem;
+    color: #64748b;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Adjust as needed */
+    padding: 1rem 2rem 1.5rem;
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+}
 
 
