@@ -178,6 +178,7 @@ section{position:relative;z-index:2;}
   .hero{padding:140px 40px 140px;}
 }
 @media(min-width:1024px){.hero{padding:180px 40px 160px;}}
+@media(min-width:1400px){.hero{padding:200px 80px 180px;}.wrap{padding:0 48px;}}
 
 /* LEAD MAGNET BAR */
 .lead-bar{
@@ -245,13 +246,40 @@ section{position:relative;z-index:2;}
     radial-gradient(circle at 30% 30%,var(--ice-soft) 0%,transparent 50%),
     radial-gradient(circle at 70% 70%,rgba(232,183,119,.08) 0%,transparent 50%);
 }
+.about-visual::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:60px 60px;
+  opacity:.18;
+}
+.about-rink-circle{
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:280px;height:280px;
+  border:1px solid var(--ice);
+  border-radius:50%;
+  opacity:.12;
+}
+.about-rink-dot{
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:8px;height:8px;
+  background:var(--ice);
+  border-radius:50%;
+  opacity:.3;
+  box-shadow:0 0 20px var(--ice);
+}
 .about-visual-content{position:relative;z-index:2;width:100%;}
 .about-monogram{
   font-family:'Bebas Neue',sans-serif;
   font-size:clamp(140px,32vw,220px);
   line-height:.85;color:var(--ink);letter-spacing:-.01em;
-  position:absolute;top:0;left:0;right:0;text-align:center;pointer-events:none;
-  background:linear-gradient(180deg,var(--ink) 0%,rgba(236,237,239,.05) 100%);
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-55%);
+  text-align:center;pointer-events:none;
+  background:linear-gradient(180deg,rgba(236,237,239,.15) 0%,rgba(236,237,239,.03) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
 .about-credentials-stack{display:flex;flex-direction:column;gap:14px;position:relative;z-index:3;}
@@ -278,7 +306,10 @@ section{position:relative;z-index:2;}
 }
 @media(min-width:900px){
   .about{padding:120px 40px;}
-  .about-grid{grid-template-columns:5fr 7fr;gap:80px;align-items:stretch;}
+  .about-grid{grid-template-columns:5fr 7fr;gap:80px;align-items:center;}
+  .about-visual{aspect-ratio:auto;min-height:600px;}
+  .about-monogram{font-size:240px;}
+  .about-rink-circle{width:360px;height:360px;}
 }
 
 /* METHOD */
@@ -293,7 +324,8 @@ section{position:relative;z-index:2;}
 .method-card-num{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-size:18px;margin-bottom:24px;}
 .method-card h3{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:14px;letter-spacing:.01em;}
 .method-card p{color:var(--ink-2);font-size:14px;line-height:1.7;}
-@media(min-width:720px){.method{padding:120px 40px;}.method-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:720px){.method{padding:120px 40px;}.method-grid{grid-template-columns:repeat(3,1fr);gap:32px;}}
+@media(min-width:1200px){.method-card{padding:44px 36px;}.method-card h3{font-size:38px;}}
 
 /* PROGRAMS */
 .programs{padding:88px 24px;background:var(--bg);}
@@ -353,8 +385,12 @@ section{position:relative;z-index:2;}
 
 @media(min-width:780px){
   .programs{padding:120px 40px;}
-  .programs-stack{flex-direction:row;flex-wrap:wrap;}
-  .prog-card{flex:1 1 calc(33.333% - 14px);min-width:280px;}
+  .programs-stack{flex-direction:row;gap:24px;}
+  .prog-card{flex:1 1 0;min-width:0;}
+}
+@media(min-width:1200px){
+  .programs-stack{gap:32px;}
+  .prog-card{padding:44px 36px;}
 }
 
 /* APP */
@@ -461,6 +497,12 @@ section{position:relative;z-index:2;}
   .app-grid{grid-template-columns:1.1fr .9fr;gap:80px;}
   .phone-mock{width:280px;height:560px;}
 }
+@media(min-width:1200px){
+  .app-section{padding:160px 40px;}
+  .app-grid{gap:100px;}
+  .phone-mock{width:300px;height:600px;}
+  .app-content h2{font-size:104px;}
+}
 
 /* RESULTS BAND */
 .results{
@@ -503,7 +545,8 @@ section{position:relative;z-index:2;}
 }
 .testi-name{font-size:14px;font-weight:600;color:var(--ink);}
 .testi-role{font-size:12px;color:var(--ink-3);margin-top:2px;}
-@media(min-width:780px){.testi{padding:120px 40px;}.testi-stack{flex-direction:row;}.testi-card{flex:1;}}
+@media(min-width:780px){.testi{padding:120px 40px;}.testi-stack{flex-direction:row;gap:24px;}.testi-card{flex:1;}}
+@media(min-width:1200px){.testi-card{padding:40px 36px;}.testi-quote{font-size:17px;}}
 
 /* FAQ */
 .faq{padding:88px 24px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -530,6 +573,7 @@ section{position:relative;z-index:2;}
 .faq-a-inner{padding:0 0 24px;font-size:14.5px;line-height:1.75;color:var(--ink-2);max-width:680px;}
 .faq-item.open .faq-a{max-height:300px;}
 @media(min-width:780px){.faq{padding:120px 40px;}.faq-q-btn{font-size:17px;padding:28px 0;}}
+@media(min-width:1200px){.faq-list{max-width:900px;}.faq-q-btn{font-size:18px;}}
 
 /* FINAL CTA */
 .final{padding:88px 24px;background:var(--bg);text-align:center;position:relative;overflow:hidden;}
@@ -683,6 +727,8 @@ section{position:relative;z-index:2;}
     <div class="about-grid">
       <div class="about-visual reveal">
         <div class="about-monogram">DC</div>
+        <div class="about-rink-circle"></div>
+        <div class="about-rink-dot"></div>
         <div class="about-visual-content">
           <div class="about-credentials-stack">
             <div class="about-cred-mini">M.Ed. — Sport Science</div>
