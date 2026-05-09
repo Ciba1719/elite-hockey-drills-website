@@ -1,560 +1,1400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JH623WRMN8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Hockey Drills | Off-Ice Training Programs for Hockey Players</title>
+  <meta name="description" content="Science-backed off-ice training programs for hockey players of all levels. Built by Coach David Ciboch M.Ed. — PE & Sport Science, national team coach." />
+  <meta property="og:title" content="Elite Hockey Drills | Off-Ice Training Programs" />
+  <meta property="og:description" content="Science-backed off-ice hockey training. Programs, coaching resources, and an app built by a certified sport scientist." />
+  <meta property="og:url" content="https://elitehockeydrills.com" />
 
-  gtag('config', 'G-JH623WRMN8');
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elite Hockey Drills | Online Hockey Training Programs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 
-  <!-- ✅ SEO Meta Tags -->
-  <meta name="title" content="Elite Hockey Drills | Online Hockey Training Programs">
-  <meta name="description" content="Elite Hockey Drills offers personalized off-ice training, strength, and speed programs designed by Coach David Ciboch for hockey players of all levels.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- ✅ Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elitehockeydrills.com/">
-  <meta property="og:title" content="Elite Hockey Drills - Online Hockey Training Programs">
-  <meta property="og:description" content="Take your hockey game to the next level with tailored online coaching from a certified pro.">
-  <meta property="og:site_name" content="Elite Hockey Drills">
-  <meta property="og:image" content="https://elitehockeydrills.com/og-image.jpg">
+    :root {
+      --bg:        #060A14;
+      --bg-2:      #0C1220;
+      --bg-3:      #111827;
+      --ice:       #E8F4FD;
+      --blue:      #1A9FD8;
+      --blue-glow: #1A9FD840;
+      --blue-dim:  #0E6FA0;
+      --accent:    #FF6B35;
+      --muted:     #5A6A82;
+      --border:    #1E2D42;
+      --white:     #FFFFFF;
+      --card-bg:   #0F1924;
+    }
 
-  <!-- ✅ Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://elitehockeydrills.com/">
-  <meta property="twitter:title" content="Elite Hockey Drills - Online Hockey Training Programs">
-  <meta property="twitter:description" content="Join 1000+ athletes and get stronger, faster, and more skilled with Elite Hockey Drills.">
-  <meta property="twitter:image" content="https://elitehockeydrills.com/og-image.jpg">
+    html { scroll-behavior: smooth; }
 
-  <!-- ✅ Favicon -->
- <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="shortcut icon" href="favicon.ico">
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ice);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-  <!-- Fonts & Styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Elite Hockey Drills",
-  "url": "https://elitehockeydrills.com",
-  "logo": "https://elitehockeydrills.com/og-image.jpg",
-  "sameAs": [
-    "https://www.instagram.com/elite_hockey_drills",
-    "https://www.facebook.com/elite_hockey_drills"
-  ],
-  "description": "Elite Hockey Drills offers online hockey training programs to boost performance, strength and skills.",
-  "founder": {
-    "@type": "Person",
-    "name": "David Ciboch"
-  }
-}
-</script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "https://elitehockeydrills.com/",
-  "name": "Elite Hockey Drills",
-  "alternateName": "Elite Hockey Drills Online Training"
-}
-</script>
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+    }
 
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6, 10, 20, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: .08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ice); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: .5rem 1.25rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-dim) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      overflow: hidden;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: .25;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--blue-glow);
+      border: 1px solid var(--blue);
+      border-radius: 100px;
+      padding: .35rem 1rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 2rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.7); }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.8rem, 9vw, 8rem);
+      line-height: .95;
+      letter-spacing: .02em;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--blue);
+      position: relative;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: #8FA8C0;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .9rem 2rem;
+      border-radius: 5px;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--blue-dim);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--blue-glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ice);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-accent:hover {
+      background: #e55a28;
+      transform: translateY(-1px);
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.6rem;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: .03em;
+    }
+    .stat-num span { color: var(--blue); }
+    .stat-label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .2rem;
+    }
+
+    /* ── LEAD MAGNET BAND ── */
+    #lead-magnet {
+      background: linear-gradient(135deg, #0E2235 0%, #071520 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 5%;
+    }
+
+    .lm-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .lm-text { flex: 1 1 340px; }
+    .lm-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .25rem .8rem;
+      border-radius: 3px;
+      margin-bottom: .8rem;
+    }
+    .lm-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      line-height: 1.05;
+      letter-spacing: .02em;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+    .lm-text p {
+      color: #7A99B8;
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+
+    .lm-form { flex: 1 1 360px; }
+    .lm-form form {
+      display: flex;
+      gap: .7rem;
+      flex-wrap: wrap;
+    }
+    .lm-form input[type="email"] {
+      flex: 1 1 220px;
+      background: rgba(255,255,255,.06);
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      padding: .85rem 1.1rem;
+      color: var(--ice);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .lm-form input[type="email"]:focus { border-color: var(--blue); }
+    .lm-form input::placeholder { color: var(--muted); }
+    .lm-form .btn { white-space: nowrap; }
+
+    .lm-note {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: .7rem;
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    h2.section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      letter-spacing: .02em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .max-w { max-width: 1100px; margin: 0 auto; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+    }
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .85;
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .about-img-badge .big { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; line-height: 1; display: block; }
+    .about-img-badge .small { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+
+    .about-content h2 { margin-bottom: 1.2rem; }
+    .about-content p { color: #7A99B8; line-height: 1.8; margin-bottom: 1.2rem; font-size: .97rem; }
+
+    .credential-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      margin: 1.8rem 0;
+    }
+    .credential-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      font-size: .9rem;
+      color: var(--ice);
+    }
+    .cred-icon {
+      width: 20px; height: 20px;
+      background: var(--blue-glow);
+      border: 1px solid var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .65rem;
+      color: var(--blue);
+    }
+
+    /* ── PROGRAMS ── */
+    #programs { background: var(--bg); }
+
+    .programs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .program-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--border);
+      transition: background .25s;
+    }
+    .program-card:hover {
+      border-color: var(--blue-glow);
+      transform: translateY(-4px);
+    }
+    .program-card:hover::before { background: var(--blue); }
+
+    .program-card.featured {
+      border-color: var(--blue);
+      background: linear-gradient(160deg, #0F1E30 0%, var(--card-bg) 100%);
+    }
+    .program-card.featured::before { background: var(--blue); }
+
+    .program-tag {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 3px;
+      margin-bottom: 1.2rem;
+      width: fit-content;
+    }
+    .tag-free { background: rgba(26,159,216,.15); color: var(--blue); border: 1px solid var(--blue-glow); }
+    .tag-popular { background: rgba(255,107,53,.15); color: var(--accent); border: 1px solid rgba(255,107,53,.3); }
+    .tag-coach { background: rgba(255,255,255,.06); color: #8FA8C0; border: 1px solid var(--border); }
+    .tag-app { background: rgba(26,159,216,.1); color: var(--blue); border: 1px solid var(--blue-glow); }
+
+    .program-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: .6rem;
+      line-height: 1.25;
+    }
+
+    .program-card .tagline {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      flex-grow: 1;
+      margin-bottom: 2rem;
+    }
+    .feature-list li {
+      font-size: .85rem;
+      color: #8FA8C0;
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      line-height: 1.5;
+    }
+    .feature-list li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      font-size: .8rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .program-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--white);
+      letter-spacing: .02em;
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .program-price.free { color: var(--blue); }
+    .program-price small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+    .price-note {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .program-card .btn { width: 100%; text-align: center; }
+
+    /* App card */
+    .program-card.app-card {
+      background: linear-gradient(150deg, #0A1929 0%, #060A14 100%);
+      border-color: var(--blue-dim);
+      grid-column: span 1;
+    }
+    .app-coming-soon {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      color: var(--blue);
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .app-coming-soon::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--bg-2); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: border-color .2s;
+    }
+    .testi-card:hover { border-color: var(--blue-glow); }
+
+    .stars { color: #F4B942; font-size: 1rem; letter-spacing: .05em; }
+
+    .testi-quote {
+      font-size: .92rem;
+      color: #9BBAD5;
+      line-height: 1.75;
+      font-style: italic;
+      flex-grow: 1;
+    }
+
+    .testi-author { display: flex; align-items: center; gap: .9rem; }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-dim), #0A3050);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--blue);
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--ice);
+    }
+    .testi-role {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    /* ── RESULTS / NUMBERS ── */
+    #results {
+      background: var(--blue);
+      padding: 70px 5%;
+    }
+    .results-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .result-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--white);
+      letter-spacing: .03em;
+      line-height: 1;
+    }
+    .result-label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-top: .4rem;
+    }
+    .result-divider {
+      width: 1px;
+      background: rgba(255,255,255,.2);
+      margin: 0 auto;
+    }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg); }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.7rem;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+    .faq-item:hover { border-color: var(--blue-glow); }
+
+    .faq-q {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ice);
+      margin-bottom: .75rem;
+      padding-right: 1.5rem;
+      position: relative;
+    }
+    .faq-a {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg-2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info h2 { margin-bottom: 1rem; }
+    .contact-info p { color: var(--muted); font-size: .95rem; line-height: 1.75; margin-bottom: 2rem; }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin-bottom: .9rem;
+      font-size: .9rem;
+      color: #8FA8C0;
+    }
+    .contact-detail .icon {
+      width: 38px; height: 38px;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      background: #25D366;
+      color: var(--white);
+      padding: .8rem 1.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      margin-top: 1.5rem;
+      transition: background .2s;
+    }
+    .whatsapp-btn:hover { background: #1ab855; }
+
+    .contact-form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem;
+    }
+    .contact-form h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .45rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      padding: .8rem 1rem;
+      color: var(--ice);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); }
+    .form-group select { -webkit-appearance: none; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #040710;
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 5% 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.75;
+      margin-top: .8rem;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col ul li a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--ice); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    .footer-ig {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+    .footer-ig:hover { opacity: .75; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-wrap { max-width: 380px; }
+      .about-img-badge { right: 0; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .results-inner { grid-template-columns: repeat(2, 1fr); }
+      .result-divider { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="nav-container container">
-            <a href="#hero" class="nav-logo">
-                <span class="logo-text">Elite Hockey</span><span class="logo-accent">Drills</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#programs" class="nav-link">Programs</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
 
-    <section id="hero" class="hero">
-        <div class="hero-background">
-            <img src="hockey_training_1.png" alt="Online Hockey Training" class="hero-image">
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-main">ELITE HOCKEY</span>
-                    <span class="title-sub">TRAINING PROGRAMS</span>
-                </h1>
-                <p class="hero-description">
-                    Transform your game with world-class coaching and proven training methods. Join over 1000+ players who've achieved elite performance levels.
-                </p>
-            </div>
-            <div class="hero-buttons">
-                <a href="#programs" class="btn btn-primary">
-                    Start Training <i class="fas fa-arrow-right btn-icon"></i>
-                </a>
-                <a href="#programs" class="btn btn-secondary">
-                    View Programs
-                </a>
-            </div>
-         <div class="hero-stats">
-  <div class="stat-card">
-    <span class="stat-number count" data-target="1000">0</span>
-    <span class="stat-label">Players Coached</span>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">ELITE <span>HOCKEY</span> DRILLS</a>
+  <ul class="nav-links">
+    <li><a href="#about">Coach</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">M.Ed. Sport Science · National Team Coach</div>
+    <h1>OFF-ICE TRAINING <em>BUILT</em> FOR HOCKEY</h1>
+    <p class="hero-sub">
+      Science-backed strength, speed, and conditioning programs designed by a certified sport scientist and national-level hockey coach. No fluff. No generic fitness. Pure hockey performance.
+    </p>
+    <div class="hero-buttons">
+      <a href="#lead-magnet" class="btn btn-accent">Get Free 5-Day Program</a>
+      <a href="#programs" class="btn btn-outline">View Programs</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">1000<span>+</span></div>
+        <div class="stat-label">Athletes Trained</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Years Coaching</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">60<span>+</span></div>
+        <div class="stat-label">Pro Signings</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">33<span>K</span></div>
+        <div class="stat-label">IG Followers</div>
+      </div>
+    </div>
   </div>
-  <div class="stat-card">
-    <span class="stat-number count" data-target="10">0</span>
-    <span class="stat-label">Years Experience</span>
-  </div>
-  <div class="stat-card">
-    <span class="stat-number count" data-target="100">0</span>
-    <span class="stat-label">Success Rate</span>
+</section>
+
+<!-- LEAD MAGNET BAND -->
+<div id="lead-magnet">
+  <div class="lm-inner">
+    <div class="lm-text reveal">
+      <div class="lm-badge">100% Free</div>
+      <h2>5-Day Off-Ice Hockey<br>Power Reset</h2>
+      <p>A complete 5-day training program — no gym required. Built from the same methods Coach David uses with national-level players. Download instantly, start today.</p>
+    </div>
+    <div class="lm-form reveal">
+      <form onsubmit="handleLead(event)">
+        <input type="email" placeholder="Your email address" required id="lead-email" />
+        <button type="submit" class="btn btn-primary">Send Me the PDF →</button>
+      </form>
+      <p class="lm-note">Free forever. No spam. Unsubscribe anytime.</p>
+    </div>
   </div>
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="max-w">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-frame">
+          <img src="hockey_player_1.jpg" alt="Coach David Ciboch" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #0E2235, #060A14)'" />
         </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Coach</span>
-                <h2 class="section-title">Meet Your Elite Hockey Coach</h2>
-                <p class="section-description">
-                    Learn from the best to become the best. Our head coach brings years of professional experience and a passion for developing top-tier hockey talent.
-                </p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="coach-info">
-                        <h3 class="coach-name">Coach David Ciboch M.Ed.</h3>
-                        <p class="coach-title">Former Pro Player & Certified Strenght & Condition Coach</p>
-                    </div>
-                    <div class="about-description">
-                        <p>
-                            Coach David Ciboch, a former professional hockey player is dedicated to transforming aspiring athletes into elite performers. His unique training philosophy combines rigorous physical conditioning with advanced skill development, focusing on precision, power, and strategic thinking.
-                        </p>
-                        <p>
-                            Having trained hundreds of players, many of whom have gone on to play at collegiate and professional levels, Coach David understands what it takes to succeed. He believes in a holistic approach, emphasizing not just on-ice skills but also mental toughness, discipline, and a deep understanding of the game.
-                        </p>
-                    </div>
-                    <div class="achievements">
-                        <div class="achievement-item">
-                            <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
-                            <div class="achievement-text">
-                                <h4>Professional Coaching Career</h4>
-                                <p>10+ years in top-tier hockey leagues</p>
-                            </div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"><i class="fas fa-medal"></i></div>
-                            <div class="achievement-text">
-                                <h4>Certified Performance</h4>
-                                <p>Specialized certifications in strength, conditioning, and sports psychology.</p>
-                            </div>
-                        </div>
-                        <div class="achievement-item">
-                            <div class="achievement-icon"><i class="fas fa-users"></i></div>
-                            <div class="achievement-text">
-                                <h4>Developed Elite Talent</h4>
-                                <p>Mentored 1000+ players, many reaching collegiate and pro levels.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-container">
-                        <img src="hockey_player_1.jpg" alt="Strength and Conditioning and Speed Coach David" class="coach-photo">
-                        <div class="image-decoration"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="about-img-badge">
+          <span class="big">M.Ed.</span>
+          <span class="small">Sport Science</span>
         </div>
-    </section>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">About the Coach</div>
+        <h2 class="section-title">David Ciboch</h2>
+        <p>
+          I hold a Master's degree in PE & Sport Science, hold certifications in strength and conditioning, and have spent over a decade coaching hockey players from grassroots to national team level — including the UAE National Ice Hockey Team.
+        </p>
+        <p>
+          My training philosophy is built on sports science, not gym-bro culture. Every program I design is grounded in real evidence — periodization, force development, athletic movement patterns specific to hockey. Because guessing costs players seasons.
+        </p>
 
-    <section id="programs" class="programs">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Programs</span>
-                <h2 class="section-title">Tailored Training for Every Aspiring Player</h2>
-                <p class="section-description">
-                    Whether you're a beginner or an advanced athlete, our programs are designed to elevate your game. Choose the path that fits your goals.
-                </p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card featured">
-                    <div class="program-badge">Most Popular</div>
-                    <div class="program-header">
-                        <i class="fas fa-star program-icon"></i>
-                        <h3 class="program-title">1-on-1 Elite Coaching</h3>
-                        <p class="program-subtitle">Personalized Path to Mastery</p>
-                    </div>
-                    <div class="program-description">
-                        <p>Intensive online one-on-one sessions with Coach David, focusing on your specific needs and goals. Rapidly accelerate your development.</p>
-                    </div>
-                    <ul class="program-features">
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Weekly updated training plan</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Video analysis </span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Daily communication with the coach</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Progress tracking</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Skill development roadmap</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Motivation & Accountability</span></li>
-                         <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Nutrition & Recovery</span></li>
-                    </ul>
-                    <div class="program-price">
-                        <span class="price-amount">$209</span>
-                        <span class="price-period">/month</span>
-                    </div>
-                    <a href="#contact" class="btn btn-primary program-btn">
-    Get Started
-</a>
-                </div>
+        <ul class="credential-list">
+          <li>
+            <div class="cred-icon">✓</div>
+            <span>Master's Degree — PE & Sport Science (M.Ed.)</span>
+          </li>
+          <li>
+            <div class="cred-icon">✓</div>
+            <span>Certified Strength & Conditioning Coach</span>
+          </li>
+          <li>
+            <div class="cred-icon">✓</div>
+            <span>National Team Hockey Coach — UAE National Ice Hockey Program</span>
+          </li>
+          <li>
+            <div class="cred-icon">✓</div>
+            <span>10+ years coaching players from youth to professional level</span>
+          </li>
+          <li>
+            <div class="cred-icon">✓</div>
+            <span>1,000+ athletes developed across multiple countries</span>
+          </li>
+        </ul>
 
-                <div class="program-card">
-                    <div class="program-header">
-                        <i class="fas fa-bolt program-icon"></i>
-                        <h3 class="program-title">Tailored Power & Speed Training Plan</h3>
-                        <p class="program-subtitle">Unleash Your Explosiveness</p>
-                    </div>
-                    <div class="program-description">
-                        <p>Develop explosive power and blistering speed on the ice. This program focuses on agility, acceleration, and shot power.</p>
-                    </div>
-                    <ul class="program-features">
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Power building exercises</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Speed development drills</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Agility training drills</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Endurance conditioning</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Injury prevention strategies</span></li>
-                    </ul>
-                    <div class="program-price">
-                        <span class="price-amount">$119</span>
-                        <span class="price-period">/program (4 weeks)</span>
-                    </div>
-                    <a href="#contact" class="btn btn-primary program-btn">
-    Get Started
-</a>
-                </div>
-
-                <div class="program-card">
-                    <div class="program-header">
-                        <i class="fas fa-dumbbell program-icon"></i>
-                        <h3 class="program-title">Tailored Strength Training Plan</h3>
-                        <p class="program-subtitle">Build a Solid Foundation</p>
-                    </div>
-                    <div class="program-description">
-                        <p>A comprehensive off-ice strength and conditioning plan designed to build muscle, improve stability, and enhance overall athletic performance.</p>
-                    </div>
-                    <ul class="program-features">
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Progressive strength building</span></li>
-                         <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Mobility</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Core stability training</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Functional movements</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Recovery guidance</span></li>
-                        <li class="feature-item"><i class="fas fa-check-circle feature-icon"></i> <span>Nutrition guidance</span></li>
-                    </ul>
-                    <div class="program-price">
-                        <span class="price-amount">$119</span>
-                        <span class="price-period">/program (4 weeks)</span>
-                    </div>
-                    <a href="#contact" class="btn btn-primary program-btn">
-    Get Started
-</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Our Athletes Say</h2>
-                <p class="section-description">
-                    Hear directly from parents and players who have transformed their game and achieved their goals with Elite Hockey Drills.
-                </p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Coach David's 1-on-1 coaching was a game-changer. My shot power and accuracy improved dramatically. I highly recommend Elite Hockey Drills to anyone serious about their game!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">Ethan R.</h4>
-                            <p class="author-role">Junior AA League Player</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "The Power & Speed program helped me gain an edge over my opponents. My acceleration is noticeably faster, and I feel more explosive on the ice. Fantastic results!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">Chloe S.</h4>
-                            <p class="author-role">Collegiate Player</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">
-                        <span class="stars">★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "The Strength Training Plan was exactly what I needed. I'm stronger, more stable, and less prone to injuries. Coach David's expertise is awesome!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4 class="author-name">Liam P.</h4>
-                            <p class="author-role">Amateur Hockey Enthusiast</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="results" class="results">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag light">Our Impact</span>
-                <h2 class="section-title light">Proven Results, Unmatched Success</h2>
-                <p class="section-description light">
-                    Our commitment to excellence is reflected in the tangible improvements and achievements of our athletes.
-                </p>
-            </div>
-            <div class="results-grid">
-                <div class="result-item">
-                    <span class="result-number">1000+</span>
-                    <span class="result-label">Players Trained</span>
-                    <p class="result-description">Over seven hundred athletes have trusted us with their development.</p>
-                </div>
-                <div class="result-item">
-                    <span class="result-number">10+</span>
-                    <span class="result-label">Years Experience</span>
-                    <p class="result-description">A decade of dedicated coaching and proven methodologies.</p>
-                </div>
-                <div class="result-item">
-                    <span class="result-number">100%</span>
-                    <span class="result-label">Success Rate</span>
-                    <p class="result-description">High percentage of players achieving their performance goals.</p>
-                </div>
-                <div class="result-item">
-                    <span class="result-number">60+</span>
-                    <span class="result-label">Pro Signings</span>
-                    <p class="result-description">Many of our athletes have signed professional contracts.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Contact Us</span>
-                <h2 class="section-title">Ready to Elevate Your Game?</h2>
-                <p class="section-description">
-                    Get in touch with Coach David to discuss your training needs and start your journey to elite performance.
-                </p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                  <form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-
-  <div class="form-row">
-    <div class="form-group">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+        <a href="#programs" class="btn btn-primary">See the Programs</a>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="form-group">
-    <label for="program">Interested Program</label>
-    <select id="program" name="program">
-      <option value="1-on-1">1-on-1 Elite Coaching</option>
-      <option value="power-speed">Power & Speed Training</option>
-      <option value="strength">Strength Training Plan</option>
-      <option value="general">General Inquiry</option>
-    </select>
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="max-w">
+    <div class="programs-header">
+      <div>
+        <div class="section-label">Training Programs</div>
+        <h2 class="section-title">TRAIN LIKE AN ELITE</h2>
+        <p class="section-sub">Every program is built once, structured for progression, and ready to execute. No tailoring needed — they're designed to work for any serious player.</p>
+      </div>
+    </div>
+
+    <div class="programs-grid">
+
+      <!-- FREE PDF -->
+      <div class="program-card reveal">
+        <span class="program-tag tag-free">Free Download</span>
+        <h3>5-Day Off-Ice Hockey Power Reset</h3>
+        <p class="tagline">Jump-start your off-ice training with 5 structured days of science-backed hockey conditioning. No equipment needed.</p>
+        <ul class="feature-list">
+          <li>5 complete training sessions</li>
+          <li>Bodyweight-friendly — anywhere, anytime</li>
+          <li>Covers lower body power, upper body, core, conditioning & mobility</li>
+          <li>Used by players in 30+ countries</li>
+          <li>Instant PDF download</li>
+        </ul>
+        <div class="program-price free">FREE</div>
+        <div class="price-note">Enter your email above to receive it instantly</div>
+        <a href="#lead-magnet" class="btn btn-outline">Get Free Program ↑</a>
+      </div>
+
+      <!-- $49 PROGRAM -->
+      <div class="program-card featured reveal">
+        <span class="program-tag tag-popular">Most Popular</span>
+        <h3>12-Week Off-Ice Hockey Power & Speed Program</h3>
+        <p class="tagline">The complete off-ice system. 12 weeks of progressive training covering strength, explosive power, acceleration, and conditioning for hockey players.</p>
+        <ul class="feature-list">
+          <li>12 weeks of fully structured training</li>
+          <li>Progressive overload built in — no guessing</li>
+          <li>Power, speed, agility, endurance blocks</li>
+          <li>Exercise video demonstrations included</li>
+          <li>Works for junior to adult players</li>
+          <li>Injury prevention integrated throughout</li>
+          <li>30-day money-back guarantee</li>
+        </ul>
+        <div class="program-price">$49 <small>one-time</small></div>
+        <div class="price-note">Instant access · PDF + video links</div>
+        <a href="#contact" class="btn btn-primary">Get the Program →</a>
+      </div>
+
+      <!-- $99 COACH PRODUCT -->
+      <div class="program-card reveal">
+        <span class="program-tag tag-coach">For Coaches</span>
+        <h3>Coach's Off-Ice Practice Builder — 50 Sessions</h3>
+        <p class="tagline">A complete session library for hockey coaches. 50 structured off-ice training sessions, organized by goal, season phase, and duration.</p>
+        <ul class="feature-list">
+          <li>50 ready-to-run off-ice sessions</li>
+          <li>Organized by: power, conditioning, pre-season, in-season maintenance</li>
+          <li>15–60 min session options</li>
+          <li>Printable session sheets for your team</li>
+          <li>Built for youth, junior, and adult team coaches</li>
+          <li>No S&C background required to run them</li>
+          <li>30-day money-back guarantee</li>
+        </ul>
+        <div class="program-price">$99 <small>one-time</small></div>
+        <div class="price-note">Instant access · PDF format</div>
+        <a href="#contact" class="btn btn-outline">Get Coach Pack →</a>
+      </div>
+
+      <!-- APP (coming soon spans full width) -->
+      <div class="program-card app-card reveal" style="grid-column: span 3;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+          <div>
+            <div class="app-coming-soon">Coming Soon — Join the Waitlist</div>
+            <h3 style="font-size: 1.6rem;">Elite Hockey Drills App</h3>
+            <p class="tagline" style="max-width: 480px;">The first off-ice training app built specifically for hockey players. 228 exercises across 15 categories. Full programs, progress tracking, and new content every week. All from a certified sport scientist who coaches hockey.</p>
+            <a href="#contact" class="btn btn-primary" style="margin-top: .5rem;">Join the Waitlist →</a>
+          </div>
+          <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div>
+              <div class="stat-num">228<span style="color:var(--blue)">+</span></div>
+              <div class="stat-label">Exercises</div>
+            </div>
+            <div>
+              <div class="stat-num">15</div>
+              <div class="stat-label">Categories</div>
+            </div>
+            <div>
+              <div class="stat-num" style="font-size:2rem;">$9.99<span style="color:var(--blue); font-size:1.2rem;">/mo</span></div>
+              <div class="stat-label">Launch Price</div>
+            </div>
+            <div>
+              <div class="stat-num" style="font-size:2rem;">$69<span style="color:var(--blue); font-size:1.2rem;">/yr</span></div>
+              <div class="stat-label">Annual Plan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <div class="form-group">
-    <label for="message">Your Message</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="max-w">
+    <div class="section-label">Results</div>
+    <h2 class="section-title">WHAT ATHLETES SAY</h2>
+    <div class="testimonials-grid">
+
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"My shot power and acceleration are noticeably different. What I love is that the science is actually explained — I understand WHY I'm doing each exercise, not just following random routines."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">E</div>
+          <div>
+            <div class="testi-name">Ethan R.</div>
+            <div class="testi-role">Junior AA League Player</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"The Power & Speed program gave me an edge I'd been chasing for two seasons. My first three strides are genuinely faster and I feel explosive in a way I didn't before."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Chloe S.</div>
+            <div class="testi-role">Collegiate Player</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"As a coach, I've tried a lot of off-ice resources. This is the first one that's actually built for hockey athletes, not just repurposed generic gym content. My team noticed the difference within 6 weeks."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Liam P.</div>
+            <div class="testi-role">Youth Hockey Coach</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <button type="submit" class="btn btn-primary form-submit">
-    Send Message <i class="fas fa-paper-plane btn-icon"></i>
-  </button>
-</form>
+<!-- RESULTS BAND -->
+<div id="results">
+  <div class="results-inner">
+    <div class="reveal">
+      <div class="result-num">1,000+</div>
+      <div class="result-label">Athletes Trained</div>
+    </div>
+    <div class="reveal">
+      <div class="result-num">10+</div>
+      <div class="result-label">Years Coaching</div>
+    </div>
+    <div class="reveal">
+      <div class="result-num">60+</div>
+      <div class="result-label">Pro Signings</div>
+    </div>
+    <div class="reveal">
+      <div class="result-num">30+</div>
+      <div class="result-label">Countries Reached</div>
+    </div>
+  </div>
+</div>
 
-                </div>
-                <div class="contact-info">
-    <div class="contact-cta">
-        <h4>Prefer a quick chat?</h4>
-        <a href="https://wa.me/420770149067" class="btn btn-whatsapp" target="_blank">
-            Chat on WhatsApp <i class="fab fa-whatsapp btn-icon"></i>
+<!-- FAQ -->
+<section id="faq">
+  <div class="max-w">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">QUESTIONS ANSWERED</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Who are these programs for?</div>
+        <div class="faq-a">Any hockey player serious about improving their off-ice performance — from competitive youth players to adult beer leaguers and juniors. All programs are structured with progressions so beginners and advanced players both benefit.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Do I need a gym membership?</div>
+        <div class="faq-a">The free 5-day program is fully bodyweight. The 12-week program uses basic gym equipment (barbell, dumbbells, cable). The Coach's pack includes both gym and bodyweight options for flexibility.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Is there a refund policy?</div>
+        <div class="faq-a">Yes — 30-day money-back guarantee on all paid programs. If you're not happy with it, just email and we'll sort it. No questions, no hassle.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">What format do I receive the programs in?</div>
+        <div class="faq-a">PDF with embedded video demonstration links. Download once, use on any device. The PDF is printable and includes exercise photos, rep/set schemes, and coaching notes for each session.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">What is the Elite Hockey Drills App?</div>
+        <div class="faq-a">An off-ice training app built specifically for hockey players — 228+ exercises across 15 categories, full structured programs, and progress tracking. Launching soon. Join the waitlist to get founding member pricing when it drops.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Do you offer 1-on-1 coaching?</div>
+        <div class="faq-a">Not currently — the programs and the upcoming app are the focus. They're built to deliver the same systematic approach Coach David uses with national-level athletes, just in a scalable format you can run independently.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="max-w">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">READY TO TRAIN?</h2>
+        <p>Questions about the programs, bulk coach licenses, or app waitlist? Send a message and we'll get back to you fast.</p>
+
+        <div class="contact-detail">
+          <div class="icon">📍</div>
+          <span>Al Ain, UAE</span>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">✉️</div>
+          <span>elitehockeydrills@gmail.com</span>
+        </div>
+        <div class="contact-detail">
+          <div class="icon">📱</div>
+          <span>@elite_hockey_drills</span>
+        </div>
+
+        <a href="https://wa.me/420770149067" class="whatsapp-btn" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
         </a>
+      </div>
+
+      <div class="contact-form reveal">
+        <h3>Send a Message</h3>
+        <form onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Alex" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="alex@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Interested In</label>
+            <select>
+              <option value="">Select a program...</option>
+              <option>Free 5-Day Program</option>
+              <option>12-Week Power & Speed Program ($49)</option>
+              <option>Coach's Practice Builder ($99)</option>
+              <option>App Waitlist</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your hockey goals..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send Message →</button>
+        </form>
+      </div>
     </div>
-</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-   </section>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#hero">ELITE <span>HOCKEY</span> DRILLS</a>
+      <p>Science-backed off-ice training programs for hockey players of all levels. Built by a certified sport scientist and national team coach.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#lead-magnet">Free 5-Day PDF</a></li>
+        <li><a href="#programs">12-Week Power & Speed</a></li>
+        <li><a href="#programs">Coach's Practice Builder</a></li>
+        <li><a href="#programs">App Waitlist</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About Coach</a></li>
+        <li><a href="#testimonials">Results</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://instagram.com/elite_hockey_drills" target="_blank">Instagram</a></li>
+        <li><a href="https://wa.me/420770149067" target="_blank">WhatsApp</a></li>
+        <li><a href="mailto:elitehockeydrills@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Elite Hockey Drills. All rights reserved.</span>
+    <a href="https://instagram.com/elite_hockey_drills" class="footer-ig" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @elite_hockey_drills
+    </a>
+  </div>
+</footer>
 
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">FAQ</span>
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <p class="section-description">
-                    Find answers to common questions about our programs, coaching, and services.
-                </p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is Elite Hockey Drills?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Elite Hockey Drills offers world-class online hockey training programs designed to help players of all levels improve their skills, strength, and performance on the ice. Our programs are led by experienced pro coaches and utilize proven training methodologies.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Who is Coach David Ciboch?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Coach David Ciboch M.Ed. is a former professional hockey player and certified strength & conditioning coach with over 10 years of experience. He has mentored over 1000+ players, many of whom have reached collegiate and professional levels.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What types of programs do you offer?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We offer 3 programs: 1-on-1 Elite Coaching, Customized Power & Speed Training Plan, and Customized Strength Training Plan. Each program is built to match the specific needs and goals of every player.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What is  1-on-1 Elite Coaching?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>1-on-1 Elite Coaching is our most personalized program designed for serious players who want real progress. Everything is delivered through the TrueCoach app, where you’ll get a fully customized weekly plan tailored exactly to your goals, schedule, and current level. Every exercise comes with video demos, clear instructions, and direct chat with your coach — so you’re never guessing what to do.
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
 
-You’ll also receive weekly feedback, adjustments when needed, and full support to keep you accountable and on track. It’s like having your own personal coach in your pocket every single day. Perfect for players who are ready to take their training to the next level.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is there any FREE TRIAL?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! We offer a 1-week free trial for our 1-on-1 Elite Coaching. So you can be 100% sure you’ll love it before making any purchase!</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is there a refund policy?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Of course! We offer a 30-day money back guarantee if you're not satisfied with the program. Just reach out and we'll make sure everything is sorted. Your satisfaction is our priority</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  // Lead magnet form
+  function handleLead(e) {
+    e.preventDefault();
+    const email = document.getElementById('lead-email').value;
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Check your inbox!';
+    btn.style.background = '#1a8a3a';
+    btn.disabled = true;
+    // In production: POST to your email service (Beehiiv, ConvertKit, etc.)
+    console.log('Lead email:', email);
+  }
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="#hero" class="footer-logo">
-                        <span class="logo-text">Elite Hockey</span><span class="logo-accent">Drills</span>
-                    </a>
-                    <p class="footer-description">
-                        Dedicated to transforming hockey players into elite athletes through personalized coaching and proven training methodologies.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Our Programs</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#results">Results</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Programs</h4>
-                    <ul class="footer-links">
-                        <li><a href="#programs">1-on-1 Elite Coaching</a></li>
-                        <li><a href="#programs">Customized Power & Speed Training Plan</a></li>
-                        <li><a href="#programs">Customized Strength Training Plan</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> Al Jimi, Al Ain City, UAE</p>
-                        <p><i class="fas fa-envelope"></i> elitehockeydrills@gmail.com</p>
-                        <p><i class="fas fa-phone-alt"></i> +420 770 149 067</p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Elite Hockey Drills. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+  // Contact form
+  function handleContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = '#1a8a3a';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
 
-    <script src="script.js"></script>
+  // Nav active state on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 100;
+    sections.forEach(sec => {
+      if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+        document.querySelectorAll('.nav-links a').forEach(a => {
+          a.style.color = '';
+          if (a.getAttribute('href') === '#' + sec.id) a.style.color = 'var(--ice)';
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
-
-</body>
-</html>
-
