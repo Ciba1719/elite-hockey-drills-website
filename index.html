@@ -113,7 +113,17 @@ section{position:relative;z-index:2;}
   background:radial-gradient(closest-side,var(--ice-soft) 0%,transparent 70%);
   pointer-events:none;filter:blur(20px);
 }
+@media(min-width:900px){
+  .hero-glow{right:auto;left:50%;top:-10%;transform:translateX(-50%);}
+}
 .hero-content{position:relative;z-index:2;max-width:900px;}
+@media(min-width:900px){
+  .hero{align-items:center;text-align:center;}
+  .hero-content{max-width:1100px;}
+  .hero-sub{margin-left:auto;margin-right:auto;}
+  .hero-ctas{justify-content:center;}
+  .hero-stats{margin-left:auto;margin-right:auto;max-width:800px;}
+}
 .hero-status{
   display:inline-flex;align-items:center;gap:10px;
   padding:7px 14px 7px 12px;
@@ -126,7 +136,7 @@ section{position:relative;z-index:2;}
   content:'';width:6px;height:6px;background:var(--ice);border-radius:50%;
   box-shadow:0 0 10px var(--ice);animation:dotPulse 2s infinite;
 }
-.hero-h1{font-size:clamp(56px,15vw,168px);margin-bottom:28px;}
+.hero-h1{font-size:clamp(56px,15vw,140px);margin-bottom:28px;}
 .hero-h1 .line{display:block;}
 .hero-h1 .ice{color:var(--ice);}
 .hero-h1 .accent{
@@ -140,6 +150,7 @@ section{position:relative;z-index:2;}
   margin-bottom:40px;font-weight:400;
 }
 .hero-sub strong{color:var(--ink);font-weight:500;}
+@media(min-width:900px){.hero-sub{max-width:620px;font-size:18px;}}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-bottom:64px;}
 @media(min-width:520px){.hero-ctas{flex-direction:row;align-items:center;}}
 
@@ -225,6 +236,10 @@ section{position:relative;z-index:2;}
 
 /* SECTION HEADER */
 .sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:48px;}
+@media(min-width:900px){
+  .sec-head{align-items:center;text-align:center;}
+  .sec-sub{margin-left:auto;margin-right:auto;}
+}
 .sec-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--ice);letter-spacing:.02em;}
 .sec-num::before{content:'';display:inline-block;width:32px;height:1px;background:var(--ice);vertical-align:middle;margin-right:14px;}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,9vw,80px);line-height:.95;letter-spacing:.005em;}
@@ -659,8 +674,8 @@ section{position:relative;z-index:2;}
     </defs>
     <line x1="0" y1="300" x2="1440" y2="300" stroke="url(#rinkLine)" stroke-width="1"/>
     <line x1="0" y1="600" x2="1440" y2="600" stroke="url(#rinkLine)" stroke-width="1"/>
-    <circle cx="1200" cy="450" r="180" fill="none" stroke="#5DB4E5" stroke-opacity=".15" stroke-width="1"/>
-    <circle cx="1200" cy="450" r="3" fill="#5DB4E5" fill-opacity=".4"/>
+    <circle cx="720" cy="300" r="220" fill="none" stroke="#5DB4E5" stroke-opacity=".1" stroke-width="1"/>
+    <circle cx="720" cy="300" r="3" fill="#5DB4E5" fill-opacity=".3"/>
   </svg>
 
   <div class="hero-content">
