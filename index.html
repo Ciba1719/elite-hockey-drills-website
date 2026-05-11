@@ -106,7 +106,15 @@ section{position:relative;z-index:2;}
   display:flex;flex-direction:column;justify-content:center;
   position:relative;overflow:hidden;
 }
-.hero-rink{position:absolute;inset:0;pointer-events:none;opacity:.45;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('ehd_hero_medball.jpg') center center / cover no-repeat;
+  opacity:.35;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(7,7,8,.6) 0%,rgba(7,7,8,.3) 40%,rgba(7,7,8,.85) 100%);
+}
 .hero-glow{
   position:absolute;top:-20%;right:-30%;
   width:90vw;height:90vw;max-width:900px;max-height:900px;
@@ -251,51 +259,24 @@ section{position:relative;z-index:2;}
 .about-grid{display:grid;gap:48px;}
 .about-visual{
   position:relative;aspect-ratio:4/5;
-  background:linear-gradient(160deg,#0F1822 0%,#070708 100%);
+  background:#070708;
   border:1px solid var(--line);border-radius:16px;overflow:hidden;
-  display:flex;align-items:flex-end;padding:32px;
 }
-.about-visual::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    radial-gradient(circle at 30% 30%,var(--ice-soft) 0%,transparent 50%),
-    radial-gradient(circle at 70% 70%,rgba(232,183,119,.08) 0%,transparent 50%);
+.about-visual img{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:.85;
+  transition:opacity .4s;
 }
+.about-visual:hover img{opacity:1;}
 .about-visual::after{
   content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size:60px 60px;
-  opacity:.18;
+  background:linear-gradient(180deg,transparent 50%,rgba(7,7,8,.7) 100%);
+  pointer-events:none;
 }
-.about-rink-circle{
-  position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:280px;height:280px;
-  border:1px solid var(--ice);
-  border-radius:50%;
-  opacity:.12;
-}
-.about-rink-dot{
-  position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:8px;height:8px;
-  background:var(--ice);
-  border-radius:50%;
-  opacity:.3;
-  box-shadow:0 0 20px var(--ice);
-}
-.about-visual-content{position:relative;z-index:2;width:100%;}
-.about-monogram{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(140px,32vw,220px);
-  line-height:.85;color:var(--ink);letter-spacing:-.01em;
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-55%);
-  text-align:center;pointer-events:none;
-  background:linear-gradient(180deg,rgba(236,237,239,.15) 0%,rgba(236,237,239,.03) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.about-visual-content{
+  position:absolute;bottom:0;left:0;right:0;
+  z-index:2;padding:32px;
 }
 .about-credentials-stack{display:flex;flex-direction:column;gap:14px;position:relative;z-index:3;}
 .about-cred-mini{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-2);}
@@ -322,9 +303,7 @@ section{position:relative;z-index:2;}
 @media(min-width:900px){
   .about{padding:120px 40px;}
   .about-grid{grid-template-columns:5fr 7fr;gap:80px;align-items:center;}
-  .about-visual{aspect-ratio:auto;min-height:600px;}
-  .about-monogram{font-size:240px;}
-  .about-rink-circle{width:360px;height:360px;}
+  .about-visual{aspect-ratio:3/4;min-height:600px;}
 }
 
 /* METHOD */
@@ -397,6 +376,30 @@ section{position:relative;z-index:2;}
 .prog-price-meta{color:var(--ink-3);font-size:13px;}
 .prog-price-note{font-size:12px;color:var(--ink-3);margin-bottom:24px;}
 .prog-card .btn{width:100%;}
+
+.prog-img{
+  width:calc(100% + 56px);
+  margin:-36px -28px 24px;
+  height:200px;
+  overflow:hidden;
+  border-radius:20px 20px 0 0;
+}
+.prog-img img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .4s;
+}
+.prog-card:hover .prog-img img{transform:scale(1.04);}
+@media(min-width:780px){
+  .prog-img{height:220px;}
+}
+@media(min-width:1200px){
+  .prog-img{
+    width:calc(100% + 72px);
+    margin:-44px -36px 28px;
+    height:240px;
+  }
+}
 
 @media(min-width:780px){
   .programs{padding:120px 40px;}
@@ -663,21 +666,8 @@ section{position:relative;z-index:2;}
 </header>
 
 <section class="hero" id="hero">
+  <div class="hero-bg"></div>
   <div class="hero-glow"></div>
-  <svg class="hero-rink" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="rinkLine" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#5DB4E5" stop-opacity="0"/>
-        <stop offset=".5" stop-color="#5DB4E5" stop-opacity=".25"/>
-        <stop offset="1" stop-color="#5DB4E5" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <line x1="0" y1="300" x2="1440" y2="300" stroke="url(#rinkLine)" stroke-width="1"/>
-    <line x1="0" y1="600" x2="1440" y2="600" stroke="url(#rinkLine)" stroke-width="1"/>
-    <circle cx="720" cy="300" r="220" fill="none" stroke="#5DB4E5" stroke-opacity=".1" stroke-width="1"/>
-    <circle cx="720" cy="300" r="3" fill="#5DB4E5" fill-opacity=".3"/>
-  </svg>
-
   <div class="hero-content">
     <div class="hero-status">M.Ed. Sport Science · National Team Coach</div>
     <h1 class="hero-h1 display">
@@ -741,9 +731,7 @@ section{position:relative;z-index:2;}
   <div class="wrap">
     <div class="about-grid">
       <div class="about-visual reveal">
-        <div class="about-monogram">DC</div>
-        <div class="about-rink-circle"></div>
-        <div class="about-rink-dot"></div>
+        <img src="ehd_program_1_squat.jpg" alt="Coach David Ciboch performing a barbell squat" />
         <div class="about-visual-content">
           <div class="about-credentials-stack">
             <div class="about-cred-mini">M.Ed. — Sport Science</div>
@@ -836,6 +824,7 @@ section{position:relative;z-index:2;}
       </div>
 
       <div class="prog-card featured reveal">
+        <div class="prog-img"><img src="ehd_program_2_deadlift.jpg" alt="Off-ice hockey deadlift training" /></div>
         <span class="prog-tag ice">Most Popular</span>
         <h3 class="prog-name display">12-Week Off-Ice Power &amp; Speed</h3>
         <p class="prog-tagline">The complete off-ice system. 12 weeks of progressive training covering strength, explosive power, acceleration, and conditioning.</p>
@@ -859,6 +848,7 @@ section{position:relative;z-index:2;}
       </div>
 
       <div class="prog-card reveal">
+        <div class="prog-img"><img src="ehd_program_3_boxjump.jpg" alt="Off-ice hockey box jump training" /></div>
         <span class="prog-tag neutral">For Coaches</span>
         <h3 class="prog-name display">Coach's Off-Ice Practice Builder</h3>
         <p class="prog-tagline">A complete session library for hockey coaches. 50 ready-to-run off-ice training sessions, organized by goal and season phase.</p>
