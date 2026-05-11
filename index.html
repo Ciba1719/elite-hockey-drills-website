@@ -380,24 +380,31 @@ section{position:relative;z-index:2;}
 .prog-img{
   width:calc(100% + 56px);
   margin:-36px -28px 24px;
-  height:200px;
+  height:160px;
   overflow:hidden;
   border-radius:20px 20px 0 0;
+  position:relative;
+}
+.prog-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(14,14,19,.9) 100%);
+  pointer-events:none;
 }
 .prog-img img{
   width:100%;height:100%;
   object-fit:cover;
+  object-position:center 30%;
   transition:transform .4s;
 }
 .prog-card:hover .prog-img img{transform:scale(1.04);}
 @media(min-width:780px){
-  .prog-img{height:220px;}
+  .prog-img{height:180px;}
 }
 @media(min-width:1200px){
   .prog-img{
     width:calc(100% + 72px);
     margin:-44px -36px 28px;
-    height:240px;
+    height:180px;
   }
 }
 
@@ -807,6 +814,7 @@ section{position:relative;z-index:2;}
 
     <div class="programs-stack">
       <div class="prog-card free reveal">
+        <div class="prog-img"><img src="ehd_program_4_sledpush.jpg" alt="Off-ice hockey sled push training" /></div>
         <span class="prog-tag warm">Free Download</span>
         <h3 class="prog-name display">5-Day Off-Ice<br>Power Reset</h3>
         <p class="prog-tagline">Jump-start your off-ice training with 5 structured days of science-backed conditioning. No equipment needed.</p>
