@@ -102,37 +102,77 @@ section{position:relative;z-index:2;}
 /* HERO */
 .hero{
   min-height:100vh;min-height:100dvh;
-  padding:120px 24px 100px;
+  padding:120px 24px 60px;
   display:flex;flex-direction:column;justify-content:center;
   position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:url('ehd_hero_medball.jpg') center center / cover no-repeat;
-  opacity:.45;
-}
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at center,rgba(7,7,8,.2) 0%,rgba(7,7,8,.7) 70%,rgba(7,7,8,.95) 100%),
-    linear-gradient(180deg,rgba(7,7,8,.6) 0%,transparent 40%,rgba(7,7,8,.85) 100%);
 }
 .hero-glow{
   position:absolute;top:-20%;right:-30%;
   width:90vw;height:90vw;max-width:900px;max-height:900px;
   background:radial-gradient(closest-side,var(--ice-soft) 0%,transparent 70%);
-  pointer-events:none;filter:blur(20px);
-}
-@media(min-width:900px){
-  .hero-glow{right:auto;left:50%;top:-10%;transform:translateX(-50%);}
+  pointer-events:none;filter:blur(20px);z-index:0;
 }
 .hero-content{position:relative;z-index:2;max-width:900px;}
+.hero-photo-mobile{
+  position:relative;
+  margin:48px -24px 0;
+  height:340px;
+  overflow:hidden;
+  z-index:2;
+}
+.hero-photo-mobile img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+}
+.hero-photo-mobile::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 0%,transparent 60%,rgba(7,7,8,1) 100%);
+  pointer-events:none;
+}
+.hero-photo-desktop{display:none;}
+
 @media(min-width:900px){
-  .hero{align-items:center;text-align:center;}
-  .hero-content{max-width:1100px;}
-  .hero-sub{margin-left:auto;margin-right:auto;}
-  .hero-ctas{justify-content:center;}
-  .hero-stats{margin-left:auto;margin-right:auto;max-width:800px;}
+  .hero{
+    padding:120px 40px 100px;
+    align-items:center;text-align:left;
+  }
+  .hero-content{max-width:none;width:100%;text-align:left;}
+  .hero-photo-mobile{display:none;}
+  .hero-photo-desktop{
+    display:block;
+    position:absolute;
+    top:0;right:0;bottom:0;
+    width:45%;
+    z-index:1;
+    overflow:hidden;
+  }
+  .hero-photo-desktop img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+  .hero-photo-desktop::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,var(--bg) 0%,transparent 30%,transparent 100%);
+    pointer-events:none;
+  }
+  .hero-photo-desktop::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 70% 50%,transparent 0%,rgba(7,7,8,.3) 100%);
+    pointer-events:none;z-index:1;
+  }
+  .hero-grid-inner{
+    max-width:1240px;margin:0 auto;
+    display:grid;
+    grid-template-columns:55% 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .hero-text{padding-right:20px;}
+  .hero-sub{margin-left:0;margin-right:0;}
+  .hero-ctas{justify-content:flex-start;}
+  .hero-stats{margin-left:0;margin-right:0;max-width:600px;}
 }
 .hero-status{
   display:inline-flex;align-items:center;gap:10px;
@@ -683,41 +723,50 @@ section{position:relative;z-index:2;}
 </header>
 
 <section class="hero" id="hero">
-  <div class="hero-bg"></div>
   <div class="hero-glow"></div>
+  <div class="hero-photo-desktop">
+    <img src="ehd_hero_medball.jpg" alt="Hockey player off-ice medicine ball training" />
+  </div>
   <div class="hero-content">
-    <div class="hero-status">M.Ed. Sport Science · National Team Coach</div>
-    <h1 class="hero-h1 display">
-      <span class="line">Off-Ice Training,</span>
-      <span class="line"><span class="accent serif">engineered</span> for <span class="ice">hockey.</span></span>
-    </h1>
-    <p class="hero-sub">
-      Programs built on real sport science — not gym-bro guesswork. <strong>Strength, speed, and conditioning</strong> for hockey players, designed by a coach who's worked with players from grassroots to national team level.
-    </p>
-    <div class="hero-ctas">
-      <a href="#lead" class="btn btn-primary">
-        Get Free 5-Day Program
-        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#programs" class="btn btn-ghost">View Programs</a>
+    <div class="hero-grid-inner">
+      <div class="hero-text">
+        <div class="hero-status">M.Ed. Sport Science · National Team Coach</div>
+        <h1 class="hero-h1 display">
+          <span class="line">Off-Ice Training,</span>
+          <span class="line"><span class="accent serif">engineered</span> for <span class="ice">hockey.</span></span>
+        </h1>
+        <p class="hero-sub">
+          Programs built on real sport science — not gym-bro guesswork. <strong>Strength, speed, and conditioning</strong> for hockey players, designed by a coach who's worked with players from grassroots to national team level.
+        </p>
+        <div class="hero-ctas">
+          <a href="#lead" class="btn btn-primary">
+            Get Free 5-Day Program
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#programs" class="btn btn-ghost">View Programs</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num display">1,000<span class="plus">+</span></div>
+            <div class="hero-stat-label">Athletes Trained</div>
+          </div>
+          <div>
+            <div class="hero-stat-num display">10<span class="plus">+</span></div>
+            <div class="hero-stat-label">Years Coaching</div>
+          </div>
+          <div>
+            <div class="hero-stat-num display">60<span class="plus">+</span></div>
+            <div class="hero-stat-label">Pro Signings</div>
+          </div>
+          <div>
+            <div class="hero-stat-num display">30<span class="plus">+</span></div>
+            <div class="hero-stat-label">Countries</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num display">1,000<span class="plus">+</span></div>
-        <div class="hero-stat-label">Athletes Trained</div>
-      </div>
-      <div>
-        <div class="hero-stat-num display">10<span class="plus">+</span></div>
-        <div class="hero-stat-label">Years Coaching</div>
-      </div>
-      <div>
-        <div class="hero-stat-num display">60<span class="plus">+</span></div>
-        <div class="hero-stat-label">Pro Signings</div>
-      </div>
-      <div>
-        <div class="hero-stat-num display">30<span class="plus">+</span></div>
-        <div class="hero-stat-label">Countries</div>
-      </div>
+    <div class="hero-photo-mobile">
+      <img src="ehd_hero_medball.jpg" alt="Hockey player off-ice medicine ball training" />
     </div>
   </div>
 </section>
