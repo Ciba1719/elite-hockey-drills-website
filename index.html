@@ -102,9 +102,21 @@ section{position:relative;z-index:2;}
 /* HERO */
 .hero{
   min-height:100vh;min-height:100dvh;
-  padding:120px 24px 60px;
+  padding:120px 24px 80px;
   display:flex;flex-direction:column;justify-content:center;
   position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('ehd_hero_medball.jpg') center 30% / cover no-repeat;
+  opacity:.5;
+  z-index:0;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center,rgba(7,7,8,.2) 0%,rgba(7,7,8,.75) 70%,rgba(7,7,8,.95) 100%),
+    linear-gradient(180deg,rgba(7,7,8,.65) 0%,transparent 30%,rgba(7,7,8,.9) 100%);
 }
 .hero-glow{
   position:absolute;top:-20%;right:-30%;
@@ -113,23 +125,6 @@ section{position:relative;z-index:2;}
   pointer-events:none;filter:blur(20px);z-index:0;
 }
 .hero-content{position:relative;z-index:2;max-width:900px;}
-.hero-photo-mobile{
-  position:relative;
-  margin:48px -24px 0;
-  height:340px;
-  overflow:hidden;
-  z-index:2;
-}
-.hero-photo-mobile img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 30%;
-}
-.hero-photo-mobile::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 0%,transparent 60%,rgba(7,7,8,1) 100%);
-  pointer-events:none;
-}
 .hero-photo-desktop{display:none;}
 
 @media(min-width:900px){
@@ -137,8 +132,8 @@ section{position:relative;z-index:2;}
     padding:120px 40px 100px;
     align-items:center;text-align:left;
   }
+  .hero-bg{display:none;}
   .hero-content{max-width:none;width:100%;text-align:left;}
-  .hero-photo-mobile{display:none;}
   .hero-photo-desktop{
     display:block;
     position:absolute;
@@ -723,6 +718,7 @@ section{position:relative;z-index:2;}
 </header>
 
 <section class="hero" id="hero">
+  <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-photo-desktop">
     <img src="ehd_hero_medball.jpg" alt="Hockey player off-ice medicine ball training" />
@@ -764,9 +760,6 @@ section{position:relative;z-index:2;}
           </div>
         </div>
       </div>
-    </div>
-    <div class="hero-photo-mobile">
-      <img src="ehd_hero_medball.jpg" alt="Hockey player off-ice medicine ball training" />
     </div>
   </div>
 </section>
