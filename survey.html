@@ -18,7 +18,7 @@
   --line:#1B1B22;--line-2:#25252E;
   --ink:#ECEDEF;--ink-2:#9398A2;--ink-3:#5A5F6B;
   --ice:#5DB4E5;--ice-soft:#5DB4E518;--ice-line:#5DB4E535;
-  --warm:#E8B777;--card:#0E0E13;--card-2:#14141B;--green:#4FB371;
+  --warm:#E8B777;--card:#0E0E13;--card-2:#14141B;--green:#4FB371;--red:#E5675D;
   --sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -183,6 +183,12 @@ body::after{
 .submit-btn.loading .spinner{display:block;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .email-note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+.error-msg{
+  display:none;font-size:13px;color:var(--red);margin-top:8px;line-height:1.5;
+  padding:10px 14px;background:rgba(229,103,93,.08);border:1px solid rgba(229,103,93,.25);
+  border-radius:10px;
+}
+.error-msg.show{display:block;}
 
 .summary-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
 .summary-pill{
@@ -308,7 +314,7 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
     </div>
   </section>
 
-  <!-- Q3: LEVEL (skipped if age = 9_13) -->
+  <!-- Q3: LEVEL -->
   <section class="screen" data-screen="3">
     <div class="q-eyebrow">Question 03</div>
     <h2 class="q-title display">What's your <em>playing level?</em></h2>
@@ -376,6 +382,7 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         <span class="spinner"></span>
       </button>
+      <div class="error-msg" id="errorMsg"></div>
       <p class="email-note">No spam. Unsubscribe anytime. By submitting, you agree to receive training emails from Elite Hockey Drills.</p>
     </form>
   </section>
@@ -399,10 +406,28 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
 </main>
 
 <script>
-// Paste your webhook URL here when you set up the email tool.
-// Until then, answers are logged to the browser console (right-click → Inspect → Console).
-const WEBHOOK_URL = '';
+/* ============================================================
+   ⚠️ PASTE YOUR MAILERLITE API TOKEN BELOW
+   ============================================================
+   The token is the long string starting with "eyJ0..." that
+   you saved in mailerlite-token.txt. Replace the placeholder
+   text inside the quotes with your actual token.
+   ============================================================ */
+const MAILERLITE_API_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNDRkY2I2YjEwNWU5MjU5MDg3ZDMyY2QwNTZiZGY3OTM0Yjg1YmUxZTFkY2IxMWZlNzBhZWFlYjA1ZTM2NmM5Yjg2MDY5OTUwMDVlODI2NDkiLCJpYXQiOjE3NzkwMzA0NjQuOTcxODA2LCJuYmYiOjE3NzkwMzA0NjQuOTcxODA5LCJleHAiOjQ5MzQ3MDQwNjQuOTY1MTMsInN1YiI6IjIzNzQxNjAiLCJzY29wZXMiOltdfQ.PlKU9eTKAWObfTq0obM84HiuVjvMrTxZ8CWe-rUvnW0NnwrUsoa8Cm9OprGyLjP89-odcIdCwWiEituCn5WmUj74ydd0OVV3-n4v4p3gh9WianEnW4j_09dOZzZKdKk4Rtqtlh4PHYiJ56EhKhcW5rUE4666BSBfZ8pAnNz-lLT5IbiO2JyyBpO7Rt1-z-Qx6xgj0ZbIRt-hBPTTr506zkP6RtriGcoKBDZQ7gdoGV1xiRPaGH5msFVYLnzykYoR50Iiw5XphRhwGA4269qfouDL8rsJhr1snNqWepNdRxM7AADn4VgmquNMaJW1MSrxvLen-pN8f0YkvELx4JATJVuixjogE6Ky2scjEjAIoY4LOl0QM4IBOvjyodwRQfT4pecEN4VoCoVb6LJmeriMpIn8Ytvxdb1ORv2lbNGH96rztPT2B_0217REorOqTp_8Zv7wGrRsZAjjWKYvqHJJVBvrIwO5PbcOEmfh2z8EKDSsxPD4nnjyYKVYjfET_WUXwBVcWr95yeSgzVVAX-Wu1D-9enL8HLGgdy19w4HcwgdkletoZ2i5Mr3yAeaKO7a6EviwtDDP-3J6sLoVQjmo-09YQPS0xV2WpErRVck6fdVayQBz734clVtZ72IRfs58CS5bIX5a5dxvtYNTSWZ47taJ4fm10VhnHBnyJXrjYVE';
 
+/* ============================================================
+   GROUP NAMES IN MAILERLITE (must match exactly)
+   ============================================================ */
+const GROUP_NAMES = {
+  youth:   'youth-program',
+  teen:    'teen-program',
+  adult:   'adult-program',
+  masters: 'masters-program'
+};
+
+/* ============================================================
+   SURVEY STATE
+   ============================================================ */
 const answers = {
   age:null, ageLabel:null,
   position:null, positionLabel:null,
@@ -423,7 +448,6 @@ function getScreen(step){
   return document.querySelector(`.screen[data-screen="${step}"]`);
 }
 
-// 9–13 skip the level question → 3 questions. Everyone else → 4 questions.
 function getTotal(){
   return answers.age === '9_13' ? 3 : 4;
 }
@@ -489,7 +513,6 @@ function showScreen(step, direction){
 
 function goNext(){
   let next;
-  // Skip Q3 (level) for the 9–13 group
   if(currentStep === 2 && answers.age === '9_13'){
     next = 4;
   } else if(currentStep < 4){
@@ -518,7 +541,7 @@ function bindSingleSelect(screenEl, key){
       answers[key] = btn.dataset.value;
       answers[key + 'Label'] = btn.dataset.label;
       if(btn.dataset.short) answers[key + 'Short'] = btn.dataset.short;
-      updateProgress(currentStep); // refresh counter (e.g. picking 9–13 changes /4 to /3)
+      updateProgress(currentStep);
       setTimeout(goNext, 400);
     });
   });
@@ -529,17 +552,15 @@ bindSingleSelect(getScreen(2), 'position');
 bindSingleSelect(getScreen(3), 'level');
 bindSingleSelect(getScreen(4), 'goal');
 
-/* ROUTING — age picks the PDF. 4 ages = 4 PDFs.
-   9–13   -> youth PDF
-   14–18  -> teen PDF
-   19–39  -> adult PDF
-   40+    -> masters PDF                                    */
-function pickProgram(a){
-  if(a.age === '9_13')   return 'youth';
-  if(a.age === '14_18')  return 'teen';
-  if(a.age === '19_39')  return 'adult';
-  if(a.age === '40plus') return 'masters';
-  return 'adult';
+/* ============================================================
+   ROUTING — age determines which MailerLite group to add to
+   ============================================================ */
+function pickGroupName(a){
+  if(a.age === '9_13')   return GROUP_NAMES.youth;
+  if(a.age === '14_18')  return GROUP_NAMES.teen;
+  if(a.age === '19_39')  return GROUP_NAMES.adult;
+  if(a.age === '40plus') return GROUP_NAMES.masters;
+  return GROUP_NAMES.adult;
 }
 
 function populateEmailScreen(){
@@ -547,7 +568,7 @@ function populateEmailScreen(){
   const pills = [
     answers.ageLabel,
     answers.positionLabel,
-    answers.levelLabel,  // null for 9–13, filter handles it
+    answers.levelLabel,
     answers.goalShort || answers.goalLabel
   ].filter(Boolean);
   pillsEl.innerHTML = pills.map(p => `<span class="summary-pill">${p}</span>`).join('');
@@ -560,60 +581,122 @@ function populateEmailScreen(){
   sub.innerHTML = `Enter your email to receive your custom 5-day off-ice program — built specifically for <strong>${audience}</strong> focused on <strong>${goalText}</strong>.`;
 }
 
+/* ============================================================
+   MAILERLITE API
+   ============================================================
+   1) Look up all groups by name (cached for the session)
+   2) On submit, add subscriber + assign to the right group
+   ============================================================ */
+let GROUP_ID_CACHE = null;
+
+async function fetchGroupIds(){
+  if(GROUP_ID_CACHE) return GROUP_ID_CACHE;
+  const res = await fetch('https://connect.mailerlite.com/api/groups?limit=100', {
+    method:'GET',
+    headers:{
+      'Authorization': 'Bearer ' + MAILERLITE_API_TOKEN,
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    }
+  });
+  if(!res.ok) throw new Error('Could not fetch groups (' + res.status + ')');
+  const data = await res.json();
+  const map = {};
+  (data.data || []).forEach(g => { map[g.name] = g.id; });
+  GROUP_ID_CACHE = map;
+  return map;
+}
+
+async function addSubscriberToGroup(email, groupId, fields){
+  const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    method:'POST',
+    headers:{
+      'Authorization': 'Bearer ' + MAILERLITE_API_TOKEN,
+      'Content-Type':'application/json',
+      'Accept':'application/json'
+    },
+    body: JSON.stringify({
+      email: email,
+      groups: [groupId],
+      fields: fields,
+      status: 'active'
+    })
+  });
+  if(!res.ok){
+    const txt = await res.text();
+    throw new Error('Subscribe failed (' + res.status + '): ' + txt);
+  }
+  return res.json();
+}
+
+/* ============================================================
+   SUBMIT
+   ============================================================ */
 const emailForm = document.getElementById('emailForm');
 const submitBtn = document.getElementById('submitBtn');
+const errorMsg = document.getElementById('errorMsg');
+
+function showError(msg){
+  errorMsg.textContent = msg;
+  errorMsg.classList.add('show');
+}
+function clearError(){
+  errorMsg.classList.remove('show');
+  errorMsg.textContent = '';
+}
 
 emailForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+  clearError();
+
   const email = document.getElementById('emailInput').value.trim();
   if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     document.getElementById('emailInput').focus();
+    showError('Please enter a valid email address.');
     return;
   }
   answers.email = email;
-  const program = pickProgram(answers);
 
-  const payload = {
-    email,
-    program,
-    answers: {
-      age:answers.age, ageLabel:answers.ageLabel,
-      position:answers.position, positionLabel:answers.positionLabel,
-      level:answers.level, levelLabel:answers.levelLabel,
-      goal:answers.goal, goalLabel:answers.goalLabel
-    },
-    tags: [
-      `program_${program}`,
-      `age_${answers.age}`,
-      `position_${answers.position}`,
-      ...(answers.level ? [`level_${answers.level}`] : []),
-      `goal_${answers.goal}`
-    ],
-    timestamp: new Date().toISOString(),
-    source: 'survey.html'
+  const targetGroupName = pickGroupName(answers);
+
+  // Optional fields stored on the subscriber for future segmentation.
+  // MailerLite ignores fields that don't exist on the account, so this is safe.
+  const fields = {
+    age_bucket: answers.age || '',
+    position:   answers.position || '',
+    level:      answers.level || '',
+    goal:       answers.goal || ''
   };
+
+  // Log payload locally for debugging
+  console.log('[EHD Survey] Submitting:', { email, targetGroupName, fields });
 
   submitBtn.classList.add('loading');
   submitBtn.disabled = true;
-  console.log('[EHD Survey] Submission payload:', payload);
 
   try {
-    if(WEBHOOK_URL){
-      await fetch(WEBHOOK_URL, {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(payload)
-      });
-    } else {
-      await new Promise(r => setTimeout(r, 600));
+    if(MAILERLITE_API_TOKEN === 'PASTE_YOUR_MAILERLITE_TOKEN_HERE' || !MAILERLITE_API_TOKEN){
+      throw new Error('MailerLite API token not configured.');
     }
-  } catch(err){
-    console.warn('[EHD Survey] Webhook failed:', err);
-  }
 
-  document.getElementById('successEmail').textContent = email;
-  history.push('success');
-  showScreen('success', 'forward');
+    const groupMap = await fetchGroupIds();
+    const groupId = groupMap[targetGroupName];
+    if(!groupId){
+      throw new Error('Group "' + targetGroupName + '" not found in MailerLite.');
+    }
+
+    await addSubscriberToGroup(email, groupId, fields);
+
+    document.getElementById('successEmail').textContent = email;
+    history.push('success');
+    showScreen('success', 'forward');
+
+  } catch(err){
+    console.error('[EHD Survey] Error:', err);
+    showError('Something went wrong sending your program. Please try again, or email elitehockeydrills@gmail.com.');
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+  }
 });
 
 updateProgress(1);
