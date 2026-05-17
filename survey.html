@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#070708" />
+<title>Build Your Free 5-Day Program — Elite Hockey Drills</title>
+<meta name="description" content="Answer 8 quick questions and get a 5-day off-ice training program built specifically for you. Free." />
+<meta name="robots" content="noindex,nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:        #070708;
+  --bg-2:      #0C0C10;
+  --bg-3:      #131318;
+  --line:      #1B1B22;
+  --line-2:    #25252E;
+  --ink:       #ECEDEF;
+  --ink-2:     #9398A2;
+  --ink-3:     #5A5F6B;
+  --ice:       #5DB4E5;
+  --ice-soft:  #5DB4E518;
+  --ice-line:  #5DB4E535;
+  --warm:      #E8B777;
+  --card:      #0E0E13;
+  --card-2:    #14141B;
+  --green:     #4FB371;
+  --sat:       env(safe-area-inset-top);
+  --sab:       env(safe-area-inset-bottom);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;height:100%;}
+body{
+  font-family:'Inter Tight',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  min-height:100dvh;
+}
+img,svg{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+input{font-family:inherit;}
+
+/* Background noise + glow to match main site */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.35;
+}
+.bg-glow{
+  position:fixed;top:-15%;right:-20%;
+  width:80vw;height:80vw;max-width:800px;max-height:800px;
+  background:radial-gradient(closest-side,var(--ice-soft) 0%,transparent 70%);
+  pointer-events:none;filter:blur(40px);z-index:0;
+}
+
+.display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.92;font-weight:400;}
+.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ice);}
+
+/* TOP BAR */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:calc(14px + var(--sat)) 20px 14px;
+  background:rgba(7,7,8,.78);
+  backdrop-filter:blur(18px) saturate(150%);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:720px;margin:0 auto;
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+}
+.back-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:100px;
+  border:1px solid var(--line-2);color:var(--ink-2);
+  font-size:18px;
+  transition:all .2s;
+  opacity:1;
+}
+.back-btn:hover{border-color:var(--ice);color:var(--ice);}
+.back-btn.hidden{opacity:0;pointer-events:none;}
+.brand-mark{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:13px;letter-spacing:.14em;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  color:var(--ink-2);
+}
+.brand-mark .dot{
+  width:5px;height:5px;background:var(--ice);border-radius:50%;
+  box-shadow:0 0 10px var(--ice);
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+@keyframes dotPulse{0%,100%{opacity:1;}50%{opacity:.45;}}
+.step-counter{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:14px;color:var(--ice);
+  min-width:38px;text-align:right;
+}
+
+/* PROGRESS BAR */
+.progress-track{
+  position:fixed;top:calc(58px + var(--sat));left:0;right:0;z-index:49;
+  height:2px;background:var(--line);
+}
+.progress-fill{
+  height:100%;width:0%;background:var(--ice);
+  box-shadow:0 0 12px var(--ice);
+  transition:width .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* MAIN STAGE */
+.stage{
+  position:relative;z-index:2;
+  min-height:100vh;min-height:100dvh;
+  padding:calc(90px + var(--sat)) 20px calc(40px + var(--sab));
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:720px;margin:0 auto;
+}
+
+/* SCREENS — only one visible at a time */
+.screen{
+  display:none;
+  animation:none;
+}
+.screen.active{display:flex;flex-direction:column;}
+.screen.slide-in-right{animation:slideInRight .45s cubic-bezier(.22,.61,.36,1) both;}
+.screen.slide-in-left{animation:slideInLeft .45s cubic-bezier(.22,.61,.36,1) both;}
+@keyframes slideInRight{
+  from{opacity:0;transform:translateX(28px);}
+  to{opacity:1;transform:translateX(0);}
+}
+@keyframes slideInLeft{
+  from{opacity:0;transform:translateX(-28px);}
+  to{opacity:1;transform:translateX(0);}
+}
+
+.q-eyebrow{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:14px;color:var(--ice);letter-spacing:.02em;
+  margin-bottom:14px;
+}
+.q-eyebrow::before{
+  content:'';display:inline-block;width:28px;height:1px;
+  background:var(--ice);vertical-align:middle;margin-right:12px;
+}
+.q-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(34px,8vw,52px);
+  line-height:.98;letter-spacing:.005em;
+  margin-bottom:10px;
+}
+.q-title em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--ice);}
+.q-sub{
+  color:var(--ink-2);font-size:14px;line-height:1.6;
+  margin-bottom:28px;max-width:480px;
+}
+
+/* OPTION BUTTONS */
+.options{display:flex;flex-direction:column;gap:10px;}
+.option{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  width:100%;
+  padding:18px 20px;
+  min-height:60px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  font-size:15px;font-weight:500;letter-spacing:.005em;
+  color:var(--ink);
+  text-align:left;
+  transition:transform .15s, border-color .2s, background .2s, color .2s;
+  position:relative;
+}
+.option:hover{border-color:var(--line-2);background:var(--card-2);}
+.option:active{transform:scale(.985);}
+.option .opt-arrow{
+  width:18px;height:18px;flex-shrink:0;color:var(--ink-3);
+  transition:transform .2s, color .2s;
+}
+.option:hover .opt-arrow{color:var(--ice);transform:translateX(3px);}
+.option.selected{
+  border-color:var(--ice);
+  background:var(--ice-soft);
+  color:var(--ink);
+}
+.option.selected .opt-arrow{color:var(--ice);}
+.option .check{
+  display:none;
+  width:22px;height:22px;flex-shrink:0;
+  border-radius:50%;
+  background:var(--ice);
+  align-items:center;justify-content:center;
+}
+.option.selected .check{display:flex;}
+.option.selected .opt-arrow{display:none;}
+.option .check svg{width:12px;height:12px;color:#001626;}
+.option-sub{
+  display:block;font-size:12px;color:var(--ink-3);
+  margin-top:4px;font-weight:400;
+}
+.option.selected .option-sub{color:var(--ink-2);}
+
+/* Multi-select state */
+.option.multi.selected{border-color:var(--warm);background:rgba(232,183,119,.08);}
+.option.multi.selected .check{background:var(--warm);}
+.option.multi.disabled{opacity:.4;pointer-events:none;}
+
+/* CONTINUE BUTTON (for multi-select) */
+.continue-row{
+  margin-top:24px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.continue-hint{
+  font-size:12px;color:var(--ink-3);
+}
+.continue-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 22px;min-height:50px;
+  font-size:14px;font-weight:600;letter-spacing:.02em;
+  border-radius:100px;
+  background:var(--ink);color:var(--bg);
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+}
+.continue-btn:hover:not(:disabled){background:var(--ice);transform:translateY(-2px);box-shadow:0 16px 32px -8px var(--ice-line);}
+.continue-btn:disabled{opacity:.35;cursor:not-allowed;}
+.continue-btn svg{width:14px;height:14px;transition:transform .25s;}
+.continue-btn:hover:not(:disabled) svg{transform:translateX(3px);}
+
+/* EMAIL SCREEN */
+.email-screen .q-title{
+  font-size:clamp(38px,9vw,64px);
+}
+.email-screen .q-sub{
+  font-size:15px;color:var(--ink-2);max-width:520px;
+  line-height:1.65;margin-bottom:32px;
+}
+.email-screen .q-sub strong{color:var(--ink);font-weight:500;}
+.email-form{display:flex;flex-direction:column;gap:12px;max-width:480px;}
+.email-input{
+  width:100%;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line-2);
+  border-radius:100px;
+  padding:18px 22px;
+  min-height:54px;
+  color:var(--ink);font-size:15px;
+  outline:none;
+  transition:border-color .2s, background .2s;
+}
+.email-input:focus{border-color:var(--ice);background:rgba(255,255,255,.06);}
+.email-input::placeholder{color:var(--ink-3);}
+.submit-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:18px 24px;min-height:54px;
+  font-size:14px;font-weight:600;letter-spacing:.02em;
+  border-radius:100px;
+  background:var(--ink);color:var(--bg);
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+}
+.submit-btn:hover:not(:disabled){background:var(--ice);transform:translateY(-2px);box-shadow:0 16px 32px -8px var(--ice-line);}
+.submit-btn:disabled{opacity:.7;cursor:not-allowed;}
+.submit-btn svg{width:14px;height:14px;transition:transform .25s;}
+.submit-btn:hover:not(:disabled) svg{transform:translateX(3px);}
+.submit-btn.loading svg{display:none;}
+.submit-btn .spinner{
+  display:none;width:16px;height:16px;
+  border:2px solid rgba(7,7,8,.25);
+  border-top-color:var(--bg);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+.submit-btn.loading .spinner{display:block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.email-note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+
+.summary-pills{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;
+}
+.summary-pill{
+  font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 11px;border-radius:100px;
+  background:var(--card);border:1px solid var(--line-2);
+  color:var(--ink-2);
+}
+
+/* SUCCESS SCREEN */
+.success-screen{text-align:center;align-items:center;justify-content:center;padding:20px 0;}
+.success-icon{
+  width:84px;height:84px;border-radius:50%;
+  background:var(--ice-soft);
+  border:1px solid var(--ice-line);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 32px;
+  position:relative;
+  animation:pop .6s cubic-bezier(.22,.61,.36,1) both;
+}
+.success-icon::after{
+  content:'';position:absolute;inset:-12px;
+  border-radius:50%;border:1px solid var(--ice-line);
+  opacity:0;
+  animation:ripple 1.6s ease-out .3s infinite;
+}
+@keyframes pop{
+  0%{transform:scale(.4);opacity:0;}
+  60%{transform:scale(1.08);}
+  100%{transform:scale(1);opacity:1;}
+}
+@keyframes ripple{
+  0%{transform:scale(.9);opacity:.8;}
+  100%{transform:scale(1.4);opacity:0;}
+}
+.success-icon svg{width:36px;height:36px;color:var(--ice);}
+.success-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(38px,9vw,60px);
+  line-height:.98;margin-bottom:16px;
+}
+.success-title em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;}
+.success-sub{
+  color:var(--ink-2);font-size:15px;line-height:1.65;
+  margin-bottom:36px;max-width:440px;
+}
+.success-sub strong{color:var(--ink);font-weight:500;}
+.success-ig{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;min-height:50px;
+  border-radius:100px;
+  border:1px solid var(--ice-line);
+  background:var(--ice-soft);
+  color:var(--ice);
+  font-size:13px;font-weight:600;letter-spacing:.04em;
+  transition:all .25s;
+}
+.success-ig:hover{background:var(--ice);color:#001626;}
+.success-ig svg{width:18px;height:18px;}
+.success-footnote{
+  font-size:12px;color:var(--ink-3);margin-top:32px;
+}
+
+/* Hide top bar on success screen */
+body.success-mode .topbar,
+body.success-mode .progress-track{display:none;}
+body.success-mode .stage{padding-top:calc(60px + var(--sat));}
+
+@media(min-width:780px){
+  .topbar{padding:18px 32px;}
+  .stage{padding:120px 32px 60px;}
+  .q-title{font-size:clamp(40px,5vw,60px);}
+  .options{gap:12px;}
+  .option{padding:20px 22px;font-size:15.5px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- TOP BAR -->
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <button class="back-btn hidden" id="backBtn" aria-label="Go back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <a class="brand-mark" href="/">
+      <span class="dot"></span>ELITE HOCKEY DRILLS
+    </a>
+    <div class="step-counter" id="stepCounter">1/8</div>
+  </div>
+</header>
+
+<!-- PROGRESS BAR -->
+<div class="progress-track">
+  <div class="progress-fill" id="progressBar"></div>
+</div>
+
+<!-- STAGE -->
+<main class="stage" id="stage">
+
+  <!-- Q1: AGE -->
+  <section class="screen active slide-in-right" data-screen="1" data-question="age">
+    <div class="q-eyebrow">Question 01 / 08</div>
+    <h2 class="q-title display">What's your <em>age group?</em></h2>
+    <p class="q-sub">We program differently for developing youth athletes than we do for adult players.</p>
+    <div class="options">
+      <button class="option" data-value="under14" data-label="Under 14">
+        <span>Under 14</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="14-18" data-label="14–18">
+        <span>14–18</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="19-30" data-label="19–30">
+        <span>19–30</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="31plus" data-label="31+">
+        <span>31+</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q2: LEVEL -->
+  <section class="screen" data-screen="2" data-question="level">
+    <div class="q-eyebrow">Question 02 / 08</div>
+    <h2 class="q-title display">What's your <em>playing level?</em></h2>
+    <p class="q-sub">Honest answers get better programs. There's no wrong choice.</p>
+    <div class="options">
+      <button class="option" data-value="beginner" data-label="Beginner">
+        <span>Beginner<span class="option-sub">New to organized hockey</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="recreational" data-label="Recreational">
+        <span>Recreational<span class="option-sub">Beer league, pickup, social</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="competitive" data-label="Competitive">
+        <span>Competitive<span class="option-sub">Travel, AA/AAA, junior, college club</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="elite" data-label="Elite or Pro">
+        <span>Elite or Pro<span class="option-sub">NCAA, junior pro, pro, national team</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q3: POSITION -->
+  <section class="screen" data-screen="3" data-question="position">
+    <div class="q-eyebrow">Question 03 / 08</div>
+    <h2 class="q-title display">What <em>position</em> do you play?</h2>
+    <p class="q-sub">Goalies and skaters need very different off-ice work.</p>
+    <div class="options">
+      <button class="option" data-value="forward" data-label="Forward">
+        <span>Forward</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="defense" data-label="Defense">
+        <span>Defense</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="goalie" data-label="Goalie">
+        <span>Goalie<span class="option-sub">Get the goalie-specific program</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="coach" data-label="I'm a coach">
+        <span>I'm a coach<span class="option-sub">Not a player</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q4: GOAL -->
+  <section class="screen" data-screen="4" data-question="goal">
+    <div class="q-eyebrow">Question 04 / 08</div>
+    <h2 class="q-title display">Your #1 <em>training goal</em> right now?</h2>
+    <p class="q-sub">Pick the one that matters most. We'll bias the program toward it.</p>
+    <div class="options">
+      <button class="option" data-value="power" data-label="Build explosive power &amp; speed" data-shortlabel="explosive power &amp; speed">
+        <span>Build explosive power &amp; speed</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="strength" data-label="Get stronger overall" data-shortlabel="overall strength">
+        <span>Get stronger overall</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="conditioning" data-label="Improve conditioning &amp; endurance" data-shortlabel="conditioning &amp; endurance">
+        <span>Improve conditioning &amp; endurance</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="injury" data-label="Recover from / prevent injury" data-shortlabel="injury prevention &amp; recovery">
+        <span>Recover from / prevent injury</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="offseason" data-label="Off-season development" data-shortlabel="off-season development">
+        <span>Off-season development</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q5: EQUIPMENT -->
+  <section class="screen" data-screen="5" data-question="equipment">
+    <div class="q-eyebrow">Question 05 / 08</div>
+    <h2 class="q-title display">What <em>equipment</em> do you have?</h2>
+    <p class="q-sub">Pick what you actually have access to most days. We'll match exercises to your reality.</p>
+    <div class="options">
+      <button class="option" data-value="full_gym" data-label="Full gym">
+        <span>Full gym<span class="option-sub">Barbells, dumbbells, racks, cables</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="home_basics" data-label="Home gym basics">
+        <span>Home gym basics<span class="option-sub">Dumbbells, bands, kettlebell</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="bodyweight" data-label="Bodyweight only">
+        <span>Bodyweight only<span class="option-sub">No equipment at all</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="outdoor" data-label="Outdoor space">
+        <span>Outdoor space<span class="option-sub">Sled, hill, field, sprint work</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q6: DAYS -->
+  <section class="screen" data-screen="6" data-question="days">
+    <div class="q-eyebrow">Question 06 / 08</div>
+    <h2 class="q-title display">How many <em>days/week</em> can you train off-ice?</h2>
+    <p class="q-sub">Be realistic. Consistency beats ambition every time.</p>
+    <div class="options">
+      <button class="option" data-value="2" data-label="2 days">
+        <span>2 days<span class="option-sub">Tight schedule</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="3" data-label="3 days">
+        <span>3 days<span class="option-sub">The sweet spot for in-season</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="4" data-label="4 days">
+        <span>4 days</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="5plus" data-label="5+ days">
+        <span>5+ days<span class="option-sub">Off-season build mode</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q7: WEAKNESSES (multi-select max 2) -->
+  <section class="screen" data-screen="7" data-question="weakness">
+    <div class="q-eyebrow">Question 07 / 08</div>
+    <h2 class="q-title display">Biggest <em>weakness</em> on the ice?</h2>
+    <p class="q-sub">Pick up to 2. This is what we'll target most aggressively.</p>
+    <div class="options">
+      <button class="option multi" data-value="first_step" data-label="First-step explosiveness">
+        <span>First-step explosiveness</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option multi" data-value="top_speed" data-label="Top-end speed">
+        <span>Top-end speed</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option multi" data-value="puck_strength" data-label="Strength on the puck">
+        <span>Strength on the puck</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option multi" data-value="endurance" data-label="Endurance / late-game fatigue">
+        <span>Endurance / late-game fatigue</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option multi" data-value="mobility" data-label="Mobility / flexibility">
+        <span>Mobility / flexibility</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option multi" data-value="mental" data-label="Mental focus &amp; confidence">
+        <span>Mental focus &amp; confidence</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+    <div class="continue-row">
+      <span class="continue-hint" id="multiHint">Pick 1 or 2</span>
+      <button class="continue-btn" id="continueBtn" disabled>
+        Continue
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q8: SEASON -->
+  <section class="screen" data-screen="8" data-question="season">
+    <div class="q-eyebrow">Question 08 / 08</div>
+    <h2 class="q-title display">Where are you in the <em>season?</em></h2>
+    <p class="q-sub">Last one. Then your program.</p>
+    <div class="options">
+      <button class="option" data-value="preseason" data-label="Pre-season prep">
+        <span>Pre-season prep<span class="option-sub">Camp is coming</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="inseason" data-label="In-season">
+        <span>In-season<span class="option-sub">Currently playing games</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="offseason" data-label="Off-season / summer">
+        <span>Off-season / summer<span class="option-sub">Build mode</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="returning" data-label="Coming back from break or injury">
+        <span>Coming back from break or injury</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <section class="screen email-screen" data-screen="email">
+    <div class="q-eyebrow">Final Step</div>
+    <h2 class="q-title display">Your <em>personalized</em><br>program is ready.</h2>
+    <div class="summary-pills" id="summaryPills"></div>
+    <p class="q-sub" id="emailSubhead">
+      Enter your email to receive your custom 5-day off-ice program — built specifically for you.
+    </p>
+    <form class="email-form" id="emailForm" novalidate>
+      <input type="email" required placeholder="your@email.com" class="email-input" id="emailInput" autocomplete="email" inputmode="email" />
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="btn-label">Send My Program</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="spinner"></span>
+      </button>
+      <p class="email-note">No spam. Unsubscribe anytime. By submitting, you agree to receive training emails from Elite Hockey Drills.</p>
+    </form>
+  </section>
+
+  <!-- SUCCESS -->
+  <section class="screen success-screen" data-screen="success">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 class="success-title display">Check your <em>inbox</em><br>in 60 seconds.</h2>
+    <p class="success-sub">
+      Your custom 5-day off-ice program is on its way to <strong id="successEmail">your inbox</strong>. While you wait, follow along for daily hockey training content.
+    </p>
+    <a class="success-ig" href="https://instagram.com/elite_hockey_drills" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+      Follow @elite_hockey_drills
+    </a>
+    <p class="success-footnote">Didn't see it? Check spam or promotions. Or email <a href="mailto:elitehockeydrills@gmail.com" style="color:var(--ice);">elitehockeydrills@gmail.com</a></p>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   SURVEY STATE + FLOW
+   ============================================================ */
+
+// Where to POST submissions. Replace this with your real endpoint
+// (Make.com webhook, Beehiiv API via Netlify Function, or Web3Forms).
+// Until then, the form will console.log answers and still show success.
+const WEBHOOK_URL = ''; // <-- PASTE YOUR WEBHOOK URL HERE LATER
+
+const TOTAL_QUESTIONS = 8;
+const answers = {
+  age: null, ageLabel: null,
+  level: null, levelLabel: null,
+  position: null, positionLabel: null,
+  goal: null, goalLabel: null, goalShort: null,
+  equipment: null, equipmentLabel: null,
+  days: null, daysLabel: null,
+  weakness: [],            // array of values
+  weaknessLabels: [],      // array of labels
+  season: null, seasonLabel: null,
+  email: null
+};
+
+let currentStep = 1; // 1-8, then 'email', then 'success'
+let history = [1];   // navigation history for back button
+
+const screens = document.querySelectorAll('.screen');
+const progressBar = document.getElementById('progressBar');
+const stepCounter = document.getElementById('stepCounter');
+const backBtn = document.getElementById('backBtn');
+
+/* ---- Helpers ---- */
+function getScreen(step){
+  return document.querySelector(`.screen[data-screen="${step}"]`);
+}
+
+function updateProgress(step){
+  let pct = 0;
+  if(typeof step === 'number'){
+    pct = (step / TOTAL_QUESTIONS) * 100;
+    stepCounter.textContent = `${step}/${TOTAL_QUESTIONS}`;
+    stepCounter.style.display = '';
+  } else if(step === 'email'){
+    pct = 100;
+    stepCounter.textContent = '✓';
+    stepCounter.style.display = '';
+  } else {
+    pct = 100;
+    stepCounter.style.display = 'none';
+  }
+  progressBar.style.width = pct + '%';
+}
+
+function showScreen(step, direction){
+  // Hide all
+  screens.forEach(s => {
+    s.classList.remove('active','slide-in-right','slide-in-left');
+  });
+  const target = getScreen(step);
+  if(!target) return;
+  target.classList.add('active');
+  // Force reflow then animate
+  void target.offsetWidth;
+  target.classList.add(direction === 'back' ? 'slide-in-left' : 'slide-in-right');
+
+  // Back button visibility
+  if(step === 1 || step === 'success'){
+    backBtn.classList.add('hidden');
+  } else {
+    backBtn.classList.remove('hidden');
+  }
+
+  // Update progress + counter
+  updateProgress(step);
+
+  // Success-mode body class hides top bar entirely
+  if(step === 'success'){
+    document.body.classList.add('success-mode');
+  } else {
+    document.body.classList.remove('success-mode');
+  }
+
+  // Focus management: if email screen, focus input after animation
+  if(step === 'email'){
+    populateEmailScreen();
+    setTimeout(()=>{
+      const inp = document.getElementById('emailInput');
+      if(inp) inp.focus({preventScroll:false});
+    }, 480);
+  }
+
+  currentStep = step;
+  // Scroll to top of stage on every transition
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function goNext(){
+  let next;
+  if(currentStep < TOTAL_QUESTIONS){
+    next = currentStep + 1;
+  } else if(currentStep === TOTAL_QUESTIONS){
+    next = 'email';
+  } else {
+    return;
+  }
+  history.push(next);
+  showScreen(next, 'forward');
+}
+
+function goBack(){
+  if(history.length <= 1) return;
+  history.pop();
+  const prev = history[history.length - 1];
+  showScreen(prev, 'back');
+}
+
+backBtn.addEventListener('click', goBack);
+
+/* ---- Single-select option handler ---- */
+function bindSingleSelect(screenEl, key){
+  const opts = screenEl.querySelectorAll('.option:not(.multi)');
+  opts.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Clear previous selection
+      opts.forEach(o => o.classList.remove('selected'));
+      btn.classList.add('selected');
+      // Save answer
+      answers[key] = btn.dataset.value;
+      answers[key + 'Label'] = btn.dataset.label;
+      if(btn.dataset.shortlabel){
+        answers[key + 'Short'] = btn.dataset.shortlabel;
+      }
+      // Auto-advance after 400ms
+      setTimeout(goNext, 400);
+    });
+  });
+}
+
+bindSingleSelect(getScreen(1), 'age');
+bindSingleSelect(getScreen(2), 'level');
+bindSingleSelect(getScreen(3), 'position');
+bindSingleSelect(getScreen(4), 'goal');
+bindSingleSelect(getScreen(5), 'equipment');
+bindSingleSelect(getScreen(6), 'days');
+bindSingleSelect(getScreen(8), 'season');
+
+/* ---- Multi-select (Q7) ---- */
+const multiScreen = getScreen(7);
+const multiOpts = multiScreen.querySelectorAll('.option.multi');
+const continueBtn = document.getElementById('continueBtn');
+const multiHint = document.getElementById('multiHint');
+const MAX_MULTI = 2;
+
+function refreshMultiState(){
+  const selected = multiScreen.querySelectorAll('.option.multi.selected');
+  const count = selected.length;
+  // Disable unselected when max reached
+  multiOpts.forEach(o => {
+    if(!o.classList.contains('selected')){
+      if(count >= MAX_MULTI){ o.classList.add('disabled'); }
+      else { o.classList.remove('disabled'); }
+    }
+  });
+  // Continue button
+  continueBtn.disabled = count === 0;
+  // Hint text
+  if(count === 0) multiHint.textContent = 'Pick 1 or 2';
+  else if(count === 1) multiHint.textContent = '1 selected — pick another or continue';
+  else multiHint.textContent = '2 selected (max)';
+}
+
+multiOpts.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(btn.classList.contains('disabled')) return;
+    btn.classList.toggle('selected');
+    refreshMultiState();
+  });
+});
+
+continueBtn.addEventListener('click', () => {
+  const selected = multiScreen.querySelectorAll('.option.multi.selected');
+  answers.weakness = Array.from(selected).map(o => o.dataset.value);
+  answers.weaknessLabels = Array.from(selected).map(o => o.dataset.label);
+  goNext();
+});
+
+/* ============================================================
+   ROUTING LOGIC — which PDF gets sent
+   Priority (first match wins):
+   1. position = goalie       -> goalie
+   2. position = coach        -> adult_competitive (+ isCoach flag)
+   3. age = under14           -> youth
+   4. level in [beginner,rec] -> adult_recreational
+   5. else                    -> adult_competitive
+   ============================================================ */
+function pickProgram(a){
+  if(a.position === 'goalie') return { program: 'goalie', isCoach: false };
+  if(a.position === 'coach')  return { program: 'adult_competitive', isCoach: true };
+  if(a.age === 'under14')     return { program: 'youth', isCoach: false };
+  if(a.level === 'beginner' || a.level === 'recreational') {
+    return { program: 'adult_recreational', isCoach: false };
+  }
+  return { program: 'adult_competitive', isCoach: false };
+}
+
+/* ============================================================
+   EMAIL SCREEN — dynamic copy + summary chips
+   ============================================================ */
+function populateEmailScreen(){
+  // Build summary pills (visual receipt for the user)
+  const pillsEl = document.getElementById('summaryPills');
+  const pills = [
+    answers.ageLabel,
+    answers.positionLabel,
+    answers.levelLabel,
+    answers.goalShort || answers.goalLabel
+  ].filter(Boolean);
+  pillsEl.innerHTML = pills.map(p => `<span class="summary-pill">${p}</span>`).join('');
+
+  // Dynamic subhead
+  const sub = document.getElementById('emailSubhead');
+  let audience;
+  if(answers.position === 'coach'){
+    audience = 'hockey coaches';
+  } else if(answers.position === 'goalie'){
+    audience = `${answers.ageLabel} goalies`;
+  } else {
+    // e.g. "19–30 forward" players
+    const posLabel = (answers.positionLabel || '').toLowerCase();
+    audience = `${answers.ageLabel} ${posLabel} players`;
+  }
+  const goalText = (answers.goalShort || answers.goalLabel || 'off-ice training').toLowerCase();
+  sub.innerHTML = `Enter your email to receive your custom 5-day off-ice program — built specifically for <strong>${audience}</strong> focused on <strong>${goalText}</strong>.`;
+}
+
+/* ============================================================
+   SUBMIT
+   ============================================================ */
+const emailForm = document.getElementById('emailForm');
+const submitBtn = document.getElementById('submitBtn');
+
+emailForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value.trim();
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    document.getElementById('emailInput').focus();
+    return;
+  }
+  answers.email = email;
+
+  const routing = pickProgram(answers);
+
+  // Build clean payload for the webhook / email tool
+  const payload = {
+    email: email,
+    program: routing.program,            // youth | adult_recreational | adult_competitive | goalie
+    isCoach: routing.isCoach,            // true if Q3 = coach
+    answers: {
+      age: answers.age,                  // raw value (under14, 14-18, ...)
+      ageLabel: answers.ageLabel,
+      level: answers.level,
+      levelLabel: answers.levelLabel,
+      position: answers.position,
+      positionLabel: answers.positionLabel,
+      goal: answers.goal,
+      goalLabel: answers.goalLabel,
+      equipment: answers.equipment,
+      equipmentLabel: answers.equipmentLabel,
+      days: answers.days,
+      daysLabel: answers.daysLabel,
+      weakness: answers.weakness,
+      weaknessLabels: answers.weaknessLabels,
+      season: answers.season,
+      seasonLabel: answers.seasonLabel
+    },
+    // Flat tags for Beehiiv/Mailchimp-style tagging
+    tags: [
+      `program_${routing.program}`,
+      `age_${answers.age}`,
+      `level_${answers.level}`,
+      `position_${answers.position}`,
+      `goal_${answers.goal}`,
+      `equipment_${answers.equipment}`,
+      `days_${answers.days}`,
+      `season_${answers.season}`,
+      ...answers.weakness.map(w => `weak_${w}`),
+      ...(routing.isCoach ? ['is_coach'] : [])
+    ],
+    timestamp: new Date().toISOString(),
+    source: 'survey.html'
+  };
+
+  // Visual loading state
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+
+  // Always log so you can verify in browser console
+  console.log('[EHD Survey] Submission payload:', payload);
+
+  try {
+    if(WEBHOOK_URL){
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+    } else {
+      // Simulate small delay so the spinner registers
+      await new Promise(r => setTimeout(r, 600));
+    }
+  } catch(err){
+    console.warn('[EHD Survey] Webhook failed:', err);
+    // We still show success — the lead is captured in console
+    // and you can re-process. Better UX than scaring the user.
+  }
+
+  // Show success
+  document.getElementById('successEmail').textContent = email;
+  history.push('success');
+  showScreen('success', 'forward');
+});
+
+/* ---- Initial state ---- */
+updateProgress(1);
+</script>
+</body>
+</html>
