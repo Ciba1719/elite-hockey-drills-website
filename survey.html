@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#070708" />
 <title>Build Your Free 5-Day Program — Elite Hockey Drills</title>
-<meta name="description" content="Answer 4 quick questions and get a 5-day off-ice training program built for you. Free." />
+<meta name="description" content="Answer a few quick questions and get a 5-day off-ice training program built for you. Free." />
 <meta name="robots" content="noindex,nofollow" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -255,11 +255,30 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
 
 <main class="stage" id="stage">
 
-  <!-- Q1: POSITION -->
+  <!-- Q1: AGE -->
   <section class="screen active slide-in-right" data-screen="1">
-    <div class="q-eyebrow">Question 01 / 04</div>
+    <div class="q-eyebrow">Question 01</div>
+    <h2 class="q-title display">What's your <em>age?</em></h2>
+    <p class="q-sub">We program completely differently for developing youth athletes than for adults — this is the most important question.</p>
+    <div class="options">
+      <button class="option" data-value="under14" data-label="Under 14">
+        <span>Under 14<span class="option-sub">Youth development program</span></span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+      <button class="option" data-value="14plus" data-label="14 or older">
+        <span>14 or older</span>
+        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Q2: POSITION -->
+  <section class="screen" data-screen="2">
+    <div class="q-eyebrow">Question 02</div>
     <h2 class="q-title display">What <em>position</em> do you play?</h2>
-    <p class="q-sub">Goalies and skaters need very different off-ice work. This is the most important question.</p>
+    <p class="q-sub">Goalies and skaters need very different off-ice work.</p>
     <div class="options">
       <button class="option" data-value="forward" data-label="Forward">
         <span>Forward</span>
@@ -272,40 +291,16 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
         <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
       </button>
       <button class="option" data-value="goalie" data-label="Goalie">
-        <span>Goalie<span class="option-sub">Get the goalie-specific program</span></span>
-        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
-      </button>
-      <button class="option" data-value="coach" data-label="I'm a coach">
-        <span>I'm a coach<span class="option-sub">Not a player</span></span>
+        <span>Goalie<span class="option-sub">Goalie-specific program</span></span>
         <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
       </button>
     </div>
   </section>
 
-  <!-- Q2: AGE -->
-  <section class="screen" data-screen="2">
-    <div class="q-eyebrow">Question 02 / 04</div>
-    <h2 class="q-title display">What's your <em>age?</em></h2>
-    <p class="q-sub">We program differently for developing youth athletes than for adults.</p>
-    <div class="options">
-      <button class="option" data-value="under14" data-label="Under 14">
-        <span>Under 14</span>
-        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
-      </button>
-      <button class="option" data-value="14plus" data-label="14 or older">
-        <span>14 or older</span>
-        <svg class="opt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- Q3: LEVEL -->
+  <!-- Q3: LEVEL (only shown for 14+) -->
   <section class="screen" data-screen="3">
-    <div class="q-eyebrow">Question 03 / 04</div>
+    <div class="q-eyebrow">Question 03</div>
     <h2 class="q-title display">What's your <em>playing level?</em></h2>
     <p class="q-sub">Honest answers get better programs. There's no wrong choice.</p>
     <div class="options">
@@ -324,7 +319,7 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
 
   <!-- Q4: GOAL -->
   <section class="screen" data-screen="4">
-    <div class="q-eyebrow">Question 04 / 04</div>
+    <div class="q-eyebrow">Last question</div>
     <h2 class="q-title display">Your #1 <em>training goal?</em></h2>
     <p class="q-sub">Pick the one that matters most. We'll bias the program toward it.</p>
     <div class="options">
@@ -398,10 +393,9 @@ body.success-mode .stage{padding-top:calc(60px + var(--sat));}
 // Until then, answers are logged to the browser console (right-click → Inspect → Console).
 const WEBHOOK_URL = '';
 
-const TOTAL_QUESTIONS = 4;
 const answers = {
-  position:null, positionLabel:null,
   age:null, ageLabel:null,
+  position:null, positionLabel:null,
   level:null, levelLabel:null,
   goal:null, goalLabel:null, goalShort:null,
   email:null
@@ -419,11 +413,28 @@ function getScreen(step){
   return document.querySelector(`.screen[data-screen="${step}"]`);
 }
 
+// Total questions depends on age: U14 = 3 (skip level), 14+ = 4
+function getTotal(){
+  return answers.age === 'under14' ? 3 : 4;
+}
+
+// Map a step number to its position in the current flow (1, 2, 3, etc.)
+function stepToPosition(step){
+  const isU14 = answers.age === 'under14';
+  if(step === 1) return 1;
+  if(step === 2) return 2;
+  if(step === 3) return 3; // only reached for 14+
+  if(step === 4) return isU14 ? 3 : 4;
+  return 0;
+}
+
 function updateProgress(step){
+  const total = getTotal();
   let pct = 0;
   if(typeof step === 'number'){
-    pct = (step / TOTAL_QUESTIONS) * 100;
-    stepCounter.textContent = `${step}/${TOTAL_QUESTIONS}`;
+    const pos = stepToPosition(step);
+    pct = (pos / total) * 100;
+    stepCounter.textContent = `${pos}/${total}`;
     stepCounter.style.display = '';
   } else if(step === 'email'){
     pct = 100;
@@ -469,9 +480,14 @@ function showScreen(step, direction){
 
 function goNext(){
   let next;
-  if(currentStep < TOTAL_QUESTIONS) next = currentStep + 1;
-  else if(currentStep === TOTAL_QUESTIONS) next = 'email';
-  else return;
+  // Branching: skip Q3 (level) for U14
+  if(currentStep === 2 && answers.age === 'under14'){
+    next = 4;
+  } else if(currentStep < 4){
+    next = currentStep + 1;
+  } else if(currentStep === 4){
+    next = 'email';
+  } else return;
   history.push(next);
   showScreen(next, 'forward');
 }
@@ -493,48 +509,47 @@ function bindSingleSelect(screenEl, key){
       answers[key] = btn.dataset.value;
       answers[key + 'Label'] = btn.dataset.label;
       if(btn.dataset.short) answers[key + 'Short'] = btn.dataset.short;
+      // Refresh counter immediately so it reflects new total (e.g. picking U14 changes /4 to /3)
+      updateProgress(currentStep);
       setTimeout(goNext, 400);
     });
   });
 }
 
-bindSingleSelect(getScreen(1), 'position');
-bindSingleSelect(getScreen(2), 'age');
+bindSingleSelect(getScreen(1), 'age');
+bindSingleSelect(getScreen(2), 'position');
 bindSingleSelect(getScreen(3), 'level');
 bindSingleSelect(getScreen(4), 'goal');
 
 /* ROUTING — picks 1 of 4 PDFs, first match wins:
    1. position = goalie  -> goalie PDF
-   2. position = coach   -> adult_competitive PDF + isCoach flag
-   3. age = under14      -> youth PDF
-   4. level = rec        -> adult_recreational PDF
-   5. else               -> adult_competitive PDF */
+   2. age = under14      -> youth PDF
+   3. level = rec        -> adult_recreational PDF
+   4. else               -> adult_competitive PDF */
 function pickProgram(a){
-  if(a.position === 'goalie') return { program:'goalie', isCoach:false };
-  if(a.position === 'coach')  return { program:'adult_competitive', isCoach:true };
-  if(a.age === 'under14')     return { program:'youth', isCoach:false };
-  if(a.level === 'rec')       return { program:'adult_recreational', isCoach:false };
-  return { program:'adult_competitive', isCoach:false };
+  if(a.position === 'goalie') return 'goalie';
+  if(a.age === 'under14')     return 'youth';
+  if(a.level === 'rec')       return 'adult_recreational';
+  return 'adult_competitive';
 }
 
 function populateEmailScreen(){
   const pillsEl = document.getElementById('summaryPills');
   const pills = [
-    answers.positionLabel,
     answers.ageLabel,
-    answers.levelLabel,
+    answers.positionLabel,
+    answers.levelLabel,  // null for U14, filter handles it
     answers.goalShort || answers.goalLabel
   ].filter(Boolean);
   pillsEl.innerHTML = pills.map(p => `<span class="summary-pill">${p}</span>`).join('');
 
   const sub = document.getElementById('emailSubhead');
   let audience;
-  if(answers.position === 'coach'){
-    audience = 'hockey coaches';
-  } else if(answers.position === 'goalie'){
-    audience = `${answers.ageLabel.toLowerCase()} goalies`;
+  const posLabel = (answers.positionLabel || '').toLowerCase();
+  if(answers.age === 'under14'){
+    audience = answers.position === 'goalie' ? 'youth goalies' : `under-14 ${posLabel} players`;
   } else {
-    audience = `${answers.ageLabel.toLowerCase()} ${(answers.positionLabel||'').toLowerCase()} players`;
+    audience = answers.position === 'goalie' ? 'adult goalies' : `14+ ${posLabel} players`;
   }
   const goalText = (answers.goalShort || answers.goalLabel || 'off-ice training').toLowerCase();
   sub.innerHTML = `Enter your email to receive your custom 5-day off-ice program — built specifically for <strong>${audience}</strong> focused on <strong>${goalText}</strong>.`;
@@ -551,25 +566,23 @@ emailForm.addEventListener('submit', async (e) => {
     return;
   }
   answers.email = email;
-  const routing = pickProgram(answers);
+  const program = pickProgram(answers);
 
   const payload = {
     email,
-    program: routing.program,
-    isCoach: routing.isCoach,
+    program,
     answers: {
-      position:answers.position, positionLabel:answers.positionLabel,
       age:answers.age, ageLabel:answers.ageLabel,
+      position:answers.position, positionLabel:answers.positionLabel,
       level:answers.level, levelLabel:answers.levelLabel,
       goal:answers.goal, goalLabel:answers.goalLabel
     },
     tags: [
-      `program_${routing.program}`,
-      `position_${answers.position}`,
+      `program_${program}`,
       `age_${answers.age}`,
-      `level_${answers.level}`,
-      `goal_${answers.goal}`,
-      ...(routing.isCoach ? ['is_coach'] : [])
+      `position_${answers.position}`,
+      ...(answers.level ? [`level_${answers.level}`] : []),
+      `goal_${answers.goal}`
     ],
     timestamp: new Date().toISOString(),
     source: 'survey.html'
