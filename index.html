@@ -1061,7 +1061,7 @@ section{position:relative;z-index:2;}
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </nav>
-  <a href="#lead" class="nav-cta">Free Program</a>
+  <a href="survey.html" class="nav-cta">Free Program</a>
 </header>
 
 <section class="hero" id="hero">
@@ -1082,7 +1082,7 @@ section{position:relative;z-index:2;}
           Programs built on real sport science — not gym-bro guesswork. <strong>Strength, speed, and conditioning</strong> for hockey players, designed by a coach who's worked with players from grassroots to national team level.
         </p>
         <div class="hero-ctas">
-          <a href="#lead" class="btn btn-primary">
+          <a href="survey.html" class="btn btn-primary">
             Get Free 5-Day Program
             <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
@@ -1114,20 +1114,17 @@ section{position:relative;z-index:2;}
 <section class="lead-bar" id="lead">
   <div class="lead-inner">
     <div class="lead-text reveal">
-      <span class="badge">100% Free · Instant Access</span>
-      <h2 class="display">5-Day Off-Ice<br><em>Power</em> Reset</h2>
-      <p>A complete 5-day off-ice training program — no equipment needed. Built from the same methods used with national-level players. Download instantly, train today.</p>
+      <span class="badge">100% Free · Personalized for You</span>
+      <h2 class="display">Get your <em>personalized</em><br>5-day program.</h2>
+      <p>Answer 8 quick questions about your hockey goals and we'll build a custom 5-day off-ice program tailored to your age, level, and equipment. Takes 60 seconds.</p>
     </div>
-    <form class="lead-form reveal" onsubmit="leadSubmit(event)">
-      <div class="lead-input-row">
-        <input type="email" required placeholder="Your email address" class="lead-input" id="leadEmail" />
-        <button type="submit" class="btn btn-primary">
-          Send PDF
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <p class="lead-note">No spam. Unsubscribe anytime. Used by 1,000+ players in 30+ countries.</p>
-    </form>
+    <div class="lead-form reveal">
+      <a href="survey.html" class="btn btn-primary lead-survey-btn">
+        Start the 60-Second Quiz
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <p class="lead-note">No credit card · No spam · Used by 1,000+ players in 30+ countries</p>
+    </div>
   </div>
 </section>
 
@@ -1221,7 +1218,7 @@ section{position:relative;z-index:2;}
           <li>Used by players in 30+ countries</li>
           <li>Instant PDF download</li>
         </ul>
-        <a href="#lead" class="btn btn-primary free-banner-cta">
+        <a href="survey.html" class="btn btn-primary free-banner-cta">
           Get Free Program
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
@@ -1553,14 +1550,11 @@ section{position:relative;z-index:2;}
     <div class="reveal">
       <div class="eyebrow ice" style="margin-bottom:18px;">Start Today · Free</div>
       <h2 class="display">Ready to <em>train?</em></h2>
-      <p>Get the free 5-day off-ice program. Built from the same methods used with national-level players. Train smarter starting today.</p>
-      <form class="final-form" onsubmit="leadSubmit(event,true)">
-        <input type="email" required placeholder="Your email address" class="lead-input" id="finalEmail" />
-        <button type="submit" class="btn btn-primary">
-          Get Free Program
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </button>
-      </form>
+      <p>Take the 60-second quiz and we'll build a personalized 5-day off-ice program based on your age, level, and goals. Free, instant, no card required.</p>
+      <a href="survey.html" class="btn btn-primary final-cta-btn">
+        Start the 60-Second Quiz
+        <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
       <p class="final-note">Or email <a href="mailto:elitehockeydrills@gmail.com" style="color:var(--ice);">elitehockeydrills@gmail.com</a> · Based in Al Ain, UAE</p>
     </div>
   </div>
@@ -1575,7 +1569,7 @@ section{position:relative;z-index:2;}
     <div class="footer-col">
       <h4>Programs</h4>
       <ul>
-        <li><a href="#lead">Free 5-Day PDF</a></li>
+        <li><a href="survey.html">Free 5-Day PDF</a></li>
         <li><a href="#tiers">12-Week Programs</a></li>
         <li><a href="#tiers">Family Bundle</a></li>
         <li><a href="#app">App Waitlist</a></li>
@@ -1606,7 +1600,7 @@ section{position:relative;z-index:2;}
 </footer>
 
 <div class="mobile-bar" id="mobileBar">
-  <a href="#lead" class="btn btn-primary">Free 5-Day Program</a>
+  <a href="survey.html" class="btn btn-primary">Free 5-Day Program</a>
 </div>
 
 <script>
@@ -1630,26 +1624,6 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 function toggleFaq(btn){
   btn.closest('.faq-item').classList.toggle('open');
-}
-
-function leadSubmit(e, isFinal){
-  e.preventDefault();
-  const id = isFinal ? 'finalEmail' : 'leadEmail';
-  const email = document.getElementById(id).value;
-  const btn = e.target.querySelector('button[type="submit"]');
-  const original = btn.innerHTML;
-  btn.innerHTML = '✓ Check your inbox';
-  btn.style.background = 'var(--green)';
-  btn.style.color = '#fff';
-  btn.disabled = true;
-  console.log('Lead captured:', email);
-  setTimeout(()=>{
-    btn.innerHTML = original;
-    btn.style.background = '';
-    btn.style.color = '';
-    btn.disabled = false;
-    e.target.reset();
-  }, 4000);
 }
 </script>
 </body>
