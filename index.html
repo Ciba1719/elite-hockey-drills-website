@@ -464,6 +464,103 @@ section{position:relative;z-index:2;}
   .prog-card{padding:44px 36px;}
 }
 
+/* FREE BANNER */
+.free-banner{
+  position:relative;
+  margin-top:56px;
+  background:linear-gradient(160deg,#1A1208 0%,#0E0A05 60%,#070708 100%);
+  border:1px solid rgba(232,183,119,.3);
+  border-radius:24px;
+  padding:48px 28px;
+  overflow:hidden;
+  text-align:center;
+}
+.free-banner::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--warm),transparent);
+}
+.free-banner-bg{
+  position:absolute;
+  top:-30%;left:50%;transform:translateX(-50%);
+  width:120%;height:160%;
+  background:
+    radial-gradient(ellipse at center top,rgba(232,183,119,.12) 0%,transparent 50%),
+    radial-gradient(ellipse at center bottom,rgba(232,183,119,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.free-banner-content{
+  position:relative;z-index:2;
+  max-width:560px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.free-banner-content .prog-tag{
+  margin-bottom:24px;
+}
+.free-banner-title{
+  font-size:clamp(48px,10vw,80px);
+  line-height:.92;
+  letter-spacing:.005em;
+  margin-bottom:20px;
+  color:var(--ink);
+}
+.free-banner-title em{
+  color:var(--warm);
+  font-weight:400;
+  display:block;
+  margin-top:4px;
+}
+.free-banner-desc{
+  color:var(--ink-2);
+  font-size:15px;
+  line-height:1.7;
+  margin-bottom:32px;
+  max-width:480px;
+}
+.free-banner-features{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:36px;
+  align-items:center;
+}
+.free-banner-features li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:14px;
+  color:var(--ink);
+}
+.free-banner-features li::before{
+  content:'';
+  width:16px;height:16px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23E8B777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.free-banner-cta{
+  margin-bottom:14px;
+  padding:18px 32px;
+  font-size:15px;
+}
+.free-banner-note{
+  font-size:12px;
+  color:var(--ink-3);
+  letter-spacing:.04em;
+}
+@media(min-width:780px){
+  .free-banner{padding:72px 48px;}
+  .free-banner-title{font-size:88px;}
+}
+@media(min-width:1200px){
+  .free-banner{padding:88px 64px;}
+}
+
 /* AGE-SPECIFIC PROGRAMS */
 .tiers{
   padding:88px 24px;
@@ -1107,49 +1204,28 @@ section{position:relative;z-index:2;}
 <section class="programs" id="programs">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-num serif">03 — Start Here</div>
-      <h2 class="sec-title">Start with the <em>basics.</em></h2>
-      <p class="sec-sub">Try the free 5-day program. If you're a coach, grab the practice builder. Looking for the 12-week age-specific programs? Scroll down.</p>
+      <div class="sec-num serif">03 — Start Free</div>
+      <h2 class="sec-title">Try before you <em>buy.</em></h2>
+      <p class="sec-sub">Not sure where to start? Get the free 5-day off-ice program — the same methods used with national-level players, condensed into one week of training.</p>
     </div>
 
-    <div class="programs-stack">
-      <div class="prog-card free reveal">
-        <div class="prog-img"><img src="ehd_program_4_sledpush.jpg" alt="Off-ice hockey sled push training" /></div>
-        <span class="prog-tag warm">Free Download</span>
-        <h3 class="prog-name display">5-Day Off-Ice<br>Power Reset</h3>
-        <p class="prog-tagline">Jump-start your off-ice training with 5 structured days of science-backed conditioning. No equipment needed.</p>
-        <ul class="prog-features">
-          <li>5 complete sessions across power, strength, core, conditioning &amp; mobility</li>
-          <li>Bodyweight-friendly — train anywhere</li>
+    <div class="free-banner reveal">
+      <div class="free-banner-bg"></div>
+      <div class="free-banner-content">
+        <span class="prog-tag warm">100% Free · Instant Access</span>
+        <h3 class="free-banner-title display">5-Day Off-Ice<br><em class="serif">Power Reset</em></h3>
+        <p class="free-banner-desc">A complete 5-day off-ice training program — no equipment needed. Built from the same methods used with national-level players. Download instantly, train today.</p>
+        <ul class="free-banner-features">
+          <li>5 complete training sessions</li>
+          <li>Bodyweight-friendly · train anywhere</li>
           <li>Used by players in 30+ countries</li>
           <li>Instant PDF download</li>
         </ul>
-        <div class="prog-price-row">
-          <div class="prog-price free-color display">FREE</div>
-        </div>
-        <p class="prog-price-note">Email above to receive instantly</p>
-        <a href="#lead" class="btn btn-ghost">Get Free Program</a>
-      </div>
-
-      <div class="prog-card reveal">
-        <div class="prog-img"><img src="ehd_program_3_boxjump.jpg" alt="Off-ice hockey box jump training" /></div>
-        <span class="prog-tag neutral">For Coaches</span>
-        <h3 class="prog-name display">Coach's Off-Ice Practice Builder</h3>
-        <p class="prog-tagline">A complete session library for hockey coaches. 50 ready-to-run off-ice training sessions, organized by goal and season phase.</p>
-        <ul class="prog-features">
-          <li>50 ready-to-run off-ice sessions</li>
-          <li>Organized by power, conditioning, pre-season, in-season</li>
-          <li>15–60 min session options</li>
-          <li>Printable session sheets for your team</li>
-          <li>Built for youth, junior &amp; adult coaches</li>
-          <li>30-day money-back guarantee</li>
-        </ul>
-        <div class="prog-price-row">
-          <div class="prog-price display">$99</div>
-          <div class="prog-price-meta">one-time payment</div>
-        </div>
-        <p class="prog-price-note">Instant access · PDF format</p>
-        <a href="#contact" class="btn btn-ghost">Get Coach Pack</a>
+        <a href="#lead" class="btn btn-primary free-banner-cta">
+          Get Free Program
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <p class="free-banner-note">No credit card · No spam · Unsubscribe anytime</p>
       </div>
     </div>
   </div>
@@ -1437,7 +1513,7 @@ section{position:relative;z-index:2;}
           <span>Do I need a gym membership?</span>
           <span class="faq-icon"></span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">The free 5-day program is fully bodyweight. The 12-week program uses basic gym equipment (barbell, dumbbells, cable). The Coach's pack includes both gym and bodyweight options.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">The free 5-day program is fully bodyweight. The paid 12-week programs use basic equipment depending on age tier — younger programs use mostly bodyweight, older ones add barbell/dumbbell work. Each program lists its equipment requirements upfront.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q-btn" onclick="toggleFaq(this)">
@@ -1500,8 +1576,8 @@ section{position:relative;z-index:2;}
       <h4>Programs</h4>
       <ul>
         <li><a href="#lead">Free 5-Day PDF</a></li>
-        <li><a href="#programs">12-Week Power &amp; Speed</a></li>
-        <li><a href="#programs">Coach's Practice Builder</a></li>
+        <li><a href="#tiers">12-Week Programs</a></li>
+        <li><a href="#tiers">Family Bundle</a></li>
         <li><a href="#app">App Waitlist</a></li>
       </ul>
     </div>
