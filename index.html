@@ -462,6 +462,22 @@ section{position:relative;z-index:2;}
   border-color:var(--ice-line);
   box-shadow:0 20px 40px -16px rgba(0,0,0,.5),0 0 60px var(--ice-soft);
 }
+
+/* Founding badge - top right corner */
+.tier-badge{
+  position:absolute;
+  top:18px;right:18px;
+  background:var(--warm);
+  color:#1A0F00;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:5px 9px;
+  border-radius:4px;
+  z-index:3;
+  box-shadow:0 4px 12px rgba(232,183,119,.25);
+}
 .tier-card::before{
   content:'';position:absolute;
   top:0;left:0;right:0;height:2px;
@@ -531,18 +547,33 @@ section{position:relative;z-index:2;}
   justify-content:space-between;
   gap:12px;
 }
+.tier-price-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.tier-price-old{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;
+  color:var(--ink-3);
+  text-decoration:line-through;
+  text-decoration-color:rgba(146,150,162,.6);
+  letter-spacing:.02em;
+  line-height:1;
+}
 .tier-price{
   font-family:'Bebas Neue',sans-serif;
-  font-size:38px;line-height:.9;
-  color:var(--ink);
+  font-size:42px;line-height:.9;
+  color:var(--warm);
+  letter-spacing:.005em;
 }
 .tier-price small{
   font-family:'DM Sans','Inter Tight',sans-serif;
-  font-size:11px;font-weight:500;
+  font-size:10px;font-weight:600;
   color:var(--ink-3);
-  letter-spacing:.06em;
+  letter-spacing:.1em;
   display:block;
-  margin-top:4px;
+  margin-top:6px;
   text-transform:uppercase;
 }
 .tier-btn{
@@ -1047,13 +1078,14 @@ section{position:relative;z-index:2;}
     <div class="sec-head reveal">
       <div class="sec-num serif">03 — Programs</div>
       <h2 class="sec-title">Built for your <em>age.</em></h2>
-      <p class="sec-sub">12-week off-ice programs designed for every stage of a hockey player's development. Each one is built around what an athlete in that age range actually needs — neither too easy nor too aggressive.</p>
+      <p class="sec-sub">12-week off-ice programs designed for every stage of a hockey player's development. <strong style="color:var(--warm);">Founding member pricing — first 100 buyers save $30 per program.</strong></p>
     </div>
 
     <div class="tier-grid">
 
       <!-- 9-11 -->
       <div class="tier-card reveal">
+        <div class="tier-badge">Founding Price</div>
         <div class="tier-age">Ages 9–11</div>
         <h3 class="tier-headline">Foundations<em>Athletic Movement</em></h3>
         <p class="tier-desc">Build the movement vocabulary every young player needs. Coordination, balance, basic strength — the long-term physical literacy foundation.</p>
@@ -1065,13 +1097,17 @@ section{position:relative;z-index:2;}
           <li>Parent-friendly instructions</li>
         </ul>
         <div class="tier-bottom">
-          <div class="tier-price">$49<small>One-time</small></div>
+          <div class="tier-price-wrap">
+            <div class="tier-price-old">$79</div>
+            <div class="tier-price">$49<small>Save $30</small></div>
+          </div>
           <a href="#contact" class="tier-btn">Get Program →</a>
         </div>
       </div>
 
       <!-- 12-14 -->
       <div class="tier-card reveal">
+        <div class="tier-badge">Founding Price</div>
         <div class="tier-age">Ages 12–14</div>
         <h3 class="tier-headline">Develop<em>Strength &amp; Speed</em></h3>
         <p class="tier-desc">The critical development window. Introduce structured strength training, build explosive movement patterns, and prepare the body for high-level hockey.</p>
@@ -1083,13 +1119,17 @@ section{position:relative;z-index:2;}
           <li>Growth-phase friendly</li>
         </ul>
         <div class="tier-bottom">
-          <div class="tier-price">$49<small>One-time</small></div>
+          <div class="tier-price-wrap">
+            <div class="tier-price-old">$79</div>
+            <div class="tier-price">$49<small>Save $30</small></div>
+          </div>
           <a href="#contact" class="tier-btn">Get Program →</a>
         </div>
       </div>
 
       <!-- 15-18 -->
       <div class="tier-card reveal">
+        <div class="tier-badge">Founding Price</div>
         <div class="tier-age">Ages 15–18</div>
         <h3 class="tier-headline">Compete<em>Power &amp; Performance</em></h3>
         <p class="tier-desc">For serious junior players. Full strength &amp; conditioning programming, advanced power development, and the conditioning to outwork everyone on the ice.</p>
@@ -1101,13 +1141,17 @@ section{position:relative;z-index:2;}
           <li>Recruitment-ready conditioning</li>
         </ul>
         <div class="tier-bottom">
-          <div class="tier-price">$49<small>One-time</small></div>
+          <div class="tier-price-wrap">
+            <div class="tier-price-old">$79</div>
+            <div class="tier-price">$49<small>Save $30</small></div>
+          </div>
           <a href="#contact" class="tier-btn">Get Program →</a>
         </div>
       </div>
 
       <!-- 19-39 -->
       <div class="tier-card reveal">
+        <div class="tier-badge">Founding Price</div>
         <div class="tier-age">Ages 19–39</div>
         <h3 class="tier-headline">Dominate<em>Peak Performance</em></h3>
         <p class="tier-desc">Built for the prime years — adult competitive players, ex-pros, and serious amateurs. Maximum strength, maintained explosiveness, smarter recovery.</p>
@@ -1119,13 +1163,17 @@ section{position:relative;z-index:2;}
           <li>Built-in recovery cycles</li>
         </ul>
         <div class="tier-bottom">
-          <div class="tier-price">$49<small>One-time</small></div>
+          <div class="tier-price-wrap">
+            <div class="tier-price-old">$79</div>
+            <div class="tier-price">$49<small>Save $30</small></div>
+          </div>
           <a href="#contact" class="tier-btn">Get Program →</a>
         </div>
       </div>
 
       <!-- 40+ -->
       <div class="tier-card reveal">
+        <div class="tier-badge">Founding Price</div>
         <div class="tier-age">Ages 40+</div>
         <h3 class="tier-headline">Sustain<em>Longevity &amp; Power</em></h3>
         <p class="tier-desc">Hockey isn't just for the young. Stay strong, fast, and injury-free deep into your beer-league career. Smart programming for athletes who've earned their experience.</p>
@@ -1137,7 +1185,10 @@ section{position:relative;z-index:2;}
           <li>Injury prevention focus</li>
         </ul>
         <div class="tier-bottom">
-          <div class="tier-price">$49<small>One-time</small></div>
+          <div class="tier-price-wrap">
+            <div class="tier-price-old">$79</div>
+            <div class="tier-price">$49<small>Save $30</small></div>
+          </div>
           <a href="#contact" class="tier-btn">Get Program →</a>
         </div>
       </div>
@@ -1147,14 +1198,14 @@ section{position:relative;z-index:2;}
     <!-- BUNDLE BAR -->
     <div class="bundle-bar reveal">
       <div class="bundle-text">
-        <span class="badge">Family Discount</span>
-        <h3>Got more than one <em>player at home?</em></h3>
-        <p>Buy <strong>2 or more programs</strong> and each one drops from $49 to <strong>$39</strong>. Perfect for hockey families with kids in multiple age groups — or coaches wanting more than one tier.</p>
+        <span class="badge">Stack the Discount</span>
+        <h3>More than one <em>player at home?</em></h3>
+        <p>Buy <strong>2 or more programs</strong> and each one drops from $49 to just <strong>$39</strong>. That's <strong>up to $200 saved</strong> across all 5 programs vs. regular pricing. Perfect for hockey families or coaches wanting multiple tiers.</p>
       </div>
       <div class="bundle-action">
         <div>
-          <div class="bundle-price"><span class="bundle-price-old">$49</span>$39</div>
-          <div style="font-size:11px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;font-weight:600;">when buying 2+</div>
+          <div class="bundle-price"><span class="bundle-price-old">$79</span>$39</div>
+          <div style="font-size:11px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;font-weight:600;">per program · buying 2+</div>
         </div>
         <a href="#contact" class="bundle-btn">
           Claim Discount
