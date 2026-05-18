@@ -464,6 +464,255 @@ section{position:relative;z-index:2;}
   .prog-card{padding:44px 36px;}
 }
 
+/* AGE-SPECIFIC PROGRAMS */
+.tiers{
+  padding:88px 24px;
+  background:var(--bg-2);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.tiers::before{
+  content:'';
+  position:absolute;
+  top:-30%;left:50%;transform:translateX(-50%);
+  width:80vw;height:600px;
+  background:radial-gradient(closest-side,var(--ice-soft) 0%,transparent 70%);
+  filter:blur(40px);
+  pointer-events:none;
+}
+.tiers-inner{position:relative;z-index:2;}
+.tier-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:56px;
+}
+.tier-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:transform .3s, border-color .3s, box-shadow .3s;
+  overflow:hidden;
+}
+.tier-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--ice-line);
+  box-shadow:0 20px 40px -16px rgba(0,0,0,.5),0 0 60px var(--ice-soft);
+}
+.tier-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:var(--line-2);
+  transition:background .3s;
+}
+.tier-card:hover::before{background:var(--ice);}
+
+.tier-age{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:14px;
+  letter-spacing:.16em;
+  color:var(--ice);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.tier-age::before{
+  content:'';width:6px;height:6px;
+  background:var(--ice);border-radius:50%;
+  box-shadow:0 0 8px var(--ice);
+}
+.tier-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,8vw,52px);
+  line-height:.95;
+  letter-spacing:.005em;
+  margin-bottom:6px;
+  color:var(--ink);
+}
+.tier-headline em{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;
+  color:var(--ice);
+  font-weight:400;
+  display:block;
+  font-size:.55em;
+  letter-spacing:0;
+  margin-top:6px;
+}
+.tier-desc{
+  color:var(--ink-2);
+  font-size:13.5px;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+.tier-features{
+  list-style:none;
+  display:flex;flex-direction:column;gap:8px;
+  margin-bottom:24px;
+  flex-grow:1;
+}
+.tier-features li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;line-height:1.5;
+  color:var(--ink);
+}
+.tier-features li::before{
+  content:'';width:12px;height:12px;flex-shrink:0;margin-top:3px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235DB4E5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-position:center;background-repeat:no-repeat;
+}
+.tier-bottom{
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.tier-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:38px;line-height:.9;
+  color:var(--ink);
+}
+.tier-price small{
+  font-family:'DM Sans','Inter Tight',sans-serif;
+  font-size:11px;font-weight:500;
+  color:var(--ink-3);
+  letter-spacing:.06em;
+  display:block;
+  margin-top:4px;
+  text-transform:uppercase;
+}
+.tier-btn{
+  background:var(--ink);color:var(--bg);
+  padding:11px 18px;
+  border-radius:100px;
+  font-size:13px;font-weight:600;
+  letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.tier-btn:hover{
+  background:var(--ice);
+  transform:translateY(-1px);
+}
+
+@media(min-width:680px){
+  .tier-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+}
+@media(min-width:1024px){
+  .tiers{padding:120px 40px;}
+  .tier-grid{grid-template-columns:repeat(3,1fr);gap:20px;}
+  .tier-card{padding:32px 28px;}
+}
+@media(min-width:1280px){
+  .tier-grid{grid-template-columns:repeat(5,1fr);gap:18px;}
+  .tier-card{padding:28px 22px;}
+  .tier-headline{font-size:36px;}
+  .tier-bottom{flex-direction:column;align-items:stretch;gap:14px;}
+  .tier-btn{justify-content:center;}
+}
+
+/* BUNDLE BAR */
+.bundle-bar{
+  margin-top:40px;
+  background:linear-gradient(135deg,#1F1608 0%,#0E0A05 100%);
+  border:1px solid rgba(232,183,119,.3);
+  border-radius:18px;
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:flex-start;
+  position:relative;
+  overflow:hidden;
+}
+.bundle-bar::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--warm),transparent);
+}
+.bundle-text .badge{
+  display:inline-block;
+  background:var(--warm);color:#1A0F00;
+  font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 11px;
+  border-radius:4px;
+  margin-bottom:12px;
+}
+.bundle-text h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,5vw,38px);
+  line-height:1;
+  letter-spacing:.005em;
+  margin-bottom:8px;
+}
+.bundle-text h3 em{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;
+  color:var(--warm);
+  font-weight:400;
+}
+.bundle-text p{
+  color:var(--ink-2);
+  font-size:13.5px;
+  line-height:1.6;
+  max-width:520px;
+}
+.bundle-text p strong{color:var(--warm);font-weight:600;}
+.bundle-action{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.bundle-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px;
+  line-height:.9;
+  color:var(--warm);
+}
+.bundle-price-old{
+  font-size:18px;
+  color:var(--ink-3);
+  text-decoration:line-through;
+  margin-right:10px;
+  vertical-align:middle;
+  font-weight:400;
+}
+.bundle-btn{
+  background:var(--warm);
+  color:#1A0F00;
+  padding:14px 24px;
+  border-radius:100px;
+  font-size:14px;font-weight:700;
+  letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:all .2s;
+}
+.bundle-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px -8px rgba(232,183,119,.4);
+}
+
+@media(min-width:780px){
+  .bundle-bar{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    padding:32px 36px;
+  }
+  .bundle-text{flex:1;}
+}
+
 /* APP */
 .app-section{
   padding:88px 24px;
@@ -710,12 +959,12 @@ section{position:relative;z-index:2;}
     <ul class="nav-links">
       <li><a href="#about">Coach</a></li>
       <li><a href="#method">Method</a></li>
-      <li><a href="#programs">Programs</a></li>
+      <li><a href="#tiers">Programs</a></li>
       <li><a href="#app">App</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
   </nav>
-  <a href="/survey.html" class="nav-cta">Free Program</a>
+  <a href="#lead" class="nav-cta">Free Program</a>
 </header>
 
 <section class="hero" id="hero">
@@ -736,11 +985,11 @@ section{position:relative;z-index:2;}
           Programs built on real sport science — not gym-bro guesswork. <strong>Strength, speed, and conditioning</strong> for hockey players, designed by a coach who's worked with players from grassroots to national team level.
         </p>
         <div class="hero-ctas">
-          <a href="/survey.html" class="btn btn-primary">
+          <a href="#lead" class="btn btn-primary">
             Get Free 5-Day Program
             <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#programs" class="btn btn-ghost">View Programs</a>
+          <a href="#tiers" class="btn btn-ghost">View Programs</a>
         </div>
         <div class="hero-stats">
           <div>
@@ -772,14 +1021,15 @@ section{position:relative;z-index:2;}
       <h2 class="display">5-Day Off-Ice<br><em>Power</em> Reset</h2>
       <p>A complete 5-day off-ice training program — no equipment needed. Built from the same methods used with national-level players. Download instantly, train today.</p>
     </div>
-    <form class="lead-form reveal" onsubmit="event.preventDefault();window.location.href='/survey.html';">
+    <form class="lead-form reveal" onsubmit="leadSubmit(event)">
       <div class="lead-input-row">
-        <a href="/survey.html" class="btn btn-primary" style="width:100%;">
-          Build My Free Program
+        <input type="email" required placeholder="Your email address" class="lead-input" id="leadEmail" />
+        <button type="submit" class="btn btn-primary">
+          Send PDF
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
+        </button>
       </div>
-      <p class="lead-note">Takes 60 seconds · No spam · Used by 1,000+ players in 30+ countries.</p>
+      <p class="lead-note">No spam. Unsubscribe anytime. Used by 1,000+ players in 30+ countries.</p>
     </form>
   </div>
 </section>
@@ -818,7 +1068,7 @@ section{position:relative;z-index:2;}
           <li>National Team Coach — UAE Ice Hockey</li>
           <li>1,000+ athletes developed across 30+ countries</li>
         </ul>
-        <a href="#programs" class="btn btn-primary">
+        <a href="#tiers" class="btn btn-primary">
           See the Programs
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
@@ -857,9 +1107,9 @@ section{position:relative;z-index:2;}
 <section class="programs" id="programs">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-num serif">03 — The Programs</div>
-      <h2 class="sec-title">Train like an <em>elite.</em></h2>
-      <p class="sec-sub">Three programs. Built once, structured for progression, ready to execute. No tailoring needed — designed to work for any serious player or coach.</p>
+      <div class="sec-num serif">03 — Start Here</div>
+      <h2 class="sec-title">Start with the <em>basics.</em></h2>
+      <p class="sec-sub">Try the free 5-day program. If you're a coach, grab the practice builder. Looking for the 12-week age-specific programs? Scroll down.</p>
     </div>
 
     <div class="programs-stack">
@@ -881,30 +1131,6 @@ section{position:relative;z-index:2;}
         <a href="#lead" class="btn btn-ghost">Get Free Program</a>
       </div>
 
-      <div class="prog-card featured reveal">
-        <div class="prog-img"><img src="ehd_program_2_deadlift.jpg" alt="Off-ice hockey deadlift training" /></div>
-        <span class="prog-tag ice">Most Popular</span>
-        <h3 class="prog-name display">12-Week Off-Ice Power &amp; Speed</h3>
-        <p class="prog-tagline">The complete off-ice system. 12 weeks of progressive training covering strength, explosive power, acceleration, and conditioning.</p>
-        <ul class="prog-features">
-          <li>12 weeks of fully structured training blocks</li>
-          <li>Progressive overload built in — no guessing</li>
-          <li>Power, speed, agility, endurance phases</li>
-          <li>Exercise video demonstrations included</li>
-          <li>Works for junior to adult players</li>
-          <li>30-day money-back guarantee</li>
-        </ul>
-        <div class="prog-price-row">
-          <div class="prog-price featured-color display">$49</div>
-          <div class="prog-price-meta">one-time payment</div>
-        </div>
-        <p class="prog-price-note">Instant access · PDF + video links</p>
-        <a href="#contact" class="btn btn-primary">
-          Get the Program
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
       <div class="prog-card reveal">
         <div class="prog-img"><img src="ehd_program_3_boxjump.jpg" alt="Off-ice hockey box jump training" /></div>
         <span class="prog-tag neutral">For Coaches</span>
@@ -924,6 +1150,129 @@ section{position:relative;z-index:2;}
         </div>
         <p class="prog-price-note">Instant access · PDF format</p>
         <a href="#contact" class="btn btn-ghost">Get Coach Pack</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tiers" id="tiers">
+  <div class="wrap tiers-inner">
+    <div class="sec-head reveal">
+      <div class="sec-num serif">04 — Age-Specific Programs</div>
+      <h2 class="sec-title">Built for your <em>age.</em></h2>
+      <p class="sec-sub">12-week off-ice programs designed for every stage of a hockey player's development. Each one is built around what an athlete in that age range actually needs — neither too easy nor too aggressive.</p>
+    </div>
+
+    <div class="tier-grid">
+
+      <!-- 9-11 -->
+      <div class="tier-card reveal">
+        <div class="tier-age">Ages 9–11</div>
+        <h3 class="tier-headline">Foundations<em>Athletic Movement</em></h3>
+        <p class="tier-desc">Build the movement vocabulary every young player needs. Coordination, balance, basic strength — the long-term physical literacy foundation.</p>
+        <ul class="tier-features">
+          <li>12 weeks · 3 sessions/week</li>
+          <li>Age-appropriate intensity</li>
+          <li>Coordination &amp; agility focus</li>
+          <li>Bodyweight &amp; light equipment</li>
+          <li>Parent-friendly instructions</li>
+        </ul>
+        <div class="tier-bottom">
+          <div class="tier-price">$49<small>One-time</small></div>
+          <a href="#contact" class="tier-btn">Get Program →</a>
+        </div>
+      </div>
+
+      <!-- 12-14 -->
+      <div class="tier-card reveal">
+        <div class="tier-age">Ages 12–14</div>
+        <h3 class="tier-headline">Develop<em>Strength &amp; Speed</em></h3>
+        <p class="tier-desc">The critical development window. Introduce structured strength training, build explosive movement patterns, and prepare the body for high-level hockey.</p>
+        <ul class="tier-features">
+          <li>12 weeks · 3 sessions/week</li>
+          <li>Intro to barbell work</li>
+          <li>Plyometric &amp; jump training</li>
+          <li>Speed mechanics</li>
+          <li>Growth-phase friendly</li>
+        </ul>
+        <div class="tier-bottom">
+          <div class="tier-price">$49<small>One-time</small></div>
+          <a href="#contact" class="tier-btn">Get Program →</a>
+        </div>
+      </div>
+
+      <!-- 15-18 -->
+      <div class="tier-card reveal">
+        <div class="tier-age">Ages 15–18</div>
+        <h3 class="tier-headline">Compete<em>Power &amp; Performance</em></h3>
+        <p class="tier-desc">For serious junior players. Full strength &amp; conditioning programming, advanced power development, and the conditioning to outwork everyone on the ice.</p>
+        <ul class="tier-features">
+          <li>12 weeks · 4 sessions/week</li>
+          <li>Heavy strength training</li>
+          <li>Advanced plyometrics</li>
+          <li>Sprint &amp; agility work</li>
+          <li>Recruitment-ready conditioning</li>
+        </ul>
+        <div class="tier-bottom">
+          <div class="tier-price">$49<small>One-time</small></div>
+          <a href="#contact" class="tier-btn">Get Program →</a>
+        </div>
+      </div>
+
+      <!-- 19-39 -->
+      <div class="tier-card reveal">
+        <div class="tier-age">Ages 19–39</div>
+        <h3 class="tier-headline">Dominate<em>Peak Performance</em></h3>
+        <p class="tier-desc">Built for the prime years — adult competitive players, ex-pros, and serious amateurs. Maximum strength, maintained explosiveness, smarter recovery.</p>
+        <ul class="tier-features">
+          <li>12 weeks · 4 sessions/week</li>
+          <li>Heavy compound training</li>
+          <li>Power maintenance protocols</li>
+          <li>Conditioning for game-pace</li>
+          <li>Built-in recovery cycles</li>
+        </ul>
+        <div class="tier-bottom">
+          <div class="tier-price">$49<small>One-time</small></div>
+          <a href="#contact" class="tier-btn">Get Program →</a>
+        </div>
+      </div>
+
+      <!-- 40+ -->
+      <div class="tier-card reveal">
+        <div class="tier-age">Ages 40+</div>
+        <h3 class="tier-headline">Sustain<em>Longevity &amp; Power</em></h3>
+        <p class="tier-desc">Hockey isn't just for the young. Stay strong, fast, and injury-free deep into your beer-league career. Smart programming for athletes who've earned their experience.</p>
+        <ul class="tier-features">
+          <li>12 weeks · 3 sessions/week</li>
+          <li>Joint-friendly progressions</li>
+          <li>Mobility prioritized</li>
+          <li>Strength maintenance</li>
+          <li>Injury prevention focus</li>
+        </ul>
+        <div class="tier-bottom">
+          <div class="tier-price">$49<small>One-time</small></div>
+          <a href="#contact" class="tier-btn">Get Program →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BUNDLE BAR -->
+    <div class="bundle-bar reveal">
+      <div class="bundle-text">
+        <span class="badge">Family Discount</span>
+        <h3>Got more than one <em>player at home?</em></h3>
+        <p>Buy <strong>2 or more programs</strong> and each one drops from $49 to <strong>$39</strong>. Perfect for hockey families with kids in multiple age groups — or coaches wanting more than one tier.</p>
+      </div>
+      <div class="bundle-action">
+        <div>
+          <div class="bundle-price"><span class="bundle-price-old">$49</span>$39</div>
+          <div style="font-size:11px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;font-weight:600;">when buying 2+</div>
+        </div>
+        <a href="#contact" class="bundle-btn">
+          Claim Discount
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -1129,11 +1478,12 @@ section{position:relative;z-index:2;}
       <div class="eyebrow ice" style="margin-bottom:18px;">Start Today · Free</div>
       <h2 class="display">Ready to <em>train?</em></h2>
       <p>Get the free 5-day off-ice program. Built from the same methods used with national-level players. Train smarter starting today.</p>
-      <form class="final-form" onsubmit="event.preventDefault();window.location.href='/survey.html';">
-        <a href="/survey.html" class="btn btn-primary" style="padding:18px 28px;">
+      <form class="final-form" onsubmit="leadSubmit(event,true)">
+        <input type="email" required placeholder="Your email address" class="lead-input" id="finalEmail" />
+        <button type="submit" class="btn btn-primary">
           Get Free Program
           <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
+        </button>
       </form>
       <p class="final-note">Or email <a href="mailto:elitehockeydrills@gmail.com" style="color:var(--ice);">elitehockeydrills@gmail.com</a> · Based in Al Ain, UAE</p>
     </div>
@@ -1149,7 +1499,7 @@ section{position:relative;z-index:2;}
     <div class="footer-col">
       <h4>Programs</h4>
       <ul>
-        <li><a href="/survey.html">Free 5-Day PDF</a></li>
+        <li><a href="#lead">Free 5-Day PDF</a></li>
         <li><a href="#programs">12-Week Power &amp; Speed</a></li>
         <li><a href="#programs">Coach's Practice Builder</a></li>
         <li><a href="#app">App Waitlist</a></li>
@@ -1180,7 +1530,7 @@ section{position:relative;z-index:2;}
 </footer>
 
 <div class="mobile-bar" id="mobileBar">
-  <a href="/survey.html" class="btn btn-primary">Free 5-Day Program</a>
+  <a href="#lead" class="btn btn-primary">Free 5-Day Program</a>
 </div>
 
 <script>
