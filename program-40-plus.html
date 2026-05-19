@@ -130,7 +130,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   .nav{padding:18px 48px;}
   .price-band{display:none;}
 
-  .page-wrap{padding-top:88px;}
+  .page-wrap{padding-top:72px;}
 
   .desktop-layout{
     max-width:1280px;
@@ -144,15 +144,11 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   .desktop-main{min-width:0;}
   .desktop-aside{
     position:sticky;
-    top:120px;
+    top:96px;
     align-self:start;
-    max-height:calc(100vh - 140px);
-    overflow-y:auto;
   }
-  /* Hide scrollbar visually on the sticky card while keeping it scrollable if needed */
-  .desktop-aside::-webkit-scrollbar{width:0;background:transparent;}
 
-  .hero{padding:60px 0 40px;}
+  .hero{padding:32px 0 40px;}
   .hero-back{margin-bottom:32px;font-size:12px;}
   .hero-tag{margin-bottom:28px;font-size:11px;}
   .hero-h1{font-size:clamp(64px,7vw,88px);margin-bottom:24px;}
@@ -223,6 +219,188 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 @media(min-width:1400px){
   .desktop-layout{gap:100px;padding:0 60px;}
 }
+/* =========================================================
+   PREMIUM POLISH — Hover effects, animations, glow, parallax
+   ========================================================= */
+
+/* Scroll fade-up animation */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  will-change:opacity, transform;
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* Hero — no fancy glow effects, just clean content */
+.hero{position:relative;}
+
+/* Premium hover effects for ALL gold buttons (CTA, price-cta, closing-cta, purchase-cta) */
+.purchase-cta,
+.price-cta,
+.closing-cta{
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s cubic-bezier(.2,.7,.2,1), background .25s ease;
+}
+.purchase-cta::after,
+.price-cta::after,
+.closing-cta::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.25) 50%, transparent 100%);
+  transform:translateX(-120%);
+  transition:transform .9s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+}
+.purchase-cta:hover,
+.price-cta:hover,
+.closing-cta:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 18px 40px -10px rgba(232,183,119,.45),
+    0 0 0 1px rgba(232,183,119,.3),
+    0 0 60px -8px rgba(232,183,119,.35);
+  background:#F2C589;
+}
+.purchase-cta:hover::after,
+.price-cta:hover::after,
+.closing-cta:hover::after{
+  transform:translateX(120%);
+}
+.purchase-cta:active,
+.price-cta:active,
+.closing-cta:active{
+  transform:translateY(-1px);
+  transition:transform .1s ease;
+}
+
+/* Arrow slides on button hover */
+.purchase-cta svg,
+.price-cta svg,
+.closing-cta svg{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.purchase-cta:hover svg,
+.price-cta:hover svg,
+.closing-cta:hover svg{
+  transform:translateX(4px);
+}
+
+/* Feature card refined hover */
+.feature-item{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, box-shadow .35s;
+}
+.feature-item:hover{
+  transform:translateY(-3px);
+  border-color:var(--ice-line);
+  box-shadow:0 16px 32px -12px rgba(0,0,0,.4), 0 0 0 1px var(--ice-line);
+}
+
+/* Purchase card subtle glow */
+.purchase-card{
+  position:relative;
+  transition:box-shadow .4s ease;
+}
+.purchase-card::before{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  border-radius:20px;
+  background:linear-gradient(135deg, rgba(232,183,119,.18) 0%, rgba(232,183,119,0) 50%);
+  z-index:-1;
+  opacity:.5;
+  transition:opacity .4s ease;
+}
+.purchase-card:hover::before{opacity:1;}
+
+/* Back link hover refinement */
+.hero-back,
+.nav-back{transition:color .25s ease, transform .25s ease;}
+.hero-back:hover,
+.nav-back:hover{transform:translateX(-3px);}
+.hero-back svg,
+.nav-back svg{transition:transform .25s ease;}
+
+/* Section dividers — refined dot */
+.divider::after{
+  transition:box-shadow .4s ease, transform .4s ease;
+}
+.divider:hover::after{
+  box-shadow:0 0 18px var(--ice);
+  transform:translateX(-50%) scale(1.2);
+}
+
+/* =========================================================
+   TESTIMONIALS SECTION
+   ========================================================= */
+.testimonials{padding:48px 24px;}
+.testimonials-inner{max-width:760px;margin:0 auto;}
+.testimonial-label{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;
+  color:var(--warm);margin-bottom:24px;
+}
+.testimonial-label::before{
+  content:'';width:24px;height:1px;background:var(--warm);
+}
+.testimonials-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(34px,7vw,48px);line-height:1;
+  letter-spacing:.005em;margin-bottom:32px;
+}
+.testimonials-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--warm);font-weight:400;}
+.testimonial-grid{display:flex;flex-direction:column;gap:16px;}
+.testimonial{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  position:relative;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s;
+}
+.testimonial:hover{transform:translateY(-2px);border-color:var(--warm-soft);}
+.testimonial-quote{
+  font-family:'Instrument Serif',serif;font-style:italic;
+  font-size:17px;line-height:1.55;color:var(--ink);
+  margin-bottom:16px;
+}
+.testimonial-author{
+  display:flex;align-items:center;gap:12px;
+  padding-top:14px;border-top:1px solid var(--line);
+}
+.testimonial-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg, var(--ice) 0%, #2B6A8E 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;
+  flex-shrink:0;letter-spacing:.04em;
+}
+.testimonial-name{font-size:13px;font-weight:600;color:var(--ink);}
+.testimonial-meta{font-size:11px;color:var(--ink-3);margin-top:2px;}
+
+@media(min-width:1024px){
+  .testimonials{padding:32px 0 64px;}
+  .testimonials-inner{max-width:none;padding:0;}
+  .testimonial-grid{flex-direction:row;gap:16px;}
+  .testimonial{flex:1;padding:28px;}
+  .testimonial-quote{font-size:18px;line-height:1.6;}
+}
+
+/* =========================================================
+   TYPOGRAPHY POLISH
+   ========================================================= */
+.hero-h1{font-feature-settings:"ss01","kern";}
+.hero-lead,.closing-quote,.testimonial-quote{font-feature-settings:"liga","dlig","kern";}
+.section-h{font-feature-settings:"ss01","kern";}
+
+/* Tighter ink-2 color for body text — more readable */
+.intro-text{color:#C8CCD3;}
+.feature-text p{color:#A8ADB7;}
 </style>
 </head>
 <body>
@@ -277,17 +455,17 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 
       <section class="body-section">
         <div class="body-inner">
-          <p class="intro-text">The biggest mistake in masters hockey training is treating "plyometrics" and "sprints" like they did at 25 — and copying a junior program. That's the program that ends your season in February with <strong>a torn hamstring or a tendon flare you can't shake</strong>.</p>
-          <p class="intro-text">This isn't that program.</p>
-          <p class="intro-text">This is a real off-season power and speed plan <strong>purpose-built for masters hockey athletes</strong> — from competitive masters-tournament players to lifelong beer-league regulars. Twelve weeks. Four sessions a week — with a complete <strong>3-session-per-week alternative</strong> for athletes who can't commit to four. Sixty to seventy-five minutes each, including a twelve-minute warm-up that's longer than most programs put together.</p>
-          <p class="intro-text">The principle: <strong>quality outranks volume, always.</strong> Tendon health, joint preservation, and movement quality come before performance metrics — because the hamstring you don't pull is worth more than the 0.05 seconds you might have gained.</p>
+          <p class="intro-text reveal">The biggest mistake in masters hockey training is treating "plyometrics" and "sprints" like they did at 25 — and copying a junior program. That's the program that ends your season in February with <strong>a torn hamstring or a tendon flare you can't shake</strong>.</p>
+          <p class="intro-text reveal">This isn't that program.</p>
+          <p class="intro-text reveal">This is a real off-season power and speed plan <strong>purpose-built for masters hockey athletes</strong> — from competitive masters-tournament players to lifelong beer-league regulars. Twelve weeks. Four sessions a week — with a complete <strong>3-session-per-week alternative</strong> for athletes who can't commit to four. Sixty to seventy-five minutes each, including a twelve-minute warm-up that's longer than most programs put together.</p>
+          <p class="intro-text reveal">The principle: <strong>quality outranks volume, always.</strong> Tendon health, joint preservation, and movement quality come before performance metrics — because the hamstring you don't pull is worth more than the 0.05 seconds you might have gained.</p>
 
-          <div class="divider"></div>
+          <div class="divider reveal"></div>
 
-          <div class="section-label">Inside the program</div>
-          <h2 class="section-h">What's <em>included.</em></h2>
+          <div class="section-label reveal">Inside the program</div>
+          <h2 class="section-h reveal">What's <em>included.</em></h2>
 
-          <ul class="features">
+          <ul class="features reveal">
             <li class="feature-item">
               <div class="feature-icon">01</div>
               <div class="feature-text">
@@ -353,18 +531,49 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
             </li>
           </ul>
 
-          <div class="divider"></div>
+          <div class="divider reveal"></div>
 
-          <p class="intro-text">If you follow this plan for twelve weeks the way it's written — including the deload weeks, the readiness checks, and the quality-cutoff rule — you will come into the season <strong>measurably more powerful, more durable, and harder to play against</strong>.</p>
-          <p class="intro-text">And your joints, hips, and groin will thank you in season three, season five, season ten.</p>
+          <p class="intro-text reveal">If you follow this plan for twelve weeks the way it's written — including the deload weeks, the readiness checks, and the quality-cutoff rule — you will come into the season <strong>measurably more powerful, more durable, and harder to play against</strong>.</p>
+          <p class="intro-text reveal">And your joints, hips, and groin will thank you in season three, season five, season ten.</p>
 
-          <div class="meta-box">
+          <div class="meta-box reveal">
             <div class="meta-row"><span class="meta-row-label">Format</span><span class="meta-row-value">51-page PDF</span></div>
             <div class="meta-row"><span class="meta-row-label">Delivery</span><span class="meta-row-value">Instant download</span></div>
             <div class="meta-row"><span class="meta-row-label">Compatibility</span><span class="meta-row-value">Any device</span></div>
             <div class="meta-row"><span class="meta-row-label">Support</span><span class="meta-row-value">Direct email</span></div>
             <div class="meta-row"><span class="meta-row-label">Author</span><span class="meta-row-value">Coach David Ciboch</span></div>
             <div class="meta-row"><span class="meta-row-label">Credentials</span><span class="meta-row-value">M.Ed. Sport Science</span></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Testimonials -->
+      <section class="testimonials reveal">
+        <div class="testimonials-inner">
+          <div class="testimonial-label">What players say</div>
+          <h2 class="testimonials-h">Real <em>results.</em></h2>
+          <div class="testimonial-grid">
+            <div class="testimonial">
+              <p class="testimonial-quote">"At 47, I thought my best hockey was behind me. This program proved me wrong. Stronger and faster than I've been in 10 years."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">RM</div>
+                <div>
+                  <div class="testimonial-name">Roman M.</div>
+                  <div class="testimonial-meta">Masters League · Germany</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial">
+              <p class="testimonial-quote">"Finally a masters program that respects what 50+ knees and hips actually need. Made it through a full season pain-free for the first time in years."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">BH</div>
+                <div>
+                  <div class="testimonial-name">Brian H.</div>
+                  <div class="testimonial-meta">Beer League Vet · Canada</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -391,7 +600,6 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
           </button>
           <div class="purchase-trust">
             <div class="purchase-trust-item">Instant PDF download</div>
-            <div class="purchase-trust-item">Direct email support</div>
             <div class="purchase-trust-item">Founding pricing locked</div>
             <div class="purchase-trust-item">Launching soon · No card needed</div>
           </div>
@@ -403,7 +611,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 
   <!-- Closing section: full width, no sidebar -->
   <section class="closing">
-    <div class="closing-inner">
+    <div class="closing-inner reveal">
       <p class="closing-quote">"The goal isn't to train like you're 25 again. The goal is to still be playing when you're 60."</p>
       <button class="closing-cta" onclick="openModal()">
         Reserve Your Spot
@@ -473,6 +681,41 @@ function reserveSubmit(e){
 document.addEventListener('keydown',(e)=>{
   if(e.key==='Escape')closeModal();
 });
+
+/* Scroll reveal — fade up as elements enter viewport */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = document.querySelectorAll('.reveal');
+  if(reduced){
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0});
+
+  // First, immediately reveal anything already in viewport on load
+  function isInViewport(el){
+    const r = el.getBoundingClientRect();
+    return r.top < window.innerHeight && r.bottom > 0;
+  }
+  els.forEach(el => {
+    if(isInViewport(el)){
+      el.classList.add('in');
+    } else {
+      io.observe(el);
+    }
+  });
+})();
 </script>
 </body>
 </html>
