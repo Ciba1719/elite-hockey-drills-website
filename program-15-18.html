@@ -20,7 +20,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-body{font-family:'Inter Tight',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter Tight',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
 img,svg{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
@@ -30,220 +30,199 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .display{font-family:'Bebas Neue',sans-serif;letter-spacing:.01em;line-height:.92;font-weight:400;}
 .serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em;}
 
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px;}
-section{position:relative;z-index:2;}
-
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:90;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,8,.85);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid var(--line);}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.14em;display:flex;align-items:center;gap:8px;}
 .nav-logo .dot{width:6px;height:6px;background:var(--ice);border-radius:50%;box-shadow:0 0 12px var(--ice);}
 .nav-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--ink-2);transition:color .2s;}
 .nav-back:hover{color:var(--ink);}
-@media(min-width:900px){.nav{padding:18px 40px;}}
 
-/* HERO */
-.hero{padding:120px 24px 60px;position:relative;}
-.hero-glow{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:90vw;max-width:900px;height:600px;background:radial-gradient(closest-side,var(--ice-soft) 0%,transparent 70%);pointer-events:none;filter:blur(40px);z-index:0;}
-.hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center;}
+/* MOBILE STYLES (default) */
+.page-wrap{padding-top:80px;}
 
-.hero-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;transition:color .2s;}
+.hero{padding:40px 24px 32px;position:relative;}
+.hero-back{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;transition:color .2s;}
 .hero-back:hover{color:var(--ice);}
-
-.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border:1px solid var(--ice-line);background:var(--ice-soft);border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);margin-bottom:28px;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border:1px solid var(--ice-line);background:var(--ice-soft);border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);margin-bottom:24px;}
 .hero-tag::before{content:'';width:6px;height:6px;background:var(--ice);border-radius:50%;box-shadow:0 0 10px var(--ice);}
-
-.hero-h1{font-size:clamp(48px,8vw,96px);line-height:.95;margin-bottom:20px;}
-.hero-h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;display:block;font-size:.6em;margin-top:14px;}
-
-.hero-lead{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(18px,3vw,24px);color:var(--ink);max-width:680px;margin:0 auto 36px;line-height:1.5;}
-
-.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-bottom:40px;padding-top:28px;border-top:1px solid var(--line);}
-.hero-meta-item{display:flex;flex-direction:column;align-items:center;}
+.hero-h1{font-size:clamp(44px,9vw,72px);line-height:.96;margin-bottom:20px;font-family:'Bebas Neue',sans-serif;letter-spacing:.005em;}
+.hero-h1 em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;display:block;font-size:.55em;margin-top:12px;}
+.hero-lead{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(17px,3.2vw,22px);color:var(--ink);max-width:560px;margin:0 0 32px;line-height:1.5;}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:24px 0;border-top:1px solid var(--line);}
+.hero-meta-item{display:flex;flex-direction:column;align-items:flex-start;}
 .hero-meta-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);line-height:1;}
-.hero-meta-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:6px;}
+.hero-meta-label{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:6px;}
 
-/* PRICE BAND */
-.price-band{background:linear-gradient(135deg,#1A1208 0%,#0E0A05 100%);border-top:1px solid rgba(232,183,119,.3);border-bottom:1px solid rgba(232,183,119,.3);padding:48px 24px;position:relative;overflow:hidden;}
-.price-band::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--warm),transparent);}
-.price-inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;}
+.price-band{background:linear-gradient(135deg,#1A1208 0%,#0E0A05 100%);border-top:1px solid rgba(232,183,119,.3);border-bottom:1px solid rgba(232,183,119,.3);padding:36px 24px;}
+.price-inner{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;max-width:480px;margin:0 auto;}
 .price-badge{background:var(--warm);color:#1A0F00;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:4px;}
-.price-row{display:flex;align-items:baseline;gap:14px;justify-content:center;}
-.price-old{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--ink-3);text-decoration:line-through;text-decoration-color:rgba(146,150,162,.6);}
-.price-now{font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--warm);line-height:.9;}
-.price-save{font-size:13px;font-weight:600;color:var(--warm);letter-spacing:.04em;}
-.price-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:15px;font-weight:700;letter-spacing:.02em;transition:all .2s;}
-.price-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(232,183,119,.4);}
-.price-note{font-size:12px;color:var(--ink-3);max-width:480px;}
+.price-row{display:flex;align-items:baseline;gap:14px;}
+.price-old{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink-3);text-decoration:line-through;}
+.price-now{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--warm);line-height:.9;}
+.price-save{font-size:13px;font-weight:600;color:var(--warm);}
+.price-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:14px;font-weight:700;width:100%;justify-content:center;}
+.price-note{font-size:11px;color:var(--ink-3);}
 
-/* BODY */
-.body-section{padding:88px 24px;}
-.body-inner{max-width:780px;margin:0 auto;}
-.body-content{}
-
-.intro-text{font-size:clamp(17px,2.4vw,20px);line-height:1.75;color:var(--ink);margin-bottom:24px;}
-.intro-text:last-child{margin-bottom:0;}
+.body-section{padding:60px 24px;}
+.body-inner{max-width:760px;margin:0 auto;}
+.intro-text{font-size:16px;line-height:1.75;color:var(--ink);margin-bottom:22px;}
 .intro-text strong{color:var(--ice);font-weight:500;}
-
-.divider{height:1px;background:var(--line);margin:64px 0;position:relative;}
+.divider{height:1px;background:var(--line);margin:48px 0;position:relative;}
 .divider::after{content:'';position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:7px;height:7px;background:var(--ice);border-radius:50%;box-shadow:0 0 12px var(--ice);}
-
-.section-label{display:inline-flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--ice);margin-bottom:18px;}
-.section-label::before{content:'';width:32px;height:1px;background:var(--ice);}
-
-.section-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,52px);line-height:1;letter-spacing:.005em;margin-bottom:32px;}
+.section-label{display:inline-flex;align-items:center;gap:12px;font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--ice);margin-bottom:16px;}
+.section-label::before{content:'';width:24px;height:1px;background:var(--ice);}
+.section-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,7vw,48px);line-height:1;letter-spacing:.005em;margin-bottom:32px;}
 .section-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;}
 
-/* FEATURE LIST */
-.features{list-style:none;display:flex;flex-direction:column;gap:24px;margin-top:8px;}
-.feature-item{display:flex;gap:20px;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:border-color .2s, transform .2s;}
+.features{list-style:none;display:flex;flex-direction:column;gap:14px;}
+.feature-item{display:flex;gap:16px;padding:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:border-color .2s, transform .2s;}
 .feature-item:hover{border-color:var(--ice-line);transform:translateY(-2px);}
-.feature-icon{flex-shrink:0;width:38px;height:38px;background:var(--ice-soft);border:1px solid var(--ice-line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--ice);}
+.feature-icon{flex-shrink:0;width:36px;height:36px;background:var(--ice-soft);border:1px solid var(--ice-line);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--ice);}
 .feature-text{flex:1;}
 .feature-text strong{display:block;color:var(--ink);font-size:15px;font-weight:600;margin-bottom:6px;}
-.feature-text p{color:var(--ink-2);font-size:14.5px;line-height:1.65;}
+.feature-text p{color:var(--ink-2);font-size:14px;line-height:1.65;}
 
-/* META BOX */
-.meta-box{margin-top:48px;padding:28px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:1fr;gap:16px;}
-.meta-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.meta-box{margin-top:40px;padding:24px;background:var(--bg-2);border:1px solid var(--line);border-radius:14px;}
+.meta-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
 .meta-row:last-child{border-bottom:none;}
 .meta-row-label{color:var(--ink-3);font-weight:500;}
 .meta-row-value{color:var(--ink);font-weight:600;text-align:right;}
 
-/* CLOSING */
-.closing{padding:64px 24px 88px;text-align:center;}
-.closing-inner{max-width:680px;margin:0 auto;}
-.closing-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(20px,3vw,26px);line-height:1.5;color:var(--ink);margin-bottom:36px;}
-.closing-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:15px;font-weight:700;letter-spacing:.02em;transition:all .2s;}
-.closing-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(232,183,119,.4);}
+.closing{padding:60px 24px 80px;text-align:center;}
+.closing-inner{max-width:600px;margin:0 auto;}
+.closing-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(20px,3.5vw,26px);line-height:1.5;color:var(--ink);margin-bottom:32px;}
+.closing-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:15px;font-weight:700;}
 
-/* FOOTER */
-.footer{background:#040405;border-top:1px solid var(--line);padding:48px 24px;text-align:center;}
-.footer-inner{max-width:900px;margin:0 auto;}
-.footer-back{display:inline-flex;align-items:center;gap:10px;color:var(--ice);font-size:14px;font-weight:600;margin-bottom:20px;}
-.footer p{color:var(--ink-3);font-size:13px;line-height:1.7;}
+.footer{background:#040405;border-top:1px solid var(--line);padding:36px 24px;text-align:center;}
+.footer-back{display:inline-flex;align-items:center;gap:10px;color:var(--ice);font-size:13px;font-weight:600;margin-bottom:16px;}
+.footer p{color:var(--ink-3);font-size:12px;line-height:1.7;}
+
+/* Hide desktop-only elements on mobile */
+.desktop-only{display:none;}
 
 /* MODAL */
 .modal{position:fixed;inset:0;z-index:200;background:rgba(7,7,8,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s;}
 .modal.open{opacity:1;pointer-events:auto;}
-.modal-card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:20px;max-width:480px;width:100%;padding:36px 28px;position:relative;transform:scale(.95);transition:transform .25s;}
+.modal-card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:20px;max-width:460px;width:100%;padding:32px 26px;position:relative;transform:scale(.95);transition:transform .25s;}
 .modal.open .modal-card{transform:scale(1);}
-.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--bg-3);color:var(--ink-2);font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:var(--bg-3);color:var(--ink-2);font-size:18px;display:flex;align-items:center;justify-content:center;}
 .modal-close:hover{background:var(--line-2);color:var(--ink);}
-.modal-badge{display:inline-block;background:var(--ice);color:#001626;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:4px;margin-bottom:18px;}
-.modal-h{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:10px;}
+.modal-badge{display:inline-block;background:var(--ice);color:#001626;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:4px;margin-bottom:16px;}
+.modal-h{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1;margin-bottom:10px;}
 .modal-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;}
-.modal-text{color:var(--ink-2);font-size:14px;line-height:1.65;margin-bottom:24px;}
+.modal-text{color:var(--ink-2);font-size:14px;line-height:1.65;margin-bottom:20px;}
 .modal-text strong{color:var(--ink);}
 .modal-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line-2);border-radius:100px;padding:14px 20px;color:var(--ink);font-size:14px;outline:none;margin-bottom:12px;transition:border-color .2s;}
 .modal-input:focus{border-color:var(--ice);}
 .modal-input::placeholder{color:var(--ink-3);}
-.modal-btn{width:100%;padding:14px 20px;background:var(--ice);color:#001626;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:.02em;transition:all .2s;}
+.modal-btn{width:100%;padding:14px 20px;background:var(--ice);color:#001626;border-radius:100px;font-size:14px;font-weight:700;}
 .modal-btn:hover{background:#7BC6F0;}
-.modal-note{font-size:11px;color:var(--ink-3);text-align:center;margin-top:12px;}
-.modal-success{text-align:center;padding:20px 0;}
-.modal-success-icon{width:60px;height:60px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;color:#fff;}
-.modal-success h3{font-family:'Bebas Neue',sans-serif;font-size:28px;margin-bottom:10px;}
+.modal-note{font-size:11px;color:var(--ink-3);text-align:center;margin-top:10px;}
+.modal-success{text-align:center;padding:16px 0;}
+.modal-success-icon{width:56px;height:56px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px;color:#fff;}
+.modal-success h3{font-family:'Bebas Neue',sans-serif;font-size:26px;margin-bottom:10px;}
 .modal-success p{color:var(--ink-2);font-size:14px;line-height:1.65;}
 
-@media(min-width:780px){
-  .hero{padding:140px 40px 80px;}
-  .body-section{padding:120px 40px;}
-  .price-band{padding:64px 40px;}
-  .meta-box{grid-template-columns:1fr 1fr;gap:8px 32px;}
-  .meta-row{padding:14px 0;}
-}
-
-/* ====== DESKTOP REDESIGN (≥900px) ====== */
-@media(min-width:900px){
-  /* HERO becomes asymmetric magazine-style */
-  .hero{padding:140px 60px 80px;min-height:88vh;display:flex;align-items:center;}
-  .hero-content{max-width:1400px;text-align:left;display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;}
-  .hero-back{grid-column:1/-1;margin-bottom:40px;font-size:13px;}
-  .hero-tag-wrap{display:flex;flex-direction:column;align-items:flex-start;}
-  .hero-tag{margin-bottom:32px;font-size:12px;padding:9px 16px 9px 14px;}
-  .hero-h1{font-size:clamp(72px,7vw,128px);margin-bottom:28px;text-align:left;}
-  .hero-h1 em{font-size:.5em;margin-top:18px;}
-  .hero-lead{text-align:left;font-size:24px;margin:0 0 40px;max-width:560px;}
-  .hero-meta{justify-content:flex-start;padding-top:36px;gap:48px;border-top:1px solid var(--line);}
-  .hero-meta-num{font-size:44px;}
-  .hero-meta-label{font-size:11px;margin-top:10px;}
-
-  /* PDF preview visual on right */
-  .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;perspective:1200px;}
-  .pdf-preview{width:100%;max-width:380px;aspect-ratio:3/4;background:linear-gradient(160deg,#0F1822 0%,#070708 100%);border:1px solid var(--ice-line);border-radius:14px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 0 80px var(--ice-soft),0 0 0 1px rgba(93,180,229,.12);position:relative;overflow:hidden;transform:rotateY(-6deg) rotateX(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);}
-  .pdf-preview:hover{transform:rotateY(-3deg) rotateX(1deg) translateY(-8px);}
-  .pdf-preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,var(--ice-soft) 0%,transparent 60%);pointer-events:none;}
-  .pdf-preview::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--ice),var(--warm));}
-  .pdf-cover{position:relative;z-index:2;padding:48px 36px;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
-  .pdf-cover-top{}
-  .pdf-cover-brand{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--ink-3);margin-bottom:32px;display:flex;align-items:center;gap:8px;}
-  .pdf-cover-brand::before{content:'';width:5px;height:5px;background:var(--ice);border-radius:50%;}
-  .pdf-cover-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.18em;color:var(--ice);margin-bottom:20px;}
-  .pdf-cover-title{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:.92;letter-spacing:.005em;color:var(--ink);margin-bottom:14px;}
-  .pdf-cover-subtitle{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--ice);line-height:1.2;}
-  .pdf-cover-bottom{}
-  .pdf-cover-meta{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line);}
-  .pdf-cover-meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-2);letter-spacing:.04em;}
-  .pdf-cover-meta-row span:first-child{color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;}
-  .pdf-cover-bg-text{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:180px;line-height:.85;color:rgba(93,180,229,.04);letter-spacing:-.02em;top:50%;right:-20px;transform:translateY(-50%) rotate(-12deg);pointer-events:none;font-weight:400;}
-
-  /* HIDE OLD PRICE BAND on desktop */
+/* ==========================================================
+   DESKTOP (≥1024px) — Apple-style 2-column with sticky card
+   ========================================================== */
+@media(min-width:1024px){
+  .nav{padding:18px 48px;}
   .price-band{display:none;}
 
-  /* MAIN LAYOUT - 2 column with sticky sidebar */
-  .body-section{padding:120px 0;}
-  .body-inner{max-width:1400px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:start;}
-  .body-content{}
-  .intro-text{font-size:19px;line-height:1.8;margin-bottom:28px;}
-  .divider{margin:80px 0;}
-  .section-label{font-size:16px;margin-bottom:20px;}
-  .section-h{font-size:64px;margin-bottom:48px;line-height:.95;}
+  .page-wrap{padding-top:88px;}
 
-  /* Features become 2-column grid */
-  .features{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-  .feature-item{padding:28px;border-radius:16px;}
-  .feature-icon{width:42px;height:42px;font-size:20px;}
-  .feature-text strong{font-size:16px;margin-bottom:8px;}
-  .feature-text p{font-size:14px;}
+  .desktop-layout{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+    display:grid;
+    grid-template-columns:1fr 380px;
+    gap:80px;
+    align-items:start;
+  }
+  .desktop-main{min-width:0;}
+  .desktop-aside{
+    position:sticky;
+    top:120px;
+    align-self:start;
+    max-height:calc(100vh - 140px);
+    overflow-y:auto;
+  }
+  /* Hide scrollbar visually on the sticky card while keeping it scrollable if needed */
+  .desktop-aside::-webkit-scrollbar{width:0;background:transparent;}
 
-  /* Meta box becomes inline */
-  .meta-box{margin-top:64px;padding:36px;gap:8px 48px;border-radius:16px;}
-  .meta-row{font-size:14.5px;padding:16px 0;}
+  .hero{padding:60px 0 40px;}
+  .hero-back{margin-bottom:32px;font-size:12px;}
+  .hero-tag{margin-bottom:28px;font-size:11px;}
+  .hero-h1{font-size:clamp(64px,7vw,88px);margin-bottom:24px;}
+  .hero-h1 em{font-size:.5em;margin-top:14px;}
+  .hero-lead{font-size:22px;margin-bottom:36px;max-width:600px;}
+  .hero-meta{padding:28px 0;gap:32px;}
+  .hero-meta-num{font-size:38px;}
+  .hero-meta-label{font-size:10px;margin-top:8px;}
 
-  /* STICKY PURCHASE SIDEBAR */
-  .purchase-sidebar{position:sticky;top:100px;background:linear-gradient(160deg,#1A1208 0%,#0E0A05 100%);border:1px solid rgba(232,183,119,.3);border-radius:20px;padding:32px 28px;overflow:hidden;box-shadow:0 24px 48px -12px rgba(0,0,0,.5);}
-  .purchase-sidebar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--warm),transparent);}
-  .purchase-badge{display:inline-block;background:var(--warm);color:#1A0F00;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:4px;margin-bottom:22px;}
-  .purchase-h{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1.1;letter-spacing:.005em;color:var(--ink);margin-bottom:14px;}
-  .purchase-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--warm);font-weight:400;}
-  .purchase-desc{color:var(--ink-2);font-size:13.5px;line-height:1.65;margin-bottom:24px;}
-  .purchase-price-block{padding:20px 0;border-top:1px solid rgba(232,183,119,.2);border-bottom:1px solid rgba(232,183,119,.2);margin-bottom:24px;}
-  .purchase-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .body-section{padding:48px 0 80px;}
+  .body-inner{max-width:none;padding:0;}
+  .intro-text{font-size:17px;line-height:1.8;margin-bottom:24px;}
+  .divider{margin:60px 0;}
+  .section-label{font-size:15px;}
+  .section-h{font-size:48px;margin-bottom:36px;}
+  .features{gap:14px;}
+  .feature-item{padding:22px;}
+  .meta-box{margin-top:48px;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .meta-row{font-size:13px;padding:14px 0;}
+
+  .closing{padding:80px 48px 120px;}
+  .closing-quote{font-size:30px;line-height:1.5;}
+  .closing-cta{padding:20px 40px;font-size:15px;}
+
+  /* Purchase card (desktop only) */
+  .purchase-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 24px 48px -12px rgba(0,0,0,.4);
+  }
+  .purchase-image{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    border-bottom:1px solid var(--line);
+  }
+  .purchase-body{padding:28px 26px;}
+  .purchase-badge{display:inline-block;background:var(--warm);color:#1A0F00;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:4px;margin-bottom:18px;}
+  .purchase-title{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1.05;color:var(--ink);margin-bottom:8px;letter-spacing:.005em;}
+  .purchase-title em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--ice);font-weight:400;font-size:.75em;display:block;margin-top:2px;}
+  .purchase-desc{color:var(--ink-2);font-size:13px;line-height:1.65;margin-bottom:24px;}
+  .purchase-price-block{padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px;}
+  .purchase-price-row{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
   .purchase-price-old{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink-3);text-decoration:line-through;}
-  .purchase-price-now{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--warm);line-height:.9;}
+  .purchase-price-now{font-family:'Bebas Neue',sans-serif;font-size:54px;color:var(--warm);line-height:.9;}
   .purchase-save{font-size:12px;color:var(--warm);font-weight:600;letter-spacing:.04em;}
-  .purchase-cta{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:.02em;transition:all .2s;margin-bottom:16px;}
+  .purchase-cta{
+    width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:16px;background:var(--warm);color:#1A0F00;border:none;border-radius:100px;
+    font-size:14px;font-weight:700;letter-spacing:.02em;transition:all .2s;
+    margin-bottom:18px;font-family:inherit;cursor:pointer;
+  }
   .purchase-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -6px rgba(232,183,119,.4);}
-  .purchase-trust{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(232,183,119,.15);}
+  .purchase-trust{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line);}
   .purchase-trust-item{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-2);}
-  .purchase-trust-item::before{content:'';width:14px;height:14px;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23E8B777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;}
+  .purchase-trust-item::before{
+    content:'';width:14px;height:14px;flex-shrink:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23E8B777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size:contain;background-repeat:no-repeat;
+  }
 
-  /* CLOSING gets wider */
-  .closing{padding:100px 60px 140px;}
-  .closing-inner{max-width:900px;}
-  .closing-quote{font-size:34px;line-height:1.45;margin-bottom:48px;}
-  .closing-cta{padding:22px 44px;font-size:16px;}
+  .desktop-only{display:block;}
 }
 
-@media(min-width:1280px){
-  .hero-content{gap:120px;}
-  .body-inner{padding:0 80px;gap:100px;}
+@media(min-width:1400px){
+  .desktop-layout{gap:100px;padding:0 60px;}
 }
-
-/* On mobile/tablet hide the desktop-only elements */
-@media(max-width:899px){
-  .hero-visual{display:none;}
-
 </style>
 </head>
 <body>
@@ -256,193 +235,184 @@ section{position:relative;z-index:2;}
   </a>
 </header>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <a href="index.html#tiers" class="hero-back">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back to Programs
-    </a>
-    <div class="hero-tag-wrap">
-      <div class="hero-tag">Ages 15–18 · The Elite Junior Program</div>
-      <h1 class="hero-h1 display">The 12-Week<br>Elite Junior Program<em>For Ages 15–18</em></h1>
-      <p class="hero-lead">Twelve weeks. The off-season that decides next season.</p>
-      <div class="hero-meta">
-        <div class="hero-meta-item"><div class="hero-meta-num display">12<small style="font-size:.5em">wk</small></div><div class="hero-meta-label">Program</div></div>
-        <div class="hero-meta-item"><div class="hero-meta-num display">4×</div><div class="hero-meta-label">Per Week</div></div>
-        <div class="hero-meta-item"><div class="hero-meta-num display">47</div><div class="hero-meta-label">Pages</div></div>
-        <div class="hero-meta-item"><div class="hero-meta-num display">48</div><div class="hero-meta-label">Sessions</div></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="pdf-preview">
-        <div class="pdf-cover-bg-text">15-18</div>
-        <div class="pdf-cover">
-          <div class="pdf-cover-top">
-            <div class="pdf-cover-brand">ELITE HOCKEY DRILLS</div>
-            <div class="pdf-cover-eyebrow">AGES 15–18 · ELITE JUNIOR</div>
-            <div class="pdf-cover-title">The 12-Week Elite Junior Program</div>
-            <div class="pdf-cover-subtitle">Off-Season Power, Speed &amp; Performance</div>
+<div class="page-wrap">
+
+  <!-- DESKTOP: 2-column grid wraps hero + body + meta. Mobile: just stacks normally. -->
+  <div class="desktop-layout">
+
+    <main class="desktop-main">
+
+      <section class="hero">
+        <a href="index.html#tiers" class="hero-back">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back to Programs
+        </a>
+        <div class="hero-tag">Ages 15–18 · The Elite Junior Program</div>
+        <h1 class="hero-h1">The 12-Week<br>Elite Junior Program<em>For Ages 15–18</em></h1>
+        <p class="hero-lead">Twelve weeks. The off-season that decides next season.</p>
+        <div class="hero-meta">
+          <div class="hero-meta-item"><div class="hero-meta-num">12<small style="font-size:.5em">wk</small></div><div class="hero-meta-label">Program</div></div>
+          <div class="hero-meta-item"><div class="hero-meta-num">4×</div><div class="hero-meta-label">Per Week</div></div>
+          <div class="hero-meta-item"><div class="hero-meta-num">47</div><div class="hero-meta-label">Pages</div></div>
+          <div class="hero-meta-item"><div class="hero-meta-num">48</div><div class="hero-meta-label">Sessions</div></div>
+        </div>
+      </section>
+
+      <!-- MOBILE ONLY price band (hidden on desktop) -->
+      <section class="price-band">
+        <div class="price-inner">
+          <span class="price-badge">Founding · First 100</span>
+          <div class="price-row">
+            <span class="price-old">$79</span>
+            <span class="price-now">$49</span>
           </div>
-          <div class="pdf-cover-bottom">
-            <div class="pdf-cover-meta">
-              <div class="pdf-cover-meta-row"><span>Pages</span><span>47</span></div>
-              <div class="pdf-cover-meta-row"><span>Sessions</span><span>48</span></div>
-              <div class="pdf-cover-meta-row"><span>Duration</span><span>12 Weeks</span></div>
-              <div class="pdf-cover-meta-row"><span>Author</span><span>D. Ciboch, M.Ed.</span></div>
+          <div class="price-save">Save $30 · One-time payment</div>
+          <button class="price-cta" onclick="openModal()">
+            Reserve Your Spot
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <p class="price-note">Launching soon · No card needed now</p>
+        </div>
+      </section>
+
+      <section class="body-section">
+        <div class="body-inner">
+          <p class="intro-text">This is the off-season program built for the years that matter most — when junior hockey players either separate themselves from the pack or get left behind by it. The years when <strong>scouts watch</strong>. When line spots get earned. When the difference between a good summer and a great one is measurable in October.</p>
+          <p class="intro-text">Twelve weeks. Forty-eight sessions. The same coaching framework used at the <strong>NCAA D1, CHL, and elite European junior level</strong> — written so you can run it from your driveway, garage, or backyard with bands and bodyweight only.</p>
+
+          <div class="divider"></div>
+
+          <div class="section-label">Inside the program</div>
+          <h2 class="section-h">What's <em>included.</em></h2>
+
+          <ul class="features">
+            <li class="feature-item">
+              <div class="feature-icon">01</div>
+              <div class="feature-text">
+                <strong>3 four-week blocks</strong>
+                <p>Foundation → Specific Prep → Power Realization. Built on block periodization, not random workouts.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">02</div>
+              <div class="feature-text">
+                <strong>Six-block session architecture</strong>
+                <p>RAMP · Primer · Power · Strength · Energy Systems · Cool-Down. Every session, every time.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">03</div>
+              <div class="feature-text">
+                <strong>Reactive plyometrics, resisted sprints, contrast/complex training</strong>
+                <p>The methods that actually move the needle on hockey-specific speed.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">04</div>
+              <div class="feature-text">
+                <strong>7-test combine battery with mid-block checkpoints</strong>
+                <p>Vertical jump, broad jump, 10m sprint, 5-10-5 pro-agility, single-leg symmetry, Copenhagen, Pallof iso.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">05</div>
+              <div class="feature-text">
+                <strong>The non-negotiables for hockey transfer</strong>
+                <p>Adductor work twice weekly · single-leg ≥40% of lower-body volume · anti-rotation core every session.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">06</div>
+              <div class="feature-text">
+                <strong>Recovery &amp; lifestyle protocols</strong>
+                <p>Sleep, nutrition, mindset — because the work that doesn't get done off-the-page is what costs you the gains.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">07</div>
+              <div class="feature-text">
+                <strong>Full exercise glossary &amp; progression library</strong>
+                <p>Every exercise documented, every progression mapped.</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <div class="feature-icon">08</div>
+              <div class="feature-text">
+                <strong>Sub-maximal testing only</strong>
+                <p>No 1RM, no max-velocity sprints, no joint risks you don't need. Smart development, not reckless training.</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p class="intro-text"><strong>Realistic expected gains across twelve weeks:</strong></p>
+          <p class="intro-text">4-8 cm vertical jump · 15-25 cm broad jump · 0.15-0.30 sec on 10m sprint · 0.20-0.40 sec on 5-10-5 agility · measurable single-leg symmetry · noticeably more durable through full-game shifts.</p>
+          <p class="intro-text">If you train this program for twelve weeks the way it's written, you will <strong>skate faster, hit harder, recover quicker between shifts, and feel measurably more athletic at season open</strong>. The numbers will prove it.</p>
+
+          <div class="meta-box">
+            <div class="meta-row"><span class="meta-row-label">Format</span><span class="meta-row-value">47-page PDF</span></div>
+            <div class="meta-row"><span class="meta-row-label">Delivery</span><span class="meta-row-value">Instant download</span></div>
+            <div class="meta-row"><span class="meta-row-label">Compatibility</span><span class="meta-row-value">Any device</span></div>
+            <div class="meta-row"><span class="meta-row-label">Support</span><span class="meta-row-value">Direct email</span></div>
+            <div class="meta-row"><span class="meta-row-label">Author</span><span class="meta-row-value">Coach David Ciboch</span></div>
+            <div class="meta-row"><span class="meta-row-label">Credentials</span><span class="meta-row-value">M.Ed. Sport Science</span></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- DESKTOP-ONLY: sticky purchase card on the right -->
+    <aside class="desktop-aside desktop-only">
+      <div class="purchase-card">
+        <div class="purchase-body">
+          <div class="purchase-badge">Founding · First 100</div>
+          <h3 class="purchase-title">Elite Junior Program<em>Ages 15–18</em></h3>
+          <p class="purchase-desc">NCAA D1-level coaching framework. The off-season that decides next season.</p>
+          <div class="purchase-price-block">
+            <div class="purchase-price-row">
+              <span class="purchase-price-old">$79</span>
+              <span class="purchase-price-now">$49</span>
             </div>
+            <div class="purchase-save">Save $30 · One-time payment</div>
+          </div>
+          <button class="purchase-cta" onclick="openModal()">
+            Reserve Your Spot
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <div class="purchase-trust">
+            <div class="purchase-trust-item">Instant PDF download</div>
+            <div class="purchase-trust-item">Direct email support</div>
+            <div class="purchase-trust-item">Founding pricing locked</div>
+            <div class="purchase-trust-item">Launching soon · No card needed</div>
           </div>
         </div>
       </div>
-    </div>
+    </aside>
+
   </div>
-</section>
 
-<section class="price-band">
-  <div class="price-inner">
-    <span class="price-badge">Founding Member Pricing · First 100 Buyers</span>
-    <div class="price-row">
-      <span class="price-old">$79</span>
-      <span class="price-now display">$49</span>
-    </div>
-    <div class="price-save">Save $30 · One-time payment · Instant PDF download</div>
-    <button class="price-cta" onclick="openModal()">
-      Reserve Your Spot — Launching Soon
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </button>
-    <p class="price-note">Payment is being set up. Reserve now and we'll notify you the moment the program is live — founding members get first access at this price.</p>
-  </div>
-</section>
-
-<section class="body-section">
-  <div class="body-inner">
-    <div class="body-content">
-    <p class="intro-text">This is the off-season program built for the years that matter most — when junior hockey players either separate themselves from the pack or get left behind by it. The years when <strong>scouts watch</strong>. When line spots get earned. When the difference between a good summer and a great one is measurable in October.</p>
-    <p class="intro-text">Twelve weeks. Forty-eight sessions. The same coaching framework used at the <strong>NCAA D1, CHL, and elite European junior level</strong> — written so you can run it from your driveway, garage, or backyard with bands and bodyweight only.</p>
-
-    <div class="divider"></div>
-
-    <div class="section-label serif">Inside the program</div>
-    <h2 class="section-h">What's <em>included.</em></h2>
-
-    <ul class="features">
-      <li class="feature-item">
-        <div class="feature-icon">01</div>
-        <div class="feature-text">
-          <strong>3 four-week blocks</strong>
-          <p>Foundation → Specific Prep → Power Realization. Built on block periodization, not random workouts.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">02</div>
-        <div class="feature-text">
-          <strong>Six-block session architecture</strong>
-          <p>RAMP · Primer · Power · Strength · Energy Systems · Cool-Down. Every session, every time.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">03</div>
-        <div class="feature-text">
-          <strong>Reactive plyometrics, resisted sprints, contrast/complex training</strong>
-          <p>The methods that actually move the needle on hockey-specific speed.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">04</div>
-        <div class="feature-text">
-          <strong>7-test combine battery with mid-block checkpoints</strong>
-          <p>Vertical jump, broad jump, 10m sprint, 5-10-5 pro-agility, single-leg symmetry, Copenhagen, Pallof iso.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">05</div>
-        <div class="feature-text">
-          <strong>The non-negotiables for hockey transfer</strong>
-          <p>Adductor work twice weekly · single-leg ≥40% of lower-body volume · anti-rotation core every session.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">06</div>
-        <div class="feature-text">
-          <strong>Recovery &amp; lifestyle protocols</strong>
-          <p>Sleep, nutrition, mindset — because the work that doesn't get done off-the-page is what costs you the gains.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">07</div>
-        <div class="feature-text">
-          <strong>Full exercise glossary &amp; progression library</strong>
-          <p>Every exercise documented, every progression mapped.</p>
-        </div>
-      </li>
-      <li class="feature-item">
-        <div class="feature-icon">08</div>
-        <div class="feature-text">
-          <strong>Sub-maximal testing only</strong>
-          <p>No 1RM, no max-velocity sprints, no joint risks you don't need. Smart development, not reckless training.</p>
-        </div>
-      </li>
-    </ul>
-
-    <div class="divider"></div>
-
-    <p class="intro-text"><strong>Realistic expected gains across twelve weeks:</strong></p>
-    <p class="intro-text">4-8 cm vertical jump · 15-25 cm broad jump · 0.15-0.30 sec on 10m sprint · 0.20-0.40 sec on 5-10-5 agility · measurable single-leg symmetry · noticeably more durable through full-game shifts.</p>
-    <p class="intro-text">If you train this program for twelve weeks the way it's written, you will <strong>skate faster, hit harder, recover quicker between shifts, and feel measurably more athletic at season open</strong>. The numbers will prove it.</p>
-
-    <div class="meta-box">
-      <div class="meta-row"><span class="meta-row-label">Format</span><span class="meta-row-value">47-page PDF</span></div>
-      <div class="meta-row"><span class="meta-row-label">Delivery</span><span class="meta-row-value">Instant download</span></div>
-      <div class="meta-row"><span class="meta-row-label">Compatibility</span><span class="meta-row-value">Print or any device</span></div>
-      <div class="meta-row"><span class="meta-row-label">Support</span><span class="meta-row-value">Direct email to coach</span></div>
-      <div class="meta-row"><span class="meta-row-label">Author</span><span class="meta-row-value">Coach David Ciboch</span></div>
-      <div class="meta-row"><span class="meta-row-label">Credentials</span><span class="meta-row-value">M.Ed. Sport Science</span></div>
-    </div>
-
-    <aside class="purchase-sidebar">
-      <div class="purchase-badge">Founding · First 100</div>
-      <h3 class="purchase-h">Elite Junior Program<em>Ages 15–18</em></h3>
-      <p class="purchase-desc">NCAA D1-level coaching framework. The off-season that decides next season.</p>
-      <div class="purchase-price-block">
-        <div class="purchase-price-row">
-          <span class="purchase-price-old">$79</span>
-          <span class="purchase-price-now">$49</span>
-        </div>
-        <div class="purchase-save">Save $30 · One-time payment</div>
-      </div>
-      <button class="purchase-cta" onclick="openModal()">
+  <!-- Closing section: full width, no sidebar -->
+  <section class="closing">
+    <div class="closing-inner">
+      <p class="closing-quote">"This is the summer that decides next season. The scouts are watching. So is the coach. Train like it."</p>
+      <button class="closing-cta" onclick="openModal()">
         Reserve Your Spot
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </button>
-      <div class="purchase-trust">
-        <div class="purchase-trust-item">Instant PDF download</div>
-        <div class="purchase-trust-item">Direct email support</div>
-        <div class="purchase-trust-item">Founding member pricing locked</div>
-        <div class="purchase-trust-item">Launching soon · No card needed now</div>
-      </div>
-    </aside>
-  </div>
-</section>
+    </div>
+  </section>
 
-<section class="closing">
-  <div class="closing-inner">
-    <p class="closing-quote">"This is the summer that decides next season. The scouts are watching. So is the coach. Train like it."</p>
-    <button class="closing-cta" onclick="openModal()">
-      Reserve Your Spot
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </button>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-inner">
+  <footer class="footer">
     <a href="index.html" class="footer-back">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back to Elite Hockey Drills
     </a>
     <p>© 2025 Elite Hockey Drills · Built by Coach David Ciboch · M.Ed. Sport Science · National Team Coach</p>
-  </div>
-</footer>
+  </footer>
+
+</div>
 
 <!-- RESERVATION MODAL -->
 <div class="modal" id="reserveModal" onclick="if(event.target===this)closeModal()">
