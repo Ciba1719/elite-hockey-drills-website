@@ -1122,29 +1122,150 @@ section{position:relative;z-index:2;}
   font-weight:500;
 }
 
-/* Method cards — subtle refined hover */
-.method-card{
-  transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s,box-shadow .45s;
-}
-.method-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(232,183,119,.18);
-  box-shadow:
-    0 24px 48px -16px rgba(0,0,0,.6),
-    0 0 0 1px rgba(232,183,119,.08);
+/* (Method card spotlight is defined above in tier-card section) */
+
+/* =========================================================
+   TIER CARDS — CURSOR SPOTLIGHT LUXURY HOVER
+   ========================================================= */
+
+.tier-card{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .55s cubic-bezier(.2,.7,.2,1),
+    border-color .55s ease,
+    box-shadow .55s ease;
 }
 
-/* Tier program cards — refined subtle hover (not screaming gold) */
-.tier-card{
-  transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s,box-shadow .45s;
+/* Cursor-following ice-blue spotlight */
+.tier-card::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:radial-gradient(
+    circle 350px at var(--mx,50%) var(--my,50%),
+    rgba(93,180,229,.18) 0%,
+    rgba(93,180,229,.08) 25%,
+    rgba(93,180,229,0) 60%
+  );
+  opacity:0;
+  transition:opacity .5s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+  z-index:1;
 }
+
+/* Subtle ice-blue gradient that appears on hover */
+.tier-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:linear-gradient(90deg, transparent 0%, rgba(93,180,229,0) 0%, rgba(93,180,229,0) 100%);
+  transition:background .5s cubic-bezier(.2,.7,.2,1);
+  z-index:2;
+}
+
 .tier-card:hover{
-  transform:translateY(-6px);
-  border-color:rgba(232,183,119,.18);
+  transform:translateY(-8px);
+  border-color:rgba(93,180,229,.35);
   box-shadow:
-    0 24px 48px -16px rgba(0,0,0,.6),
-    0 0 0 1px rgba(232,183,119,.08);
+    0 32px 60px -20px rgba(0,0,0,.7),
+    0 0 0 1px rgba(93,180,229,.18),
+    0 0 80px -16px rgba(93,180,229,.25);
 }
+.tier-card:hover::after{
+  opacity:1;
+}
+.tier-card:hover::before{
+  background:linear-gradient(90deg,
+    rgba(93,180,229,0) 0%,
+    rgba(93,180,229,.6) 50%,
+    rgba(93,180,229,0) 100%
+  );
+}
+
+/* Make sure content stays above the spotlight overlay */
+.tier-card > *{position:relative;z-index:2;}
+
+/* Subtle divider with ice-blue accent on hover */
+.tier-bottom{
+  position:relative;
+  transition:border-color .5s ease;
+}
+.tier-card:hover .tier-bottom{
+  border-color:rgba(93,180,229,.25);
+}
+
+/* Ice-blue glow on checkmark on hover */
+.tier-features li::before{
+  transition:filter .5s ease;
+}
+.tier-card:hover .tier-features li::before{
+  filter:drop-shadow(0 0 6px rgba(93,180,229,.6));
+}
+
+/* View Program button — shifts to ice-blue on card hover */
+.tier-card:hover .tier-btn{
+  border-color:rgba(93,180,229,.6);
+  color:#A5DAFA;
+  background:rgba(93,180,229,.08);
+  box-shadow:
+    0 12px 28px -10px rgba(0,0,0,.5),
+    0 0 40px -8px rgba(93,180,229,.3);
+}
+
+/* Same for direct button hover (still ice-blue) */
+.tier-btn:hover{
+  transform:translateY(-3px);
+  border-color:rgba(93,180,229,.7);
+  color:#A5DAFA;
+  background:rgba(93,180,229,.12);
+  box-shadow:
+    0 14px 32px -10px rgba(0,0,0,.5),
+    0 0 50px -8px rgba(93,180,229,.35);
+}
+
+/* Method cards — same spotlight luxury treatment */
+.method-card{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .55s cubic-bezier(.2,.7,.2,1),
+    border-color .55s ease,
+    box-shadow .55s ease;
+}
+.method-card::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:radial-gradient(
+    circle 300px at var(--mx,50%) var(--my,50%),
+    rgba(93,180,229,.16) 0%,
+    rgba(93,180,229,.06) 25%,
+    rgba(93,180,229,0) 60%
+  );
+  opacity:0;
+  transition:opacity .5s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+  z-index:1;
+}
+.method-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(93,180,229,.3);
+  box-shadow:
+    0 32px 60px -20px rgba(0,0,0,.7),
+    0 0 0 1px rgba(93,180,229,.15);
+}
+.method-card:hover::after{opacity:1;}
+.method-card > *{position:relative;z-index:2;}
 
 /* Testimonial cards */
 .testi-card{
@@ -1799,6 +1920,23 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     });
   }, { threshold:0.5 });
   stats.forEach(el => statIO.observe(el));
+})();
+
+/* Cursor-following spotlight on cards (tier-card and method-card) */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return;
+  const cards = document.querySelectorAll('.tier-card, .method-card');
+  if(!cards.length) return;
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
 })();
 
 function toggleFaq(btn){
