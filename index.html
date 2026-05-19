@@ -605,6 +605,12 @@ section{position:relative;z-index:2;}
   .tier-headline{font-size:36px;}
   .tier-bottom{flex-direction:column;align-items:stretch;gap:14px;}
   .tier-btn{justify-content:center;}
+  /* Move badge inline above age on desktop so it doesn't overlap */
+  .tier-badge{
+    position:static;
+    align-self:flex-start;
+    margin-bottom:16px;
+  }
 }
 
 /* BUNDLE BAR */
