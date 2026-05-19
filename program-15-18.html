@@ -78,6 +78,7 @@ section{position:relative;z-index:2;}
 /* BODY */
 .body-section{padding:88px 24px;}
 .body-inner{max-width:780px;margin:0 auto;}
+.body-content{}
 
 .intro-text{font-size:clamp(17px,2.4vw,20px);line-height:1.75;color:var(--ink);margin-bottom:24px;}
 .intro-text:last-child{margin-bottom:0;}
@@ -151,6 +152,98 @@ section{position:relative;z-index:2;}
   .meta-box{grid-template-columns:1fr 1fr;gap:8px 32px;}
   .meta-row{padding:14px 0;}
 }
+
+/* ====== DESKTOP REDESIGN (≥900px) ====== */
+@media(min-width:900px){
+  /* HERO becomes asymmetric magazine-style */
+  .hero{padding:140px 60px 80px;min-height:88vh;display:flex;align-items:center;}
+  .hero-content{max-width:1400px;text-align:left;display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;}
+  .hero-back{grid-column:1/-1;margin-bottom:40px;font-size:13px;}
+  .hero-tag-wrap{display:flex;flex-direction:column;align-items:flex-start;}
+  .hero-tag{margin-bottom:32px;font-size:12px;padding:9px 16px 9px 14px;}
+  .hero-h1{font-size:clamp(72px,7vw,128px);margin-bottom:28px;text-align:left;}
+  .hero-h1 em{font-size:.5em;margin-top:18px;}
+  .hero-lead{text-align:left;font-size:24px;margin:0 0 40px;max-width:560px;}
+  .hero-meta{justify-content:flex-start;padding-top:36px;gap:48px;border-top:1px solid var(--line);}
+  .hero-meta-num{font-size:44px;}
+  .hero-meta-label{font-size:11px;margin-top:10px;}
+
+  /* PDF preview visual on right */
+  .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;perspective:1200px;}
+  .pdf-preview{width:100%;max-width:380px;aspect-ratio:3/4;background:linear-gradient(160deg,#0F1822 0%,#070708 100%);border:1px solid var(--ice-line);border-radius:14px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 0 80px var(--ice-soft),0 0 0 1px rgba(93,180,229,.12);position:relative;overflow:hidden;transform:rotateY(-6deg) rotateX(2deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+  .pdf-preview:hover{transform:rotateY(-3deg) rotateX(1deg) translateY(-8px);}
+  .pdf-preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,var(--ice-soft) 0%,transparent 60%);pointer-events:none;}
+  .pdf-preview::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--ice),var(--warm));}
+  .pdf-cover{position:relative;z-index:2;padding:48px 36px;height:100%;display:flex;flex-direction:column;justify-content:space-between;}
+  .pdf-cover-top{}
+  .pdf-cover-brand{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--ink-3);margin-bottom:32px;display:flex;align-items:center;gap:8px;}
+  .pdf-cover-brand::before{content:'';width:5px;height:5px;background:var(--ice);border-radius:50%;}
+  .pdf-cover-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.18em;color:var(--ice);margin-bottom:20px;}
+  .pdf-cover-title{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:.92;letter-spacing:.005em;color:var(--ink);margin-bottom:14px;}
+  .pdf-cover-subtitle{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--ice);line-height:1.2;}
+  .pdf-cover-bottom{}
+  .pdf-cover-meta{display:flex;flex-direction:column;gap:6px;padding-top:24px;border-top:1px solid var(--line);}
+  .pdf-cover-meta-row{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-2);letter-spacing:.04em;}
+  .pdf-cover-meta-row span:first-child{color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:600;}
+  .pdf-cover-bg-text{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:180px;line-height:.85;color:rgba(93,180,229,.04);letter-spacing:-.02em;top:50%;right:-20px;transform:translateY(-50%) rotate(-12deg);pointer-events:none;font-weight:400;}
+
+  /* HIDE OLD PRICE BAND on desktop */
+  .price-band{display:none;}
+
+  /* MAIN LAYOUT - 2 column with sticky sidebar */
+  .body-section{padding:120px 0;}
+  .body-inner{max-width:1400px;margin:0 auto;padding:0 60px;display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:start;}
+  .body-content{}
+  .intro-text{font-size:19px;line-height:1.8;margin-bottom:28px;}
+  .divider{margin:80px 0;}
+  .section-label{font-size:16px;margin-bottom:20px;}
+  .section-h{font-size:64px;margin-bottom:48px;line-height:.95;}
+
+  /* Features become 2-column grid */
+  .features{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .feature-item{padding:28px;border-radius:16px;}
+  .feature-icon{width:42px;height:42px;font-size:20px;}
+  .feature-text strong{font-size:16px;margin-bottom:8px;}
+  .feature-text p{font-size:14px;}
+
+  /* Meta box becomes inline */
+  .meta-box{margin-top:64px;padding:36px;gap:8px 48px;border-radius:16px;}
+  .meta-row{font-size:14.5px;padding:16px 0;}
+
+  /* STICKY PURCHASE SIDEBAR */
+  .purchase-sidebar{position:sticky;top:100px;background:linear-gradient(160deg,#1A1208 0%,#0E0A05 100%);border:1px solid rgba(232,183,119,.3);border-radius:20px;padding:32px 28px;overflow:hidden;box-shadow:0 24px 48px -12px rgba(0,0,0,.5);}
+  .purchase-sidebar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--warm),transparent);}
+  .purchase-badge{display:inline-block;background:var(--warm);color:#1A0F00;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:6px 11px;border-radius:4px;margin-bottom:22px;}
+  .purchase-h{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1.1;letter-spacing:.005em;color:var(--ink);margin-bottom:14px;}
+  .purchase-h em{font-family:'Instrument Serif',serif;font-style:italic;color:var(--warm);font-weight:400;}
+  .purchase-desc{color:var(--ink-2);font-size:13.5px;line-height:1.65;margin-bottom:24px;}
+  .purchase-price-block{padding:20px 0;border-top:1px solid rgba(232,183,119,.2);border-bottom:1px solid rgba(232,183,119,.2);margin-bottom:24px;}
+  .purchase-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+  .purchase-price-old{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--ink-3);text-decoration:line-through;}
+  .purchase-price-now{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--warm);line-height:.9;}
+  .purchase-save{font-size:12px;color:var(--warm);font-weight:600;letter-spacing:.04em;}
+  .purchase-cta{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:18px;background:var(--warm);color:#1A0F00;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:.02em;transition:all .2s;margin-bottom:16px;}
+  .purchase-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -6px rgba(232,183,119,.4);}
+  .purchase-trust{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid rgba(232,183,119,.15);}
+  .purchase-trust-item{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-2);}
+  .purchase-trust-item::before{content:'';width:14px;height:14px;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23E8B777' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat;}
+
+  /* CLOSING gets wider */
+  .closing{padding:100px 60px 140px;}
+  .closing-inner{max-width:900px;}
+  .closing-quote{font-size:34px;line-height:1.45;margin-bottom:48px;}
+  .closing-cta{padding:22px 44px;font-size:16px;}
+}
+
+@media(min-width:1280px){
+  .hero-content{gap:120px;}
+  .body-inner{padding:0 80px;gap:100px;}
+}
+
+/* On mobile/tablet hide the desktop-only elements */
+@media(max-width:899px){
+  .hero-visual{display:none;}
+
 </style>
 </head>
 <body>
@@ -170,14 +263,37 @@ section{position:relative;z-index:2;}
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back to Programs
     </a>
-    <div class="hero-tag">Ages 15–18 · The Elite Junior Program</div>
-    <h1 class="hero-h1 display">The 12-Week<br>Elite Junior Program<em>For Ages 15–18</em></h1>
-    <p class="hero-lead">Twelve weeks. The off-season that decides next season.</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item"><div class="hero-meta-num display">12<small style="font-size:.5em">wk</small></div><div class="hero-meta-label">Program</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-num display">4×</div><div class="hero-meta-label">Per Week</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-num display">47</div><div class="hero-meta-label">Pages</div></div>
-      <div class="hero-meta-item"><div class="hero-meta-num display">48</div><div class="hero-meta-label">Sessions</div></div>
+    <div class="hero-tag-wrap">
+      <div class="hero-tag">Ages 15–18 · The Elite Junior Program</div>
+      <h1 class="hero-h1 display">The 12-Week<br>Elite Junior Program<em>For Ages 15–18</em></h1>
+      <p class="hero-lead">Twelve weeks. The off-season that decides next season.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><div class="hero-meta-num display">12<small style="font-size:.5em">wk</small></div><div class="hero-meta-label">Program</div></div>
+        <div class="hero-meta-item"><div class="hero-meta-num display">4×</div><div class="hero-meta-label">Per Week</div></div>
+        <div class="hero-meta-item"><div class="hero-meta-num display">47</div><div class="hero-meta-label">Pages</div></div>
+        <div class="hero-meta-item"><div class="hero-meta-num display">48</div><div class="hero-meta-label">Sessions</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pdf-preview">
+        <div class="pdf-cover-bg-text">15-18</div>
+        <div class="pdf-cover">
+          <div class="pdf-cover-top">
+            <div class="pdf-cover-brand">ELITE HOCKEY DRILLS</div>
+            <div class="pdf-cover-eyebrow">AGES 15–18 · ELITE JUNIOR</div>
+            <div class="pdf-cover-title">The 12-Week Elite Junior Program</div>
+            <div class="pdf-cover-subtitle">Off-Season Power, Speed &amp; Performance</div>
+          </div>
+          <div class="pdf-cover-bottom">
+            <div class="pdf-cover-meta">
+              <div class="pdf-cover-meta-row"><span>Pages</span><span>47</span></div>
+              <div class="pdf-cover-meta-row"><span>Sessions</span><span>48</span></div>
+              <div class="pdf-cover-meta-row"><span>Duration</span><span>12 Weeks</span></div>
+              <div class="pdf-cover-meta-row"><span>Author</span><span>D. Ciboch, M.Ed.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -200,6 +316,7 @@ section{position:relative;z-index:2;}
 
 <section class="body-section">
   <div class="body-inner">
+    <div class="body-content">
     <p class="intro-text">This is the off-season program built for the years that matter most — when junior hockey players either separate themselves from the pack or get left behind by it. The years when <strong>scouts watch</strong>. When line spots get earned. When the difference between a good summer and a great one is measurable in October.</p>
     <p class="intro-text">Twelve weeks. Forty-eight sessions. The same coaching framework used at the <strong>NCAA D1, CHL, and elite European junior level</strong> — written so you can run it from your driveway, garage, or backyard with bands and bodyweight only.</p>
 
@@ -281,6 +398,29 @@ section{position:relative;z-index:2;}
       <div class="meta-row"><span class="meta-row-label">Author</span><span class="meta-row-value">Coach David Ciboch</span></div>
       <div class="meta-row"><span class="meta-row-label">Credentials</span><span class="meta-row-value">M.Ed. Sport Science</span></div>
     </div>
+
+    <aside class="purchase-sidebar">
+      <div class="purchase-badge">Founding · First 100</div>
+      <h3 class="purchase-h">Elite Junior Program<em>Ages 15–18</em></h3>
+      <p class="purchase-desc">NCAA D1-level coaching framework. The off-season that decides next season.</p>
+      <div class="purchase-price-block">
+        <div class="purchase-price-row">
+          <span class="purchase-price-old">$79</span>
+          <span class="purchase-price-now">$49</span>
+        </div>
+        <div class="purchase-save">Save $30 · One-time payment</div>
+      </div>
+      <button class="purchase-cta" onclick="openModal()">
+        Reserve Your Spot
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <div class="purchase-trust">
+        <div class="purchase-trust-item">Instant PDF download</div>
+        <div class="purchase-trust-item">Direct email support</div>
+        <div class="purchase-trust-item">Founding member pricing locked</div>
+        <div class="purchase-trust-item">Launching soon · No card needed now</div>
+      </div>
+    </aside>
   </div>
 </section>
 
