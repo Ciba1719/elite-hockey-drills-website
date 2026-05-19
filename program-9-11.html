@@ -265,7 +265,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   will-change:transform;
 }
 .hero{position:relative;}
-.hero > *{position:relative;z-index:1;}
+.hero > *:not(.hero-glow):not(.hero-glow-2){position:relative;z-index:1;}
 
 /* Premium hover effects for ALL gold buttons (CTA, price-cta, closing-cta, purchase-cta) */
 .purchase-cta,
@@ -716,8 +716,20 @@ document.addEventListener('keydown',(e)=>{
         io.unobserve(entry.target);
       }
     });
-  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
-  els.forEach(el => io.observe(el));
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0});
+
+  // First, immediately reveal anything already in viewport on load
+  function isInViewport(el){
+    const r = el.getBoundingClientRect();
+    return r.top < window.innerHeight && r.bottom > 0;
+  }
+  els.forEach(el => {
+    if(isInViewport(el)){
+      el.classList.add('in');
+    } else {
+      io.observe(el);
+    }
+  });
 })();
 
 /* Hero glow parallax — gentle movement on scroll */
