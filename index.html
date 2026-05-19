@@ -944,6 +944,160 @@ section{position:relative;z-index:2;}
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);}
 .reveal.in{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* =========================================================
+   PREMIUM POLISH — Hover effects, refinements, typography
+   ========================================================= */
+
+/* Typography — refined body text colors for premium feel */
+.sec-sub,.about-text,.method-card p,.prog-desc,.tier-desc,.testi-quote,.faq-a,.app-text{color:#C8CCD3;}
+.tier-features li,.prog-list li,.faq-q{color:#C8CCD3;}
+.hero-h1,.sec-title,.hero-stat-num,.tier-headline,.testi-name{font-feature-settings:"ss01","kern","liga";}
+.serif,em{font-feature-settings:"liga","dlig","kern";}
+
+/* PREMIUM hover effect for ALL primary action buttons (any with btn-primary, nav-cta, tier-btn, bundle-btn) */
+.btn-primary,
+.nav-cta,
+.tier-btn,
+.bundle-btn{
+  position:relative;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s cubic-bezier(.2,.7,.2,1), background .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn-primary::after,
+.nav-cta::after,
+.tier-btn::after,
+.bundle-btn::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%);
+  transform:translateX(-120%);
+  transition:transform .9s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+}
+.btn-primary:hover,
+.nav-cta:hover,
+.tier-btn:hover,
+.bundle-btn:hover{
+  transform:translateY(-3px);
+}
+.btn-primary:hover::after,
+.nav-cta:hover::after,
+.tier-btn:hover::after,
+.bundle-btn:hover::after{
+  transform:translateX(120%);
+}
+.btn-primary:active,
+.nav-cta:active,
+.tier-btn:active,
+.bundle-btn:active{
+  transform:translateY(-1px);
+  transition:transform .1s ease;
+}
+
+/* Specifically the GOLD bundle button — premium gold glow on hover */
+.bundle-btn:hover{
+  box-shadow:0 18px 40px -10px rgba(232,183,119,.45),0 0 0 1px rgba(232,183,119,.3),0 0 60px -8px rgba(232,183,119,.35);
+}
+/* Hero primary button — ice-blue glow when hovered */
+.btn-primary:hover{
+  background:var(--ice);
+  color:#001626;
+  box-shadow:0 18px 40px -10px rgba(93,180,229,.40),0 0 60px -8px rgba(93,180,229,.30);
+}
+/* Tier button — clean lift + subtle glow */
+.tier-btn:hover{
+  box-shadow:0 14px 28px -8px rgba(93,180,229,.40);
+}
+/* Nav CTA hover refinement */
+.nav-cta:hover{
+  box-shadow:0 10px 24px -6px rgba(93,180,229,.4);
+}
+
+/* Arrow slide on all CTA buttons */
+.btn-primary svg,
+.nav-cta svg,
+.tier-btn svg,
+.bundle-btn svg,
+.final-cta-btn svg{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.btn-primary:hover svg,
+.nav-cta:hover svg,
+.tier-btn:hover svg,
+.bundle-btn:hover svg{
+  transform:translateX(4px);
+}
+
+/* Method cards — refined hover */
+.method-card{
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s;
+}
+.method-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--ice-line);
+  box-shadow:0 18px 40px -16px rgba(0,0,0,.6),0 0 0 1px var(--ice-line),0 0 60px -10px rgba(93,180,229,.18);
+}
+
+/* Tier program cards — refined hover */
+.tier-card{
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s;
+}
+.tier-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--ice-line);
+  box-shadow:0 18px 40px -16px rgba(0,0,0,.6),0 0 0 1px var(--ice-line),0 0 60px -10px rgba(93,180,229,.18);
+}
+
+/* Testimonial cards — refined hover */
+.testi-card{
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s;
+}
+.testi-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--warm-soft);
+  box-shadow:0 14px 32px -12px rgba(0,0,0,.5);
+}
+
+/* Hero stat numbers — subtle glow on hover */
+.hero-stat-num{
+  transition:text-shadow .4s ease,transform .4s ease;
+  display:inline-block;
+}
+.hero-stat-num.counted{
+  text-shadow:0 0 32px rgba(93,180,229,.15);
+}
+
+/* Nav links underline animation */
+.nav-links a{position:relative;}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:100%;
+  height:1px;
+  background:var(--ice);
+  transform:scaleX(0);
+  transform-origin:right center;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.nav-links a:hover::after{
+  transform:scaleX(1);
+  transform-origin:left center;
+}
+
+/* FAQ items — refined hover */
+.faq-item{transition:border-color .3s ease,background .3s ease;}
+.faq-item:hover{border-color:var(--ice-line);}
+
+/* App section image refinement */
+.app-image{transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.app-section:hover .app-image{transform:translateY(-4px);}
 </style>
 </head>
 <body>
@@ -1493,6 +1647,64 @@ const io = new IntersectionObserver((entries)=>{
   });
 },{ threshold:.12, rootMargin:'0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Hero stats count-up animation (both hero-stat-num and result-num) */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stats = document.querySelectorAll('.hero-stat-num, .result-num');
+  if(!stats.length) return;
+
+  // Store originals and zero them out immediately (no visual flash)
+  const data = [];
+  stats.forEach(el => {
+    const trailingMatch = el.innerHTML.match(/(<[^>]+>[^<]*<\/[^>]+>|<[^>]+\/>)\s*$/);
+    const trailing = trailingMatch ? trailingMatch[0] : '';
+    const rawText = el.textContent.replace('+','').trim();
+    const target = parseInt(rawText.replace(/,/g,''), 10);
+    if(isNaN(target)){data.push(null);return;}
+    const hasComma = rawText.includes(',');
+    data.push({el, trailing, target, hasComma});
+    if(!reduced){
+      el.innerHTML = '0' + trailing;
+    }
+  });
+
+  function animateCount(item){
+    if(!item) return;
+    if(reduced){
+      item.el.innerHTML = (item.hasComma ? item.target.toLocaleString('en-US') : String(item.target)) + item.trailing;
+      item.el.classList.add('counted');
+      return;
+    }
+    const duration = 1500;
+    const start = performance.now();
+    function frame(now){
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(item.target * eased);
+      const formatted = item.hasComma ? current.toLocaleString('en-US') : String(current);
+      item.el.innerHTML = formatted + item.trailing;
+      if(progress < 1){
+        requestAnimationFrame(frame);
+      } else {
+        item.el.classList.add('counted');
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  const statIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const idx = Array.prototype.indexOf.call(stats, entry.target);
+        animateCount(data[idx]);
+        statIO.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  stats.forEach(el => statIO.observe(el));
+})();
 
 function toggleFaq(btn){
   btn.closest('.faq-item').classList.toggle('open');
