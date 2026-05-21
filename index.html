@@ -1189,8 +1189,9 @@ section{position:relative;z-index:2;}
   );
 }
 
-/* Make sure content stays above the spotlight overlay */
-.tier-card > *{position:relative;z-index:2;}
+/* Make sure content stays above the spotlight overlay, but absolutely-positioned children like the badge keep their position */
+.tier-card > *:not(.tier-badge){position:relative;z-index:2;}
+.tier-badge{z-index:3;}
 
 /* Subtle divider with ice-blue accent on hover */
 .tier-bottom{
@@ -1388,7 +1389,7 @@ section{position:relative;z-index:2;}
           <div class="about-credentials-stack">
             <div class="about-cred-mini">M.Ed. — Sport Science</div>
             <div class="about-cred-mini">Certified Strength &amp; Conditioning</div>
-            <div class="about-cred-mini">UAE National Team Coach</div>
+            <div class="about-cred-mini">Former UAE National Team Coach</div>
             <div class="about-cred-mini">10+ years coaching</div>
           </div>
         </div>
@@ -1400,9 +1401,9 @@ section{position:relative;z-index:2;}
           David Ciboch
           <em class="serif">M.Ed. Sport Science</em>
         </h2>
-        <div class="about-role">National Team Coach · Strength &amp; Conditioning</div>
+        <div class="about-role">Former National Team Coach · Strength &amp; Conditioning</div>
         <p class="about-bio">
-          I hold a <strong>Master's degree in PE &amp; Sport Science</strong> and have spent over a decade coaching hockey — from youth development through to national team level, including the <strong>UAE National Ice Hockey Team</strong>.
+          I hold a <strong>Master's degree in PE &amp; Sport Science</strong> and have spent over a decade coaching hockey — from youth development through to national team level, including coaching the <strong>UAE National Ice Hockey Team</strong>.
         </p>
         <p class="about-bio">
           My training philosophy is built on real sport science. Periodization, force development, hockey-specific movement patterns. Every program is designed with one goal: produce measurable change on the ice. Because guessing costs players seasons.
@@ -1410,7 +1411,7 @@ section{position:relative;z-index:2;}
         <ul class="about-creds">
           <li>Master's Degree (M.Ed.) — PE &amp; Sport Science</li>
           <li>Certified Strength &amp; Conditioning Coach</li>
-          <li>National Team Coach — UAE Ice Hockey</li>
+          <li>Former National Team Coach — UAE Ice Hockey</li>
           <li>1,000+ athletes developed across 30+ countries</li>
         </ul>
         <a href="#tiers" class="btn btn-primary">
@@ -1796,7 +1797,7 @@ section{position:relative;z-index:2;}
         Get Your Free Program
         <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <p class="final-note">Or email <a href="mailto:elitehockeydrills@gmail.com" style="color:var(--ice);">elitehockeydrills@gmail.com</a> · Based in Al Ain, UAE</p>
+      <p class="final-note">Or email <a href="mailto:elitehockeydrills@gmail.com" style="color:var(--ice);">elitehockeydrills@gmail.com</a></p>
     </div>
   </div>
 </section>
